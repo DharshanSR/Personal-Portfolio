@@ -95,7 +95,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Add entry animation for mobile menu */
+/* Add entry animation for mobile menu nav bar*/
 @keyframes slideIn {
   from {
     transform: translateY(-100%);
@@ -107,6 +107,7 @@ html {
   }
 }
 
+/*navbar animattion*/
 .animate-slideIn {
   animation: slideIn 0.3s ease-out;
 }
