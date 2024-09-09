@@ -30,7 +30,7 @@ const services = [
 
 const ServicePage: React.FC = () => {
     return (
-        <div id= "services" className="container mx-auto px-4 py-8">
+        <div id= "services" className="container mx-auto px-4 py-20">
             <h1 className="text-3xl font-bold mb-6">Our Services</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {services.map((service, index) => (
