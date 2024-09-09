@@ -45,7 +45,7 @@ const Achievements = () => {
 
     return (
         <>
-            <h2 className="text-3xl font-bold text-center mb-8">Achievements</h2> {/* Heading added here */}
+            <h2 id="achievements" className="text-3xl font-bold text-center mb-4 py-20">Achievements</h2> {/* Heading added here */}
             <AnimatePresence>
                 {active && (
                     <motion.div
@@ -213,18 +213,18 @@ const achievements: Achievement[] = [
         content: () => <p>Details about Achievement 2</p>,
     },
     {
-        description: "Achievement 2 Description",
-        title: "Achievement 2 Title",
+        description: "Achievement 3 Description",
+        title: "Achievement 3 Title",
         src: achievementImage3,
         ctaText: "View Details",
-        content: () => <p>Details about Achievement 2</p>,
+        content: () => <p>Details about Achievement 3</p>,
     },
     {
-        description: "Achievement 2 Description",
-        title: "Achievement 2 Title",
+        description: "Achievement 4 Description",
+        title: "Achievement 4 Title",
         src: achievementImage4,
         ctaText: "View Details",
-        content: () => <p>Details about Achievement 2</p>,
+        content: () => <p>Details about Achievement 4</p>,
     },
     // Add more achievements as needed
 ];
