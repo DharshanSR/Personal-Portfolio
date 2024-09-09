@@ -23,7 +23,7 @@ const Navbar = () => {
             }
 
             // Determine active section by scroll position
-            const sections = ['home', 'about', 'services', 'projects', 'skills', 'blogs', 'achievements', 'contact-me'];
+            const sections = ['home', 'about', 'services', 'blogs', 'skills', 'projects',  'achievements', 'contact-me'];
             sections.forEach((section) => {
                 const element = document.getElementById(section);
                 if (element) {
@@ -82,7 +82,7 @@ const Navbar = () => {
 
                 {/* Desktop View - Navigation Links */}
                 <div className="hidden lg:flex space-x-6">
-                    {['home', 'about', 'services', 'projects', 'skills', 'blogs', 'achievements', 'contact-me'].map((item) => (
+                    {['home', 'about', 'services', 'blogs', 'skills', 'projects',  'achievements', 'contact-me'].map((item) => (
                         <Link
                             href={`/#${item}`}
                             key={item}
