@@ -44,7 +44,7 @@ const BlogPage: React.FC = () => {
     const blogsToShowOnMobile = showAll ? allBlogs : allBlogs.slice(0, 4);
 
     return (
-        <div id="blogs" className="container mx-auto px-4 py-8">
+        <div id="blogs" className="container mx-auto px-4 py-20">
             <h1 className="text-2xl sm:text-3xl font-bold mb-6">Blogs</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {(isMobile ? blogsToShowOnMobile : blogsToShow).map((blog) => (
