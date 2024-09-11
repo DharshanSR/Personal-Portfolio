@@ -5,41 +5,41 @@ const services = [
     {
         title: 'Web Development',
         description: 'Building responsive and high-performing websites.',
-        icon: '/assets/icons/web-development.svg', // Ensure correct path
-        link: '/web-development', // Example link
+        icon: '/assets/icons/web-development.svg',
+        link: '/web-development',
     },
     {
         title: 'Mobile App Development',
         description: 'Creating user-friendly mobile applications.',
-        icon: '/assets/icons/mobile-app.svg', // Ensure correct path
-        link: '/mobile-app-development', // Example link
+        icon: '/assets/icons/mobile-app.svg',
+        link: '/mobile-app-development',
     },
     {
         title: 'UI/UX Design',
         description: 'Designing intuitive and engaging user interfaces.',
-        icon: '/assets/icons/ui-ux-design.svg', // Ensure correct path
-        link: '/ui-ux-design', // Example link
+        icon: '/assets/icons/ui-ux-design.svg',
+        link: '/ui-ux-design',
     },
     {
         title: 'SEO Optimization',
         description: 'Improving search engine rankings for better visibility.',
-        icon: '/assets/icons/seo.svg', // Ensure correct path
-        link: '/seo-optimization', // Example link
+        icon: '/assets/icons/seo.svg',
+        link: '/seo-optimization',
     },
 ];
 
 const ServicePage: React.FC = () => {
     return (
-        <div id= "services" className="container mx-auto px-4 py-20">
-            <h1 className="text-3xl font-bold mb-6">Our Services</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div id="services" className="container mx-auto px-4 py-20 bg-[#5a5855]">
+            <h1 className="text-5xl font-extrabold mb-10 text-center text-[#c4c6c4]">My Expertise</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.map((service, index) => (
                     <ServiceCard
                         key={index}
                         title={service.title}
                         description={service.description}
                         icon={service.icon}
-                        link={service.link} // Pass the link prop
+                        link={service.link}
                     />
                 ))}
             </div>
