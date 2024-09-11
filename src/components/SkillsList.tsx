@@ -72,11 +72,11 @@ const item = {
 
 const SkillsList: React.FC = () => {
     return (
-        <section className="py-20" id="skills">
+        <section className="py-20 bg-[#5a5855]" id="skills">
             <div className="container mx-auto px-4">
                 {/* Heading */}
                 <motion.h1
-                    className="text-4xl font-bold mb-6 text-center"
+                    className="text-5xl font-extrabold mb-6 text-center text-[#c3c3c0]"
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -85,7 +85,7 @@ const SkillsList: React.FC = () => {
                 </motion.h1>
 
                 <motion.h2
-                    className="text-3xl font-bold text-center mb-12"
+                    className="text-3xl font-bold text-center mb-12 text-[#071015]"
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -95,7 +95,7 @@ const SkillsList: React.FC = () => {
 
                 {/* Map over each category */}
                 <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 "
                     variants={container}
                     initial="hidden"
                     animate="visible"
@@ -103,10 +103,10 @@ const SkillsList: React.FC = () => {
                     {Object.keys(skills).map((category) => (
                         <motion.div
                             key={category}
-                            className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transform transition-transform hover:scale-105"
+                            className="bg-[#c3c3c0] p-6 rounded-lg shadow-md hover:shadow-lg transform transition-transform hover:scale-105"
                             whileHover={{ scale: 1.05 }}
                         >
-                            <h3 className="text-xl font-semibold mb-4 text-gray-800">{category}</h3>
+                            <h3 className="text-xl font-semibold mb-4 text-[#071015]">{category}</h3>
                             <ul className="space-y-2">
                                 {skills[category as keyof typeof skills].map((skill) => (
                                     <motion.li
@@ -116,7 +116,7 @@ const SkillsList: React.FC = () => {
                                     >
                                         {/* SVG icon */}
                                         <Image src={skill.icon} alt={skill.name} width={32} height={32} />
-                                        <span className="text-lg font-medium text-gray-700">{skill.name}</span>
+                                        <span className="text-lg text-[#868b94] font-bold">{skill.name}</span>
                                     </motion.li>
                                 ))}
                             </ul>
