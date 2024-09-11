@@ -70,7 +70,7 @@ const Footer = () => {
                     <div>
                         <h3 className="text-lg font-bold mb-2">Useful Links</h3>
                         <ul className="space-y-2">
-                            {['home', 'about', 'services', 'projects', 'skills', 'blogs', 'achievements', 'contact-me'].map((item) => (
+                            {['hero', 'about', 'services', 'projects', 'skills', 'blogs', 'achievements', 'contact-me'].map((item) => (
                                 <li key={item}>
                                     <Link href={`/${item}`} className="hover:text-gray-300 text-indigo-400 underline transition-colors duration-300">
                                         {item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
