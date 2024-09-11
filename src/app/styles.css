@@ -1,0 +1,4 @@
+/* Add this CSS to prevent scrolling when the mobile menu is open */
+.no-scroll {
+    overflow: hidden;
+}

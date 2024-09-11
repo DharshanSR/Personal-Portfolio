@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #5a5855;
+  --foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #5a5855;
     --foreground: #ededed;
   }
 }
@@ -110,4 +110,33 @@ html {
 /*navbar animattion*/
 .animate-slideIn {
   animation: slideIn 0.3s ease-out;
+}
+
+/* The entire scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* width of the scrollbar */
+  background-color: #f1f1f1; /* background of the scrollbar */
+}
+
+/* The track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* color of the track */
+}
+
+/* The thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* color of the thumb */
+  border-radius: 10px; /* round the corners of the thumb */
+}
+
+/* The thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* change color on hover */
+}
+
+
+@media (max-width: 768px) {
+  #hero {
+    background-attachment: scroll; /* Disable parallax on mobile */
+  }
 }
