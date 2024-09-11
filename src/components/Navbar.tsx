@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import '@/app/styles.css'; // Ensure this CSS file contains the .no-scroll class
 
 const Navbar = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,7 +11,6 @@ const Navbar = () => {
     const [activeSection, setActiveSection] = useState('');
     const pathname = usePathname();
 
-    // Handle scroll event to change navbar appearance and active section
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
@@ -23,7 +23,7 @@ const Navbar = () => {
             }
 
             // Determine active section by scroll position
-            const sections = ['home', 'about', 'services', 'blogs', 'skills', 'projects',  'achievements', 'contact-me'];
+            const sections = ['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'];
             sections.forEach((section) => {
                 const element = document.getElementById(section);
                 if (element) {
@@ -38,21 +38,30 @@ const Navbar = () => {
         };
 
         window.addEventListener('scroll', handleScroll);
+
+        // Apply no-scroll class to body when menu is open
+        if (isMobileMenuOpen) {
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            document.body.classList.remove('no-scroll'); // Clean up on unmount
         };
-    }, []);
+    }, [isMobileMenuOpen]);
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full bg-gray-800 text-white p-4 z-50 transition-all duration-300 ${
-                isScrolled ? 'shadow-lg bg-gray-900' : 'bg-gray-800'
+            className={`fixed top-0 left-0 w-full p-4 z-50 transition-all duration-300 ${
+                isScrolled ? 'bg-[#6e6663] shadow-lg' : 'bg-[#071015] opacity-80'
             }`}
         >
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo/Brand Name */}
-                <div className="text-2xl font-bold">
-                    <Link href="/" className="hover:text-gray-300">
+                <div className="text-2xl font-bold text-[#c3c3c0]">
+                    <Link href="/" className="hover:text-[#8f989b]">
                         My Portfolio
                     </Link>
                 </div>
@@ -61,7 +70,7 @@ const Navbar = () => {
                 <div className="block lg:hidden">
                     <button
                         onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
-                        className="text-white focus:outline-none"
+                        className="text-[#c3c3c0] focus:outline-none"
                     >
                         <svg
                             className="w-6 h-6"
@@ -82,15 +91,15 @@ const Navbar = () => {
 
                 {/* Desktop View - Navigation Links */}
                 <div className="hidden lg:flex space-x-6">
-                    {['home', 'about', 'services', 'blogs', 'skills', 'projects',  'achievements', 'contact-me'].map((item) => (
+                    {['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'].map((item) => (
                         <Link
                             href={`/#${item}`}
                             key={item}
-                            className={`hover:text-gray-300 ${
-                                activeSection === item || pathname === `/${item}` ? 'border-b-2 border-gray-300' : ''
+                            className={`hover:text-[#8f989b] ${
+                                activeSection === item || pathname === `/${item}` ? 'border-b-2 border-[#8f989b]' : ''
                             }`}
                         >
-                            {item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
+                            {item === 'hero' ? 'Home' : item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
                         </Link>
                     ))}
                 </div>
@@ -99,7 +108,7 @@ const Navbar = () => {
                 <div className="hidden lg:flex">
                     <Link
                         href="/contact-me"
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+                        className="bg-[#465759] hover:bg-[#3c4b54] text-[#c3c3c0] px-4 py-2 rounded"
                     >
                         Contact Me
                     </Link>
@@ -108,12 +117,18 @@ const Navbar = () => {
 
             {/* Mobile Menu - Shown when mobile menu is open */}
             {isMobileMenuOpen && (
-                <div className="lg:hidden bg-gray-700 animate-slideIn">
+                <div className="lg:hidden bg-[#4a4a47] animate-slideIn h-[80vh]">
                     <div className="container mx-auto relative">
+                        {/* Logo/Brand Name in Mobile Menu */}
+                        <div className="text-2xl font-bold text-[#c3c3c0] py-4">
+                            <Link href="/" className="hover:text-[#8f989b]">
+                                My Portfolio
+                            </Link>
+                        </div>
                         {/* Close Button */}
                         <button
                             onClick={() => setMobileMenuOpen(false)}
-                            className="absolute top-4 right-4 text-white"
+                            className="absolute top-4 right-4 text-[#c3c3c0]"
                         >
                             <svg
                                 className="w-6 h-6"
@@ -132,18 +147,18 @@ const Navbar = () => {
                         </button>
                         {/* Mobile Menu Links */}
                         <div className="flex flex-col space-y-4 p-4 mt-12 font-semibold">
-                            {['home', 'about', 'services', 'projects', 'skills', 'blogs', 'achievements', 'contact-me'].map((item) => (
+                            {['hero', 'about', 'services', 'projects', 'skills', 'blogs', 'achievements', 'contact-me'].map((item) => (
                                 <Link
                                     href={`/#${item}`}
                                     key={item}
                                     className={`block py-2 px-4 text-lg transition-colors duration-300 ${
                                         activeSection === item || pathname === `/${item}`
-                                            ? 'text-gray-300 border-b-2 border-gray-300'
-                                            : 'text-white hover:bg-gray-600'
+                                            ? 'text-[#ffffff] border-b-2 border-[#c3c3c0]'
+                                            : 'text-[#ffffff] hover:bg-[#383835]'
                                     }`}
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
-                                    {item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
+                                    {item === 'hero' ? 'Home' : item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
                                 </Link>
                             ))}
                         </div>
