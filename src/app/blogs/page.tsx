@@ -45,7 +45,7 @@ const BlogPage: React.FC = () => {
 
     return (
         <div id="blogs" className="container mx-auto px-4 py-20">
-            <h1 className="text-2xl sm:text-3xl font-bold mb-6">Blogs</h1>
+            <h1 className="text-5xl font-extrabold text-[#c4c6c4] text-center mb-6">Blogs</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {(isMobile ? blogsToShowOnMobile : blogsToShow).map((blog) => (
                     <BlogPreview
@@ -61,7 +61,7 @@ const BlogPage: React.FC = () => {
             <div className="mt-6 text-center">
                 <button
                     onClick={() => setShowAll(!showAll)}
-                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+                    className="bg-[#3c4b54] text-[#c3c3c0] px-4 py-2 rounded hover:bg-[#6e6663] transition"
                 >
                     {showAll ? 'View Less' : 'View More'}
                 </button>
