@@ -72,7 +72,7 @@ const item = {
 
 const SkillsList: React.FC = () => {
     return (
-        <section className="py-20 bg-[#5a5855]" id="skills">
+        <section className="py-20 bg-[#6B7579]" id="skills">
             <div className="container mx-auto px-4">
                 {/* Heading */}
                 <motion.h1
