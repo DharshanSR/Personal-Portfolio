@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import Image from "next/image";
 import profileImage from '@/public/assests/images/Graduate-Men.png';
@@ -5,6 +7,8 @@ import hologoWorldLogo from '@/public/assests/images/hologoWorld.png';
 import westminsterLogo from '@/public/assests/images/westminster-logo.png';
 import esoftLogo from '@/public/assests/images/esoft-logo.jpg';
 import hinduCollegeLogo from '@/public/assests/images/hindu_college.jpeg';
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const experiences = [
     {
@@ -37,49 +41,119 @@ const education = [
 ];
 
 const AboutMe = () => {
+    // Define simple animations
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    };
+
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+    };
+
+    // Using useInView hook with no triggerOnce so animation happens on scroll up and down
+    const [aboutRef, aboutInView] = useInView({ threshold: 0.1 });
+    const [experienceRef, experienceInView] = useInView({ threshold: 0.1 });
+    const [educationRef, educationInView] = useInView({ threshold: 0.1 });
+
+    const controlsAbout = useAnimation();
+    const controlsExperience = useAnimation();
+    const controlsEducation = useAnimation();
+
+    // Control animations based on visibility
+    React.useEffect(() => {
+        if (aboutInView) {
+            controlsAbout.start("visible");
+        } else {
+            controlsAbout.start("hidden");
+        }
+    }, [aboutInView, controlsAbout]);
+
+    React.useEffect(() => {
+        if (experienceInView) {
+            controlsExperience.start("visible");
+        } else {
+            controlsExperience.start("hidden");
+        }
+    }, [experienceInView, controlsExperience]);
+
+    React.useEffect(() => {
+        if (educationInView) {
+            controlsEducation.start("visible");
+        } else {
+            controlsEducation.start("hidden");
+        }
+    }, [educationInView, controlsEducation]);
+
     return (
-        <section id="about" className="container mx-auto px-4 py-20 bg-[#5a5855]">
+        <section id="about" className="container mx-auto px-4 py-20 bg-[#6B7579]">
             {/* About Me Section */}
-            <h1 className="text-5xl font-extrabold text-center mb-8 text-[#c3c3c0]">About Me</h1>
-            <div className="flex flex-col md:flex-row items-start md:items-center mb-12">
+            <motion.h1
+                className="text-5xl font-extrabold text-center mb-8 text-[#c3c3c0]"
+                variants={fadeInUp}
+                initial="hidden"
+                animate={controlsAbout}
+                ref={aboutRef}
+            >
+                About Me
+                <p className="text-lg mt-2 text-gray-600 font-bold">A glimpse into my journey and achievements</p>
+            </motion.h1>
+
+            <motion.div
+                className="flex flex-col md:flex-row items-start md:items-center mb-12"
+                variants={staggerContainer}
+                initial="hidden"
+                animate={controlsAbout}
+                ref={aboutRef}
+            >
                 {/* Larger Profile Image */}
-                <div className="relative mb-6 md:mb-0 md:mr-8">
+                <motion.div
+                    className="relative mb-6 md:mb-0 md:mr-8"
+                    variants={fadeInUp}
+                >
                     <Image
                         src={profileImage}
                         alt="Profile"
                         width={850}
                         height={850}
-                        className="rounded-full object-cover border-4 border-[#3c4b54]"
+                        className="object-cover sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]"
                     />
-                </div>
+                </motion.div>
 
                 {/* About Me Text */}
-                <div className="flex flex-col items-center">
-                    <p className="text-xl text-[#c3c3c0] mb-4 text-justify">
+                <motion.div className="md:w-[90%] p-4 md:p-8 font-semibold" variants={staggerContainer}>
+                    <motion.p className="text-xl text-[#c3c3c0] mb-4 text-justify" variants={fadeInUp}>
                         I am a highly motivated software developer with a strong foundation in web and mobile app
                         development. I thrive in fast-paced environments where I can leverage my problem-solving skills
                         to create innovative solutions.
-                    </p>
-                    <p className="text-xl text-[#c3c3c0] mb-4 text-justify">
+                    </motion.p>
+                    <motion.p className="text-xl text-[#c3c3c0] mb-4 text-justify" variants={fadeInUp}>
                         My passion for technology started during my early days of coding, and it has grown into a career
-                        where I can apply my knowledge to real-world challenges. I take pride in writing clean, efficient code
-                        and staying up-to-date with the latest industry trends.
-                    </p>
-                    <p className="text-xl text-[#c3c3c0] mb-4 text-justify">
-                        When I❜m not coding, I enjoy contributing to open-source projects, exploring new technologies,
-                        and collaborating with like-minded professionals.
-                    </p>
-                </div>
-
-            </div>
+                        where I can apply my knowledge to real-world challenges.
+                    </motion.p>
+                    <motion.p className="text-xl text-[#c3c3c0] mb-4 text-justify" variants={fadeInUp}>
+                        As I progress in my career, I aspire to join dynamic teams where I can contribute to solving complex challenges in the tech industry. My objective is to harness my expertise in modern technologies and cybersecurity to create impactful and innovative solutions that meet the ever-evolving demands of the digital world.
+                    </motion.p>
+                </motion.div>
+            </motion.div>
 
             {/* Experience Section */}
-            <h2 className="text-3xl font-semibold text-center text-[#3c4b54] mb-10 mt-10">Experience</h2>
-            <div className="flex flex-wrap justify-center gap-6 mb-8">
+            <motion.h2
+                className="text-3xl font-semibold text-center text-[#3c4b54] mb-10 mt-10"
+                variants={fadeInUp}
+                initial="hidden"
+                animate={controlsExperience}
+                ref={experienceRef}
+            >
+                Experience
+            </motion.h2>
+            <motion.div className="flex flex-wrap justify-center gap-6 mb-8" variants={staggerContainer} initial="hidden" animate={controlsExperience}>
                 {experiences.map((exp, index) => (
-                    <div
+                    <motion.div
                         key={index}
                         className="border border-[#6e6663] rounded-lg shadow-md p-6 flex items-center space-x-4 max-w-md bg-[#c3c3c0]"
+                        variants={fadeInUp}
                     >
                         {/* Company Logo */}
                         <div>
@@ -97,17 +171,26 @@ const AboutMe = () => {
                             <p className="text-[#071015]">{exp.company}</p>
                             <p className="text-[#6e6663] font-bold">{exp.duration}</p>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
 
             {/* Education Section */}
-            <h2 className="text-3xl font-semibold text-center text-[#3c4b54] mb-10 mt-10">Education</h2>
-            <div className="flex flex-wrap justify-center gap-6 mb-8">
+            <motion.h2
+                className="text-3xl font-semibold text-center text-[#3c4b54] mb-10 mt-10"
+                variants={fadeInUp}
+                initial="hidden"
+                animate={controlsEducation}
+                ref={educationRef}
+            >
+                Education
+            </motion.h2>
+            <motion.div className="flex flex-wrap justify-center gap-6 mb-8" variants={staggerContainer} initial="hidden" animate={controlsEducation}>
                 {education.map((edu, index) => (
-                    <div
+                    <motion.div
                         key={index}
                         className="border border-[#6e6663] rounded-lg shadow-md p-6 flex items-center space-x-4 max-w-md bg-[#c3c3c0]"
+                        variants={fadeInUp}
                     >
                         {/* Institution Logo */}
                         <div>
@@ -125,9 +208,9 @@ const AboutMe = () => {
                             <p className="text-[#071015]">{edu.institution}</p>
                             <p className="text-[#6e6663] font-bold">{edu.year}</p>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </section>
     );
 };
