@@ -1,46 +1,114 @@
-import React from 'react';
-import ServiceCard from '@/components/ServiceCard';
+'use client';
 
+import React from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import ServiceCard from '@/components/ServiceCard';
+import mobileAppDevelopment from '@/public/assests/images/mobileapp-development.png';
+import webDevelopment from '@/public/assests/images/web-development.png';
+import aiMl from '@/public/assests/images/ai-ml.png';
+import blogWriter from '@/public/assests/images/blog-writting.png';
+
+// Array of service data with correct image paths
 const services = [
     {
-        title: 'Web Development',
-        description: 'Building responsive and high-performing websites.',
-        icon: '/assets/icons/web-development.svg',
+        title: 'Full Stack Development',
+        description: "Developing responsive, high-performance web applications with React, Next.js, TypeScript, Tailwind CSS, Node.js, and Express. Utilizing MongoDB, PostgreSQL, Docker, and CI/CD for robust, scalable solutions. Focused on seamless user experiences functionality.",
+        icon: webDevelopment,
         link: '/web-development',
     },
     {
         title: 'Mobile App Development',
-        description: 'Creating user-friendly mobile applications.',
-        icon: '/assets/icons/mobile-app.svg',
+        description: "Creating dynamic and scalable mobile applications for both iOS and Android using React Native and Flutter. Prioritizing user-centric design and robust performance with Redux, Firebase, and native APIs. Committed to delivering intuitive and seamless mobile experiences.",
+        icon: mobileAppDevelopment, // Use imported image
         link: '/mobile-app-development',
     },
     {
-        title: 'UI/UX Design',
-        description: 'Designing intuitive and engaging user interfaces.',
-        icon: '/assets/icons/ui-ux-design.svg',
-        link: '/ui-ux-design',
+        title: "Machine Learning & AI",
+        description: "Developing advanced machine learning models and intelligent systems through data analysis and predictive modeling. Focused on enhancing decision-making, automating complex processes, and driving innovation.",
+        icon: aiMl,
+        link: "/machine-learning",
     },
     {
-        title: 'SEO Optimization',
-        description: 'Improving search engine rankings for better visibility.',
-        icon: '/assets/icons/seo.svg',
-        link: '/seo-optimization',
+        title: "Blog & Article Writing",
+        description: "Crafting compelling and insightful blog posts and articles for platforms such as Medium and Stack Overflow. Leveraging industry knowledge to write about technology trends, best practices, and advancements, aimed at informing and engaging readers.",
+        icon: blogWriter,
+        link: "/blog-writing",
+    },
+    {
+        title: "Blog & Article Writing",
+        description: "Crafting compelling and insightful blog posts and articles for platforms such as Medium and Stack Overflow. Leveraging industry knowledge to write about technology trends, best practices, and advancements, aimed at informing and engaging readers.",
+        icon: blogWriter,
+        link: "/blog-writing",
+    },
+    {
+        title: "Blog & Article Writing",
+        description: "Crafting compelling and insightful blog posts and articles for platforms such as Medium and Stack Overflow. Leveraging industry knowledge to write about technology trends, best practices, and advancements, aimed at informing and engaging readers.",
+        icon: blogWriter,
+        link: "/blog-writing",
     },
 ];
 
+// Animation variants for each service card
+const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+// Custom hook to handle animation control
+const useAnimationControl = () => {
+    const controls = useAnimation();
+    const [ref, inView] = useInView({
+        triggerOnce: false, // Trigger animation both on scroll up and down
+        threshold: 0.2,     // When 20% of the card is visible
+    });
+
+    React.useEffect(() => {
+        if (inView) {
+            controls.start('visible');
+        } else {
+            controls.start('hidden');
+        }
+    }, [controls, inView]);
+
+    return [ref, controls] as const;
+};
+
 const ServicePage: React.FC = () => {
+    // Use the hook for each service
+    const animatedServices = services.map((service) => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const [ref, controls] = useAnimationControl();
+        return { service, ref, controls };
+    });
+
     return (
-        <div id="services" className="container mx-auto px-4 py-20 bg-[#5a5855]">
-            <h1 className="text-5xl font-extrabold mb-10 text-center text-[#c4c6c4]">My Expertise</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {services.map((service, index) => (
-                    <ServiceCard
+        <div id="services" className="container mx-auto px-4 py-20 bg-[#6B7579]">
+            <motion.h1
+                className="text-5xl font-extrabold mb-10 text-center text-[#c4c6c4]"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+            >
+                My Expertise
+            </motion.h1>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {animatedServices.map(({ service, ref, controls }, index) => (
+                    <motion.div
+                        ref={ref} // Attach the reference to each service card for visibility detection
                         key={index}
-                        title={service.title}
-                        description={service.description}
-                        icon={service.icon}
-                        link={service.link}
-                    />
+                        initial="hidden"
+                        animate={controls} // Controlled by inView state
+                        variants={cardVariants} // Defined animation variants
+                    >
+                        <ServiceCard
+                            title={service.title}
+                            description={service.description}
+                            icon={service.icon}
+                            link={service.link}
+                        />
+                    </motion.div>
                 ))}
             </div>
         </div>
