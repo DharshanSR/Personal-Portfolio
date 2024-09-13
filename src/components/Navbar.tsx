@@ -23,7 +23,7 @@ const Navbar = () => {
             }
 
             // Determine active section by scroll position
-            const sections = ['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'];
+            const sections = ['hero', 'about', 'resume', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'];
             sections.forEach((section) => {
                 const element = document.getElementById(section);
                 if (element) {
@@ -55,7 +55,7 @@ const Navbar = () => {
     return (
         <nav
             className={`fixed top-0 left-0 w-full p-4 z-50 transition-all duration-300 ${
-                isScrolled ? 'bg-[#6e6663] shadow-lg' : 'bg-[#071015] opacity-80'
+                isScrolled ? 'bg-[#6B7579] opacity-100 shadow-lg' : 'bg-[#071015] opacity-80'
             }`}
         >
             <div className="container mx-auto flex items-center justify-between">
@@ -91,7 +91,7 @@ const Navbar = () => {
 
                 {/* Desktop View - Navigation Links */}
                 <div className="hidden lg:flex space-x-6">
-                    {['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'].map((item) => (
+                    {['hero', 'about', 'services', 'blogs', 'resume', 'skills', 'projects', 'achievements', 'contact-me'].map((item) => (
                         <Link
                             href={`/#${item}`}
                             key={item}
@@ -147,7 +147,7 @@ const Navbar = () => {
                         </button>
                         {/* Mobile Menu Links */}
                         <div className="flex flex-col space-y-4 p-4 mt-12 font-semibold">
-                            {['hero', 'about', 'services', 'projects', 'skills', 'blogs', 'achievements', 'contact-me'].map((item) => (
+                            {['hero', 'about', 'services', 'projects', 'skills', 'blogs', 'resume', 'achievements', 'contact-me'].map((item) => (
                                 <Link
                                     href={`/#${item}`}
                                     key={item}
