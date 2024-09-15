@@ -23,7 +23,7 @@ const Navbar = () => {
             }
 
             // Determine active section by scroll position
-            const sections = ['hero', 'about', 'resume', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'];
+            const sections = ['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'];
             sections.forEach((section) => {
                 const element = document.getElementById(section);
                 if (element) {
@@ -91,7 +91,7 @@ const Navbar = () => {
 
                 {/* Desktop View - Navigation Links */}
                 <div className="hidden lg:flex space-x-6">
-                    {['hero', 'about', 'services', 'blogs', 'resume', 'skills', 'projects', 'achievements', 'contact-me'].map((item) => (
+                    {['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'].map((item) => (
                         <Link
                             href={`/#${item}`}
                             key={item}
@@ -147,7 +147,7 @@ const Navbar = () => {
                         </button>
                         {/* Mobile Menu Links */}
                         <div className="flex flex-col space-y-4 p-4 mt-12 font-semibold">
-                            {['hero', 'about', 'services', 'projects', 'skills', 'blogs', 'resume', 'achievements', 'contact-me'].map((item) => (
+                            {['hero', 'about', 'services', 'projects', 'skills', 'blogs', 'achievements', 'contact-me'].map((item) => (
                                 <Link
                                     href={`/#${item}`}
                                     key={item}
