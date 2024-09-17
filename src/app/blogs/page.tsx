@@ -1,8 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import BlogPreview from '@/components/BlogPreview';
 
+// Sample blog data
 const allBlogs = [
     {
         id: '1',
@@ -25,46 +28,71 @@ const allBlogs = [
 
 const BlogPage: React.FC = () => {
     const [showAll, setShowAll] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 640);
 
     useEffect(() => {
-        // This runs on the client-side only
         const handleResize = () => {
             setIsMobile(window.innerWidth < 640);
         };
 
-        handleResize(); // Initial check
-        window.addEventListener('resize', handleResize); // Add resize listener
-
-        return () => window.removeEventListener('resize', handleResize); // Cleanup listener
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // Determine the number of blogs to show based on the state
-    const blogsToShow = showAll ? allBlogs : allBlogs.slice(0, 8);
-    const blogsToShowOnMobile = showAll ? allBlogs : allBlogs.slice(0, 4);
+    const blogsToShow = showAll ? allBlogs : allBlogs.slice(0, isMobile ? 6 : 8);
+
+    // Animation variants for blog cards and hover effects
+    const cardVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+        hover: { scale: 1.05, boxShadow: '0 10px 20px rgba(0, 0, 0, 0.15)', transition: { duration: 0.3 } },
+    };
+
+    // Custom hook for intersection observer to trigger animation on view
+    const useAnimateOnInView = () => {
+        const { ref, inView } = useInView({
+            triggerOnce: false,
+            threshold: 0.2,
+        });
+        return { ref, inView };
+    };
 
     return (
         <div id="blogs" className="container mx-auto px-4 py-20">
             <h1 className="text-5xl font-extrabold text-[#c4c6c4] text-center mb-6">Blogs</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {(isMobile ? blogsToShowOnMobile : blogsToShow).map((blog) => (
-                    <BlogPreview
-                        key={blog.id}
-                        title={blog.title}
-                        description={blog.description}
-                        date={blog.date}
-                        link={blog.link}
-                        image={blog.image}
-                    />
-                ))}
+                {blogsToShow.map((blog) => {
+                    const { ref, inView } = useAnimateOnInView();
+                    return (
+                        <motion.div
+                            ref={ref}
+                            key={blog.id}
+                            initial="hidden"
+                            animate={inView ? 'visible' : 'hidden'}
+                            variants={cardVariants}
+                            whileHover="hover"
+                            className="cursor-pointer rounded-lg overflow-hidden bg-white shadow-md"
+                        >
+                            <BlogPreview
+                                title={blog.title}
+                                description={blog.description}
+                                date={blog.date}
+                                link={blog.link}
+                                image={blog.image}
+                            />
+                        </motion.div>
+                    );
+                })}
             </div>
             <div className="mt-6 text-center">
-                <button
+                <motion.button
+                    whileHover={{ scale: 1.05, backgroundColor: '#6e6663' }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => setShowAll(!showAll)}
-                    className="bg-[#3c4b54] text-[#c3c3c0] px-4 py-2 rounded hover:bg-[#6e6663] transition"
+                    className="bg-[#3c4b54] text-[#c3c3c0] px-4 py-2 rounded transition"
                 >
                     {showAll ? 'View Less' : 'View More'}
-                </button>
+                </motion.button>
             </div>
         </div>
     );
