@@ -4,52 +4,100 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+// languages
+import TypeScriptIcon from '@/public/assests/icons/typescript-original.svg';
+import JavaScriptIcon from '@/public/assests/icons/javascript-original.svg';
+import HTMLIcon from '@/public/assests/icons/html5-original.svg';
+import CSSIcon from '@/public/assests/icons/css3-original.svg';
+import pythonIcon from '@/public/assests/icons/python-original.svg';
+import javaIcon from '@/public/assests/icons/java-original.svg';
+import rIcon from '@/public/assests/icons/r-original.svg';
+
+// Frameworks
+import ReactIcon from '@/public/assests/icons/react-original.svg';
+import ReactNativeIcon from '@/public/assests/icons/react-original.svg';
+import NextJsIcon from '@/public/assests/icons/nextjs-original.svg';
+import NodeJsIcon from '@/public/assests/icons/nodejs-original.svg';
+import TailwindCssIcon from '@/public/assests/icons/tailwindcss-original.svg';
+import FramerMotionIcon from '@/public/assests/icons/framer-motion.png';
+
+// Version Control
+import GitIcon from '@/public/assests/icons/git-original.svg';
+import GitHubIcon from '@/public/assests/icons/github-original.svg';
+import GitLabIcon from '@/public/assests/icons/gitlab.png';
+
+// Backend & Databases
+import FirebaseIcon from '@/public/assests/icons/firebase-original.svg';
+import MongoDbIcon from '@/public/assests/icons/mongodb-original.svg';
+import PostgreSqlIcon from '@/public/assests/icons/postgresql-original.svg';
+import MySqlIcon from '@/public/assests/icons/mysql-original.svg';
+import ExpressIcon from '@/public/assests/icons/express-original.svg';
+import JsonIcon from '@/public/assests/icons/json-original.svg';
+import NpmIcon from '@/public/assests/icons/npm-original-wordmark.svg';
+import AppwriteIcon from '@/public/assests/icons/appwrite-original.svg';
+
+// Deployment & Hosting
+import VercelIcon from '@/public/assests/icons/vercel-original.svg';
+import NetlifyIcon from '@/public/assests/icons/netlify-original.svg';
+import RenderIcon from '@/public/assests/icons/render.png';
+
+// IDEs
+import AndroidStudioIcon from '@/public/assests/icons/androidstudio-original.svg';
+import IntelliJIcon from '@/public/assests/icons/intellij-original.svg';
+import PyCharmIcon from '@/public/assests/icons/pycharm-original.svg';
+import RStudioIcon from '@/public/assests/icons/rstudio-original.svg';
+import VSCodeIcon from '@/public/assests/icons/vscode-original.svg';
+import WebStormIcon from '@/public/assests/icons/webstorm-original.svg';
+
 // Define the categories, skills, and associated SVG icons
 const skills = {
     Languages: [
-        { name: 'TypeScript', icon: '/assets/icons/typescript.svg' },
-        { name: 'JavaScript', icon: '/assets/icons/javascript.svg' },
-        { name: 'HTML', icon: '/assets/icons/html.svg' },
-        { name: 'CSS', icon: '/assets/icons/css.svg' },
-        { name: 'Python', icon: '/assets/icons/python.svg' },
+        { name: 'TypeScript', icon: TypeScriptIcon },
+        { name: 'JavaScript', icon: JavaScriptIcon },
+        { name: 'HTML', icon: HTMLIcon },
+        { name: 'CSS', icon: CSSIcon },
+        { name: 'Python', icon: pythonIcon },
+        { name: 'Java', icon: javaIcon },
+        { name: 'R', icon: rIcon },
     ],
     Frameworks: [
-        { name: 'React', icon: '/assets/icons/react.svg' },
-        { name: 'Next.js', icon: '/assets/icons/nextjs.svg' },
-        { name: 'Tailwind CSS', icon: '/assets/icons/tailwindcss.svg' },
-        { name: 'Node.js', icon: '/assets/icons/nodejs.svg' },
-        { name: 'Framer Motion', icon: '/assets/icons/framer.svg' },
-        { name: 'GSAP', icon: '/assets/icons/gsap.svg' },
+        { name: 'React', icon: ReactIcon },
+        { name: 'Next.js', icon: NextJsIcon },
+        { name: 'Tailwind CSS', icon: TailwindCssIcon },
+        { name: 'Node.js', icon: NodeJsIcon },
+        { name: 'Framer Motion', icon: FramerMotionIcon },
+        { name: 'React Native', icon: ReactNativeIcon },
     ],
-    'Version Control': [
-        { name: 'Git', icon: '/assets/icons/git.svg' },
-        { name: 'GitHub', icon: '/assets/icons/github.svg' },
+    Backend: [
+        { name: 'Node.js', icon: NodeJsIcon },
+        { name: 'Express', icon: ExpressIcon },
+        { name: 'JSON', icon: JsonIcon },
+        { name: 'NPM', icon: NpmIcon },
     ],
-    'Design & Prototyping': [
-        { name: 'Figma', icon: '/assets/icons/figma.svg' },
-        { name: 'Adobe XD', icon: '/assets/icons/adobexd.svg' },
+    Databases: [
+        { name: 'Firebase', icon: FirebaseIcon },
+        { name: 'MongoDB', icon: MongoDbIcon },
+        { name: 'PostgreSQL', icon: PostgreSqlIcon },
+        { name: 'MySQL', icon: MySqlIcon },
+        { name: 'Appwrite', icon: AppwriteIcon },
     ],
-    'Backend & Databases': [
-        { name: 'Node.js', icon: '/assets/icons/nodejs.svg' },
-        { name: 'Firebase', icon: '/assets/icons/firebase.svg' },
-        { name: 'MongoDB', icon: '/assets/icons/mongodb.svg' },
+    'ides' : [
+        { name: 'Android Studio', icon: AndroidStudioIcon },
+        { name: 'IntelliJ', icon: IntelliJIcon },
+        { name: 'PyCharm', icon: PyCharmIcon },
+        { name: 'RStudio', icon: RStudioIcon },
+        { name: 'VSCode', icon: VSCodeIcon },
+        { name: 'WebStorm', icon: WebStormIcon },
     ],
     'Deployment & Hosting': [
-        { name: 'Vercel', icon: '/assets/icons/vercel.svg' },
-        { name: 'Netlify', icon: '/assets/icons/netlify.svg' },
+        { name: 'Vercel', icon: VercelIcon },
+        { name: 'Netlify', icon: NetlifyIcon },
+        { name: 'Render', icon: RenderIcon },
     ],
-    Tools: [
-        { name: 'VSCode', icon: '/assets/icons/vscode.svg' },
-        { name: 'Postman', icon: '/assets/icons/postman.svg' },
-        { name: 'Sentry', icon: '/assets/icons/sentry.svg' },
-    ],
-    Others: [
-        { name: 'Axios', icon: '/assets/icons/axios.svg' },
-        { name: 'Clerk', icon: '/assets/icons/clerk.svg' },
-        { name: 'Liveblocks', icon: '/assets/icons/liveblocks.svg' },
-        { name: 'Three.js', icon: '/assets/icons/threejs.svg' },
-        { name: 'Lexical Editor', icon: '/assets/icons/lexical.svg' },
-        { name: 'ShadCN', icon: '/assets/icons/shadcn.svg' },
+    'Version Control': [
+        { name: 'Git', icon: GitIcon },
+        { name: 'GitHub', icon: GitHubIcon },
+        { name: 'GitLab', icon: GitLabIcon },
     ],
 };
 
@@ -66,8 +114,8 @@ const container = {
 };
 
 const item = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1 },
 };
 
 const SkillsList: React.FC = () => {
@@ -78,8 +126,9 @@ const SkillsList: React.FC = () => {
                 <motion.h1
                     className="text-5xl font-extrabold mb-6 text-center text-[#c3c3c0]"
                     initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
                 >
                     Skills
                 </motion.h1>
@@ -87,39 +136,43 @@ const SkillsList: React.FC = () => {
                 <motion.h2
                     className="text-3xl font-bold text-center mb-12 text-[#071015]"
                     initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
                 >
                     Technologies I Work With
                 </motion.h2>
 
-                {/* Map over each category */}
+                {/* Category Cards */}
                 <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 "
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
                     variants={container}
                     initial="hidden"
-                    animate="visible"
+                    whileInView="visible"
+                    viewport={{ once: true }}
                 >
                     {Object.keys(skills).map((category) => (
                         <motion.div
                             key={category}
                             className="bg-[#c3c3c0] p-6 rounded-lg shadow-md hover:shadow-lg transform transition-transform hover:scale-105"
                             whileHover={{ scale: 1.05 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
                         >
                             <h3 className="text-xl font-semibold mb-4 text-[#071015]">{category}</h3>
-                            <ul className="space-y-2">
+                            <div className="grid grid-cols-3 gap-4 cursor-pointer">
                                 {skills[category as keyof typeof skills].map((skill) => (
-                                    <motion.li
+                                    <motion.div
                                         key={skill.name}
-                                        className="flex items-center gap-4"
+                                        className="flex flex-col items-center justify-center text-center"
                                         variants={item}
+                                        whileHover={{ scale: 1.1 }}
                                     >
-                                        {/* SVG icon */}
-                                        <Image src={skill.icon} alt={skill.name} width={32} height={32} />
-                                        <span className="text-lg text-[#868b94] font-bold">{skill.name}</span>
-                                    </motion.li>
+                                        <Image src={skill.icon} alt={skill.name} width={48} height={48} />
+                                        <span className="mt-2 text-sm text-[#868b94] font-semibold">{skill.name}</span>
+                                    </motion.div>
                                 ))}
-                            </ul>
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>
