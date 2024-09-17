@@ -13,7 +13,7 @@ const Footer = () => {
 
     // Handle scroll events
     const handleScroll = () => {
-        if (window.scrollY > 200) { // Show button after scrolling down 200px
+        if (window.scrollY > 200) {
             setShowScrollTopButton(true);
         } else {
             setShowScrollTopButton(false);
@@ -26,10 +26,8 @@ const Footer = () => {
     };
 
     useEffect(() => {
-        // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
 
-        // Cleanup event listener on component unmount
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -37,29 +35,33 @@ const Footer = () => {
 
     return (
         <>
-            <footer className="bg-gray-800 text-white py-6 mt-12">
-                <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <footer className="bg-gray-900 text-gray-200 py-10">
+                <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-6">
+
                     {/* About Me */}
                     <div>
-                        <h3 className="text-lg font-bold mb-2">About Me</h3>
-                        <p className="text-gray-400">
-                            I am Ravindran Dharshan, a passionate developer focused on building modern web applications using Next.js, TypeScript, and Tailwind CSS.
+                        <h3 className="text-xl font-semibold mb-4 text-white">About Me</h3>
+                        <p className="text-gray-400 leading-relaxed text-justify">
+                            I am Ravindran Dharshan, a full-stack developer specializing in modern web technologies like
+                            Next.js, TypeScript, and Tailwind CSS. Passionate about delivering elegant solutions.
                         </p>
                     </div>
 
                     {/* Contact Information */}
                     <div>
-                        <h3 className="text-lg font-bold mb-2">Contact</h3>
+                        <h3 className="text-xl font-semibold mb-4 text-white">Contact</h3>
                         <ul>
-                            <li className="flex items-center space-x-2">
-                                <MdEmail className="w-5 h-5" />
-                                <a href="mailto:dharshanravindran8@gmail.com" className="hover:text-gray-300">
+                            <li className="flex items-center space-x-3 mb-2">
+                                <MdEmail className="w-6 h-6 text-indigo-400"/>
+                                <a href="mailto:dharshanravindran8@gmail.com"
+                                   className="hover:text-indigo-300 transition-colors duration-300">
                                     dharshanravindran8@gmail.com
                                 </a>
                             </li>
-                            <li className="flex items-center space-x-2 mt-2">
-                                <MdPhone className="w-5 h-5" />
-                                <a href="tel:+94 776285156" className="hover:text-gray-300">
+                            <li className="flex items-center space-x-3">
+                                <MdPhone className="w-6 h-6 text-indigo-400"/>
+                                <a href="tel:+94 776285156"
+                                   className="hover:text-indigo-300 transition-colors duration-300">
                                     +94 77 628 156
                                 </a>
                             </li>
@@ -68,43 +70,71 @@ const Footer = () => {
 
                     {/* Useful Links */}
                     <div>
-                        <h3 className="text-lg font-bold mb-2">Useful Links</h3>
-                        <ul className="space-y-2">
-                            {['hero', 'about', 'services', 'projects', 'skills', 'blogs', 'achievements', 'contact-me'].map((item) => (
-                                <li key={item}>
-                                    <Link href={`/${item}`} className="hover:text-gray-300 text-indigo-400 underline transition-colors duration-300">
-                                        {item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
+                        <h3 className="text-xl font-semibold mb-4 text-white">Quick Links</h3>
+                        <ul className="space-y-3">
+                            {[
+                                { path: 'hero', label: 'Home' },
+                                { path: 'about', label: 'About' },
+                                { path: 'services', label: 'Services' },
+                                { path: 'projects', label: 'Projects' },
+                                { path: 'skills', label: 'Skills' },
+                                { path: 'blogs', label: 'Blogs' },
+                                { path: 'achievements', label: 'Achievements' },
+                                { path: 'contact-me', label: 'Contact Me' }
+                            ].map(({ path, label }) => (
+                                <li key={path} className="group">
+                                    <Link
+                                        href={`/#${path}`}
+                                        className="flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 transition-colors duration-300"
+                                    >
+                                        <span
+                                            className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                            &gt;
+                                        </span>
+                                        <span className="transition-transform duration-300 group-hover:translate-x-1">
+                                            {label}
+                                        </span>
                                     </Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Social Media Icons */}
+                    {/* Social Media */}
                     <div>
-                        <h3 className="text-lg font-bold mb-2">Follow Me</h3>
+                        <h3 className="text-xl font-semibold mb-4 text-white">Follow Me</h3>
                         <div className="flex space-x-4">
-                            <a href="https://github.com/yourgithub" className="hover:text-gray-300">
-                                <FaGithub className="w-6 h-6" />
+                            <a href="https://github.com/yourgithub" className="group">
+                                <FaGithub
+                                    className="w-7 h-7 text-gray-400 group-hover:text-indigo-400 transition-colors duration-300"/>
+                                <span className="sr-only">Github</span>
                             </a>
-                            <a href="https://linkedin.com/in/yourlinkedin" className="hover:text-gray-300">
-                                <FaLinkedin className="w-6 h-6" />
+                            <a href="https://linkedin.com/in/yourlinkedin" className="group">
+                                <FaLinkedin
+                                    className="w-7 h-7 text-gray-400 group-hover:text-indigo-400 transition-colors duration-300"/>
+                                <span className="sr-only">LinkedIn</span>
                             </a>
-                            <a href="https://medium.com/@yourmedium" className="hover:text-gray-300">
-                                <FaMedium className="w-6 h-6" />
+                            <a href="https://medium.com/@yourmedium" className="group">
+                                <FaMedium
+                                    className="w-7 h-7 text-gray-400 group-hover:text-indigo-400 transition-colors duration-300"/>
+                                <span className="sr-only">Medium</span>
                             </a>
-                            <a href="https://twitter.com/yourtwitter" className="hover:text-gray-300">
-                                <FaTwitter className="w-6 h-6" />
+                            <a href="https://twitter.com/yourtwitter" className="group">
+                                <FaTwitter
+                                    className="w-7 h-7 text-gray-400 group-hover:text-indigo-400 transition-colors duration-300"/>
+                                <span className="sr-only">Twitter</span>
                             </a>
-                            <a href="https://instagram.com/yourinstagram" className="hover:text-gray-300">
-                                <FaInstagram className="w-6 h-6" />
+                            <a href="https://instagram.com/yourinstagram" className="group">
+                                <FaInstagram
+                                    className="w-7 h-7 text-gray-400 group-hover:text-indigo-400 transition-colors duration-300"/>
+                                <span className="sr-only">Instagram</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 {/* Second Section - Copyright */}
-                <div className="mt-8 text-center text-gray-500 text-sm">
+                <div className="mt-10 text-center text-gray-500 text-sm font-bold">
                     &copy; {currentYear} Ravindran Dharshan. All rights reserved.
                 </div>
             </footer>
@@ -113,11 +143,11 @@ const Footer = () => {
             {showScrollTopButton && (
                 <button
                     onClick={scrollToTop}
-                    className="fixed bottom-6 right-6 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300"
+                    className="fixed bottom-6 right-6 bg-indigo-500 text-white p-4 rounded-full shadow-xl hover:bg-indigo-600 transition-all duration-300 transform hover:scale-110 hover:rotate-180"
                     aria-label="Scroll to top"
                 >
                     <svg
-                        className="w-6 h-6"
+                        className="w-8 h-8"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
