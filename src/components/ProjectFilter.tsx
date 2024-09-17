@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface FilterProps {
     categories: string[];
@@ -14,22 +15,32 @@ const ProjectFilter = ({ categories, onFilterChange }: FilterProps) => {
     };
 
     return (
-        <div className="mb-8">
-            <div className="flex flex-wrap gap-2 items-center justify-center">
+        <motion.div
+            className="mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+        >
+            <motion.div className="flex flex-wrap gap-2 items-center justify-center">
                 {categories.map((category) => (
-                    <button
+                    <motion.button
                         key={category}
                         onClick={() => handleChange(category)}
                         className={`p-2 border rounded transition-colors duration-300 
                             ${selectedCategory === category ? 'bg-[#071015] text-white' : 'bg-[#8f989b] text-[#071015] font-bold'} 
                             hover:bg-[#6e6663] hover:text-white
                         `}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
                     >
                         {category}
-                    </button>
+                    </motion.button>
                 ))}
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 };
 
