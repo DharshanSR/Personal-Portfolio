@@ -1,70 +1,171 @@
 'use client';
 
+import React from 'react';
 import { projects } from '@/data/projects';
 import { notFound } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-import Footer from '@/components/Footer'; // Import Footer component
+import Footer from '@/components/Footer';
+import Image from 'next/image';
+import { motion, useInView } from 'framer-motion';
+import Navbar from "@/components/Navbar";
 
-const ProjectDetailsPage = ({ params }: { params: { projectId: string } }) => {
+type ProjectDetailsPageProps = {
+    params: {
+        projectId: string;
+    };
+};
+
+// Framer Motion Variants
+const fadeInUp = {
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+};
+
+const fadeIn = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+};
+
+const hoverEffect = {
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
+};
+
+const ProjectDetailsPage = ({ params }: ProjectDetailsPageProps) => {
     const router = useRouter();
     const project = projects.find((proj) => proj.id === params.projectId);
+
+    const ref = React.useRef(null);
+    const isInView = useInView(ref, { once: true });
 
     if (!project) return notFound();
 
     return (
-        <>
-            <div className="container mx-auto px-4 py-12 text-white">
-                {/* Back Button */}
-                <button
-                    onClick={() => router.push('/projects')}
-                    className="text-blue-500 underline hover:text-blue-300 mb-6 text-sm sm:text-base"
+        <motion.div
+            className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500 min-h-screen"
+            initial="initial"
+            animate="animate"
+            exit={{ opacity: 0, transition: { duration: 0.5 } }}
+        >
+            <Navbar />
+            <div className="mx-auto px-6 py-12">
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-2 gap-12"
+                    variants={fadeInUp}
+                    transition={{ duration: 0.8 }}
                 >
-                    &larr; Back to Projects
-                </button>
+                    {/* Project Image */}
+                    <motion.div
+                        className="relative shadow-lg rounded-lg overflow-hidden"
+                        variants={hoverEffect}
+                        whileHover="hover"
+                    >
+                        <Image
+                            src={project.image}
+                            alt={`Main image of ${project.title}`}
+                            className="w-full h-full object-cover"
+                            width={1200}
+                            height={600}
+                        />
+                    </motion.div>
 
-                {/* Detailed Image */}
-                <div className="w-full mb-8">
-                    <img src={project.image} alt={project.title} className="w-full rounded-lg object-cover h-60 sm:h-80 md:h-96" />
-                </div>
+                    {/* Project Details */}
+                    <motion.div
+                        className="flex flex-col justify-between"
+                        variants={fadeInUp}
+                        transition={{ delay: 0.1, duration: 0.8 }}
+                    >
+                        <div>
+                            <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
+                            <p className="text-lg mb-6 text-justify">{project.detailedDescription}</p>
 
-                {/* Detailed Description */}
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">{project.title}</h1>
-                <p className="text-gray-400 mb-8 text-sm sm:text-base">{project.detailedDescription}</p>
+                            {/* Technologies Used (New UI Style) */}
+                            <div className="mb-6">
+                                <h2 className="text-2xl font-semibold mb-3">Technologies Used</h2>
+                                <div className="grid grid-cols-2 gap-4 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-md">
+                                    {project.technologies.map((tech, idx) => (
+                                        <motion.div
+                                            key={idx}
+                                            className="flex items-center px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md shadow-sm cursor-pointer hover:bg-teal-100 dark:hover:bg-teal-800 transition"
+                                            whileHover={{ scale: 1.05 }}
+                                            transition={{ duration: 0.3 }}
+                                            style={{ cursor: 'pointer' }}  // Pointer cursor for interactivity
+                                        >
+                                            {tech}
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
 
-                {/* Technologies Used */}
-                <div className="mb-8">
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">Technologies Used</h2>
-                    <ul className="list-disc list-inside mb-4">
-                        {project.technologies.map((tech, idx) => (
-                            <li key={idx} className="text-gray-400 text-sm sm:text-base">{tech}</li>
-                        ))}
-                    </ul>
-                </div>
+                        {/* Action Buttons */}
+                        <motion.div
+                            className="mt-4 space-x-4"
+                            variants={fadeIn}
+                            transition={{ delay: 0.3, duration: 0.8 }}
+                        >
+                            {project.github && (
+                                <motion.a
+                                    href={project.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow-lg hover:bg-blue-500"
+                                    whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                                >
+                                    GitHub Repo
+                                </motion.a>
+                            )}
+                            {project.live && (
+                                <motion.a
+                                    href={project.live}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block bg-green-600 text-white px-5 py-2 rounded-lg shadow-lg hover:bg-green-500"
+                                    whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                                >
+                                    Live Demo
+                                </motion.a>
+                            )}
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
 
-                {/* GitHub and Live Demo Links */}
-                <div className="mb-8">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline hover:text-blue-300 block mb-2 text-sm sm:text-base">
-                        GitHub Repo
-                    </a>
-                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline hover:text-blue-300 text-sm sm:text-base">
-                        Live Demo
-                    </a>
-                </div>
+                {/* More Images Section with In-View Animation */}
+                {project.moreImages.length > 0 && (
+                    <motion.div
+                        ref={ref}
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ delay: 0.3, duration: 0.8 }}
+                        className="mt-12"
+                    >
+                        <h2 className="text-3xl font-bold mb-4">More Images</h2>
 
-                {/* More Images */}
-                <div>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">More Images</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {project.moreImages.map((img, idx) => (
-                            <img key={idx} src={img} alt={`${project.title} Image ${idx + 1}`} className="w-full h-auto rounded-lg object-cover" />
-                        ))}
-                    </div>
-                </div>
+                        {/* Horizontal Scroll Gallery with Hover Effects */}
+                        <div className="relative flex overflow-x-auto space-x-6 pb-6">
+                            {project.moreImages.map((img, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    className="relative shadow-md rounded-lg overflow-hidden flex-shrink-0"
+                                    style={{ width: '400px', height: '250px' }}
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <Image
+                                        src={img}
+                                        alt={`Additional image ${idx + 1} of ${project.title}`}
+                                        className="w-full h-full object-cover"
+                                        width={400}
+                                        height={250}
+                                    />
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
             </div>
 
-            {/* Footer */}
             <Footer />
-        </>
+        </motion.div>
     );
 };
 
