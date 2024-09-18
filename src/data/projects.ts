@@ -1,15 +1,18 @@
 // src/data/projects.ts
+
+import project1Image from "@/public/assests/images/mobileapp-development.png";
+
 export const projects = [
     {
         id: '1',
         title: 'Project 1',
         description: 'This is a brief description of project 1.',
         detailedDescription: 'This is a more detailed description of Project 1. It includes more information about the project, such as its purpose, key features, and any notable achievements or challenges faced during development.',
-        image: '/assets/images/project1.jpg',
-        technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+        image: project1Image,
+        technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Tailwind CSS'],
         github: 'https://github.com/yourgithub/project1',
         live: 'https://yourliveproject.com/project1',
-        moreImages: ['/assets/images/project1-1.jpg', '/assets/images/project1-2.jpg'],
+        moreImages: [project1Image, project1Image, project1Image, project1Image, ],
         category: 'Web', // Add category
     },
     {
