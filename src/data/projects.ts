@@ -1,5 +1,4 @@
 // src/data/projects.ts
-
 import project1Image from "@/public/assests/images/mobileapp-development.png";
 
 export const projects = [
@@ -7,9 +6,11 @@ export const projects = [
         id: '1',
         title: 'Project 1',
         description: 'This is a brief description of project 1.',
-        detailedDescription: 'This is a more detailed description of Project 1. It includes more information about the project, such as its purpose, key features, and any notable achievements or challenges faced during development.',
+        detailedDescription: 'This is a more detailed description of Project 1. It includes more information about the project, ' +
+            'such as its purpose, key features, and any notable achievements or challenges faced during development.' +
+            'such as its purpose, key features, and any notable achievements or challenges faced during development.',
         image: project1Image,
-        technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+        technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Tailwind CSS'],
         github: 'https://github.com/yourgithub/project1',
         live: 'https://yourliveproject.com/project1',
         moreImages: [project1Image, project1Image, project1Image, project1Image, ],

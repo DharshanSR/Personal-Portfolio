@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import Navbar from "@/components/Navbar";
+import {Button} from "@/components/ui/button";
 
 type ProjectDetailsPageProps = {
     params: {
@@ -46,7 +46,8 @@ const ProjectDetailsPage = ({ params }: ProjectDetailsPageProps) => {
             animate="animate"
             exit={{ opacity: 0, transition: { duration: 0.5 } }}
         >
-            <Navbar />
+            <Button>Back To Projects</Button>
+
             <div className="mx-auto px-6 py-12">
                 <motion.div
                     className="grid grid-cols-1 md:grid-cols-2 gap-12"
