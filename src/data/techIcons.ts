@@ -30,9 +30,10 @@ import JsonIcon from '@/public/assests/icons/json-original.svg';
 import NpmIcon from '@/public/assests/icons/npm-original-wordmark.svg';
 import AppwriteIcon from '@/public/assests/icons/appwrite-original.svg';
 
-export const techIcons = {
+export const techIcons: { [key: string]: any } = {
     'Next.js': NextJsIcon,
     'TypeScript': TypeScriptIcon,
     'Tailwind CSS': TailwindCssIcon,
     // Add more technologies and icons as needed
 };
+
