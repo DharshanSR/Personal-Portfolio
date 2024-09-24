@@ -10,7 +10,7 @@ export const projects = [
             'such as its purpose, key features, and any notable achievements or challenges faced during development.' +
             'such as its purpose, key features, and any notable achievements or challenges faced during development.',
         image: project1Image,
-        technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+        technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'TypeScript', 'Tailwind CSS'],
         github: 'https://github.com/yourgithub/project1',
         live: 'https://yourliveproject.com/project1',
         moreImages: [project1Image, project1Image, project1Image, project1Image, ],
