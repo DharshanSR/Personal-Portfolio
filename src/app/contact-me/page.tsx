@@ -1,92 +1,133 @@
-"use client";
+'use client';
 
-import { FaLinkedin, FaGithub, FaTwitter, FaInstagram, FaMedium } from "react-icons/fa";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
-const ContactMe = () => {
+const Contact: React.FC = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+
+    const [errors, setErrors] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+        validateField(name, value);
+    };
+
+    const validateField = (name: string, value: string) => {
+        let errorMessage = '';
+        switch (name) {
+            case 'name':
+                if (value.trim() === '') {
+                    errorMessage = 'Name is required.';
+                }
+                break;
+            case 'email':
+                if (!/\S+@\S+\.\S+/.test(value)) {
+                    errorMessage = 'Invalid email address.';
+                }
+                break;
+            case 'message':
+                if (value.trim() === '') {
+                    errorMessage = 'Message cannot be empty.';
+                }
+                break;
+            default:
+                break;
+        }
+        setErrors({ ...errors, [name]: errorMessage });
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (formData.name && formData.email && formData.message && !errors.name && !errors.email && !errors.message) {
+            console.log('Form submitted successfully', formData);
+            // You can handle form submission logic here, such as sending an API request.
+        } else {
+            console.log('Form has errors', errors);
+        }
+    };
+
     return (
-        <section id="contact-me" className="container min-h-screen flex flex-col lg:flex-row items-center bg-[#6B7579] text-white">
-            {/* Left Side: Image/Intro Section */}
-            <div className="lg:w-1/2 flex items-center justify-center bg-indigo-700 py-16 px-8">
-                <div className="space-y-8 text-center lg:text-left">
-                    <h2 className="text-5xl font-bold">Get In Touch</h2>
-                    <p className="text-lg">
-                        I'm excited to work with passionate individuals and teams. Feel free to reach out and let’s start a conversation!
-                    </p>
-                    <div className="mt-6 space-x-6 text-3xl flex justify-center lg:justify-start">
-                        <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-                            <FaLinkedin />
-                        </a>
-                        <a href="https://github.com/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-                            <FaGithub />
-                        </a>
-                        <a href="https://medium.com/@your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-                            <FaMedium />
-                        </a>
-                        <a href="https://twitter.com/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-                            <FaTwitter />
-                        </a>
-                        <a href="https://www.instagram.com/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-                            <FaInstagram />
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            {/* Right Side: Contact Form Section */}
-            <div className="lg:w-1/2 bg-white py-16 px-8 flex items-center justify-center">
-                <form className="w-full max-w-lg space-y-6" action="#" method="POST">
+        <section className="min-h-screen flex justify-center items-center bg-gray-100 px-4 py-10">
+            <motion.div
+                className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-md"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <h2 className="text-3xl font-semibold text-gray-800 text-center mb-6">Contact Me</h2>
+                <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                            Name
-                        </label>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
                         <input
                             type="text"
-                            id="name"
                             name="name"
-                            className="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="Your Full Name"
-                            required
+                            id="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className={`mt-1 block w-full p-3 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
+                                errors.name ? 'border-red-500' : 'border-gray-300'
+                            }`}
+                            placeholder="Your Name"
                         />
+                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                     </div>
 
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                            Email
-                        </label>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
                         <input
                             type="email"
-                            id="email"
                             name="email"
-                            className="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            id="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className={`mt-1 block w-full p-3 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
+                                errors.email ? 'border-red-500' : 'border-gray-300'
+                            }`}
                             placeholder="Your Email"
-                            required
                         />
+                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                     </div>
 
                     <div>
-                        <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                            Message
-                        </label>
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
                         <textarea
-                            id="message"
                             name="message"
-                            rows={5}
-                            className="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            id="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            className={`mt-1 block w-full p-3 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
+                                errors.message ? 'border-red-500' : 'border-gray-300'
+                            }`}
                             placeholder="Your Message"
-                            required
+                            rows={5}
                         ></textarea>
+                        {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                     </div>
 
-                    <button
-                        type="submit"
-                        className="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-500 transition-all duration-300"
-                    >
-                        Send Message
-                    </button>
+                    <div className="flex justify-center">
+                        <motion.button
+                            type="submit"
+                            className="w-full py-3 bg-indigo-600 text-white rounded-lg shadow-lg hover:bg-indigo-700 transition-colors"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            Send Message
+                        </motion.button>
+                    </div>
                 </form>
-            </div>
+            </motion.div>
         </section>
     );
 };
 
-export default ContactMe;
+export default Contact;
