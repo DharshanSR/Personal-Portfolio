@@ -12,6 +12,7 @@ import CSSIcon from '@/public/assests/icons/css3-original.svg';
 import pythonIcon from '@/public/assests/icons/python-original.svg';
 import javaIcon from '@/public/assests/icons/java-original.svg';
 import rIcon from '@/public/assests/icons/r-original.svg';
+import PHPIcon from '@/public/assests/icons/PHP.png';
 
 // Frameworks
 import ReactIcon from '@/public/assests/icons/react-original.svg';
@@ -20,6 +21,7 @@ import NextJsIcon from '@/public/assests/icons/nextjs-original.svg';
 import NodeJsIcon from '@/public/assests/icons/nodejs-original.svg';
 import TailwindCssIcon from '@/public/assests/icons/tailwindcss-original.svg';
 import FramerMotionIcon from '@/public/assests/icons/framer-motion.png';
+import Laravel from '@/public/assests/icons/laravel-2.svg';
 
 // Version Control
 import GitIcon from '@/public/assests/icons/git-original.svg';
@@ -59,12 +61,13 @@ const skills = {
         { name: 'Python', icon: pythonIcon },
         { name: 'Java', icon: javaIcon },
         { name: 'R', icon: rIcon },
+        { name: 'PHP', icon: PHPIcon },
     ],
     Frameworks: [
         { name: 'React', icon: ReactIcon },
         { name: 'Next.js', icon: NextJsIcon },
+        { name: 'Laravel', icon: Laravel},
         { name: 'Tailwind CSS', icon: TailwindCssIcon },
-        { name: 'Node.js', icon: NodeJsIcon },
         { name: 'Framer Motion', icon: FramerMotionIcon },
         { name: 'React Native', icon: ReactNativeIcon },
     ],
@@ -120,7 +123,7 @@ const item = {
 
 const SkillsList: React.FC = () => {
     return (
-        <section className="py-20 bg-[#6B7579]" id="skills">
+        <section className="py-20 bg-[#14141F]" id="skills">
             <div className="container mx-auto px-4">
                 {/* Heading */}
                 <motion.h1
