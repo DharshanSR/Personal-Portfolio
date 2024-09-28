@@ -67,16 +67,8 @@ const Hero = () => {
         <section
             id="hero"
             ref={ref}
-            className="relative h-screen bg-fixed bg-center bg-cover text-[#c3c3c0] flex flex-col items-center justify-center py-20"
-            style={{
-                backgroundImage: "url('https://images.alphacoders.com/108/1080156.jpg')",
-                backgroundAttachment: "fixed",
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-            }}
+            className="relative h-screen bg-[#14141F] text-[#c3c3c0] flex flex-col items-center justify-center py-20"
         >
-            <div className="absolute inset-0 bg-[#071015] opacity-50"></div>
             <div className="relative container mx-auto px-4 sm:px-6 py-12 md:py-20 flex flex-col items-center md:flex-row md:items-center md:justify-between">
                 {/* Text Content */}
                 <motion.div
@@ -90,7 +82,7 @@ const Hero = () => {
                                animate={{ y: 0, opacity: 1 }}
                                transition={{ duration: 1.2, ease: "easeOut" }}
                     >
-                        <span className="block text-5xl sm:text-5xl md:text-6xl">𝐇𝐢, 𝐈❜𝐦</span>
+                        <span className="block text-3xl sm:text-3xl md:text-3xl">𝐇𝐢, 𝐈❜𝐦</span>
                         <span className="block text-5xl sm:text-6xl md:text-6xl text-[#fff]">Ravindran Dharshan</span>
                     </motion.h1>
 
@@ -98,9 +90,9 @@ const Hero = () => {
                         <TypeAnimation
                             sequence={[
                                 'Software Developer', 1500,
-                                'UI/UX Enthusiast', 1500,
                                 'Mobile App Developer', 1500,
                                 'Full-Stack Engineer', 1500,
+                                'Cybersecurity Enthusiast', 1500,
                                 'Open-Source Contributor', 1500,
                             ]}
                             speed={30}
@@ -117,7 +109,7 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
                     >
-                        Driven by a passion for crafting innovative software solutions that leave a lasting impact, I thrive on turning complex problems into streamlined digital experiences.
+                        I am passionate about creating innovative software solutions that make a lasting impact by turning complex problems into simple digital experiences.
                     </motion.p>
 
                     {/* Social Media Icons */}
