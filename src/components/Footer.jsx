@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaMedium, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { MdEmail, MdPhone } from 'react-icons/md';
+import { FiArrowUp } from 'react-icons/fi';
+import {IoIosArrowUp} from "react-icons/io";
 
 // Automatically get the current year
 const currentYear = new Date().getFullYear();
@@ -143,20 +145,13 @@ const Footer = () => {
             {showScrollTopButton && (
                 <button
                     onClick={scrollToTop}
-                    className="fixed bottom-6 right-6 bg-indigo-500 text-white p-4 rounded-full shadow-xl hover:bg-indigo-600 transition-all duration-300 transform hover:scale-110 hover:rotate-180"
+                    className="fixed bottom-6 right-6 bg-indigo-500 text-white p-4 rounded-full shadow-xl hover:bg-indigo-600 transition-all duration-300 transform hover:scale-110"
                     aria-label="Scroll to top"
                 >
-                    <svg
-                        className="w-8 h-8"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7-7-7 7"></path>
-                    </svg>
+                    <IoIosArrowUp className="w-8 h-8" />
                 </button>
             )}
+
         </>
     );
 };
