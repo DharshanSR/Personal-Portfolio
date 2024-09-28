@@ -30,7 +30,10 @@ const Navbar = () => {
                     const offsetTop = element.offsetTop;
                     const offsetHeight = element.offsetHeight;
 
-                    if (scrollY >= offsetTop - offsetHeight / 3 && scrollY < offsetTop + offsetHeight - offsetHeight / 3) {
+                    if (
+                        scrollY >= offsetTop - offsetHeight / 3 &&
+                        scrollY < offsetTop + offsetHeight - offsetHeight / 3
+                    ) {
                         setActiveSection(section);
                     }
                 }
