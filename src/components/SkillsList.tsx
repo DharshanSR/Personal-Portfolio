@@ -22,6 +22,8 @@ import NodeJsIcon from '@/public/assests/icons/nodejs-original.svg';
 import TailwindCssIcon from '@/public/assests/icons/tailwindcss-original.svg';
 import FramerMotionIcon from '@/public/assests/icons/framer-motion.png';
 import Laravel from '@/public/assests/icons/laravel-2.svg';
+import FlaskIcon from '@/public/assests/icons/flask-svgrepo-com.svg';
+import DjangoIcon from '@/public/assests/icons/django-svgrepo-com.svg';
 
 // Version Control
 import GitIcon from '@/public/assests/icons/git-original.svg';
@@ -51,6 +53,10 @@ import RStudioIcon from '@/public/assests/icons/rstudio-original.svg';
 import VSCodeIcon from '@/public/assests/icons/vscode-original.svg';
 import WebStormIcon from '@/public/assests/icons/webstorm-original.svg';
 
+//cloud
+import AWSIcon from '@/public/assests/icons/aws-svgrepo-com.svg';
+import DockerIcon from '@/public/assests/icons/docker-svgrepo-com.svg';
+
 // Define the categories, skills, and associated SVG icons
 const skills = {
     Languages: [
@@ -67,6 +73,8 @@ const skills = {
         { name: 'React', icon: ReactIcon },
         { name: 'Next.js', icon: NextJsIcon },
         { name: 'Laravel', icon: Laravel},
+        { name: 'Django', icon: DjangoIcon },
+        { name: 'Flask', icon: FlaskIcon },
         { name: 'Tailwind CSS', icon: TailwindCssIcon },
         { name: 'Framer Motion', icon: FramerMotionIcon },
         { name: 'React Native', icon: ReactNativeIcon },
@@ -83,6 +91,10 @@ const skills = {
         { name: 'PostgreSQL', icon: PostgreSqlIcon },
         { name: 'MySQL', icon: MySqlIcon },
         { name: 'Appwrite', icon: AppwriteIcon },
+    ],
+    Cloud: [
+        { name: 'AWS', icon: AWSIcon },
+        { name: 'Docker', icon: DockerIcon },
     ],
     'ides' : [
         { name: 'Android Studio', icon: AndroidStudioIcon },
