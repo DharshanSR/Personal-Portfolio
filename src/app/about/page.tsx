@@ -87,7 +87,7 @@ const AboutMe = () => {
     }, [educationInView, controlsEducation]);
 
     return (
-        <section id="about" className="container mx-auto px-4 py-20 bg-[#6B7579]">
+        <section id="about" className="container mx-auto px-4 py-20 bg-[#14141F]">
             {/* About Me Section */}
             <motion.h1
                 className="text-5xl font-extrabold text-center mb-8 text-[#c3c3c0]"
