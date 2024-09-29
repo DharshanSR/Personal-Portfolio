@@ -58,7 +58,7 @@ const Navbar = () => {
     return (
         <nav
             className={`fixed top-0 left-0 w-full p-4 z-50 transition-all duration-300 ${
-                isScrolled ? 'bg-[#6B7579] opacity-100 shadow-lg' : 'bg-[#071015] opacity-80'
+                isScrolled ? 'bg-[#A9A9A9] opacity-100 shadow-lg' : 'bg-[#14141F] opacity-80'
             }`}
         >
             <div className="container mx-auto flex items-center justify-between">
@@ -120,14 +120,9 @@ const Navbar = () => {
 
             {/* Mobile Menu - Shown when mobile menu is open */}
             {isMobileMenuOpen && (
-                <div className="lg:hidden bg-[#4a4a47] animate-slideIn h-[80vh]">
+                <div className="lg:hidden bg-gray-950 animate-slideIn h-[80vh]">
                     <div className="container mx-auto relative">
-                        {/* Logo/Brand Name in Mobile Menu */}
-                        <div className="text-2xl font-bold text-[#c3c3c0] py-4">
-                            <Link href="/" className="hover:text-[#8f989b]">
-                                My Portfolio
-                            </Link>
-                        </div>
+
                         {/* Close Button */}
                         <button
                             onClick={() => setMobileMenuOpen(false)}
