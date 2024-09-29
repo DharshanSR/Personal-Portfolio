@@ -65,8 +65,12 @@ const ProjectsPage = () => {
     const projectsToShow = isExpanded ? filteredProjects : filteredProjects.slice(0, visibleCount);
 
     return (
-        <div id="projects" className="container mx-auto px-4 py-20">
-            <h1 className="text-5xl font-extrabold mb-6 text-center text-[#c4c6c4]">My Projects</h1>
+        <section id="projects" className="container mx-auto px-4 py-20">
+            <h1 className="text-5xl font-extrabold mb-4 text-center text-[#c4c6c4]">My Projects</h1>
+            <p className="text-xl font-medium text-center text-gray-500 mb-8">
+                Discover my projects in Full Stack Development, Mobile Development and Machine Learning.
+            </p>
+
             <ProjectFilter categories={categories} onFilterChange={handleFilterChange} />
 
             {/* Render Swiper for mobile view */}
@@ -138,7 +142,7 @@ const ProjectsPage = () => {
                     {isExpanded ? 'View Less' : 'View More'}
                 </motion.button>
             </div>
-        </div>
+        </section>
     );
 };
 
