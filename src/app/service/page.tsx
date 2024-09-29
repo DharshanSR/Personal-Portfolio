@@ -71,9 +71,9 @@ const ServicePage: React.FC = () => {
     });
 
     return (
-        <div id="services" className="container mx-auto px-4 py-20 bg-[#6B7579]">
+        <section id="services" className="container mx-auto px-4 py-20 bg-[#14141F]">
             <motion.h1
-                className="text-5xl font-extrabold mb-10 text-center text-[#c4c6c4]"
+                className="text-5xl font-extrabold mb-16 text-center text-[#c4c6c4]"
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -82,7 +82,7 @@ const ServicePage: React.FC = () => {
             </motion.h1>
 
             {/* Grid Layout for Service Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {animatedServices.map(({ service, ref, controls }, index) => (
                     <motion.div
                         ref={ref} // Attach the reference to each service card for visibility detection
@@ -100,7 +100,7 @@ const ServicePage: React.FC = () => {
                     </motion.div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 
