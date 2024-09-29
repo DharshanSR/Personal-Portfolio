@@ -4,9 +4,42 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import BlogPreview from '@/components/BlogPreview';
+import {Section} from "lucide-react";
 
 // Sample blog data
 const allBlogs = [
+    {
+        id: '1',
+        title: 'Understanding Next.js',
+        description: 'A comprehensive guide to getting started with Next.js.',
+        date: '2024-09-01',
+        image: '/assets/images/nextjs-guide.jpg',
+        link: 'https://medium.com/@username/understanding-next-js-1234567890',
+    },
+    {
+        id: '2',
+        title: 'TypeScript with React',
+        description: 'Learn how to use TypeScript with React to build type-safe applications.',
+        date: '2024-09-02',
+        image: '/assets/images/typescript-react.jpg',
+        link: 'https://medium.com/@username/typescript-with-react-0987654321',
+    },
+    {
+        id: '1',
+        title: 'Understanding Next.js',
+        description: 'A comprehensive guide to getting started with Next.js.',
+        date: '2024-09-01',
+        image: '/assets/images/nextjs-guide.jpg',
+        link: 'https://medium.com/@username/understanding-next-js-1234567890',
+    },
+    {
+        id: '2',
+        title: 'TypeScript with React',
+        description: 'Learn how to use TypeScript with React to build type-safe applications.',
+        date: '2024-09-02',
+        image: '/assets/images/typescript-react.jpg',
+        link: 'https://medium.com/@username/typescript-with-react-0987654321',
+    },
     {
         id: '1',
         title: 'Understanding Next.js',
@@ -59,8 +92,8 @@ const BlogPage: React.FC = () => {
 
     return (
         <div id="blogs" className="container mx-auto px-4 py-20">
-            <h1 className="text-5xl font-extrabold text-[#c4c6c4] text-center mb-6">Blogs</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <h1 className="text-5xl font-extrabold text-[#c4c6c4] text-center mb-16">Blogs</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {blogsToShow.map((blog) => {
                     const { ref, inView } = useAnimateOnInView();
                     return (
