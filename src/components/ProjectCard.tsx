@@ -46,7 +46,7 @@ const ProjectCard = ({ id, title, description, image }: ProjectCardProps) => {
                             backgroundColor: "#6e6663",
                             transition: { duration: 0.3 },
                         }} // Smooth hover animation
-                        whileTap={{ scale: 0.95 }} // Tap animation for button click
+                        whileTap={{ scale: 0.50 }} // Tap animation for button click
                         className="bg-[#3c4b54] text-white py-2 px-4 rounded transition cursor-pointer"
                     >
                         Read More
