@@ -73,11 +73,12 @@ const ServicePage: React.FC = () => {
     return (
         <section id="services" className="container mx-auto px-4 py-20 bg-[#14141F]">
             <motion.h1
-                className="text-5xl font-extrabold mb-16 text-center text-[#c4c6c4]"
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                className="text-5xl font-extrabold mb-16 text-center text-white"
+                initial={{opacity: 0, y: -50}}
+                animate={{opacity: 1, y: 0}}
+                transition={{duration: 0.8}}
             >
+                <h3 className="text-center text-2xl font-bold text-[#c4c6c4]">Service</h3>
                 My Expertise
             </motion.h1>
 
