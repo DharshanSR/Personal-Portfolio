@@ -78,15 +78,15 @@ const Hero = () => {
                     animate={controls}
                 >
                     <motion.h1 className="font-bold mb-4"
-                               initial={{ y: -50, opacity: 0 }}
-                               animate={{ y: 0, opacity: 1 }}
-                               transition={{ duration: 1.2, ease: "easeOut" }}
+                               initial={{y: -50, opacity: 0}}
+                               animate={{y: 0, opacity: 1}}
+                               transition={{duration: 1.2, ease: "easeOut"}}
                     >
                         <span className="block text-3xl sm:text-3xl md:text-3xl">𝐇𝐢, 𝐈❜𝐦</span>
                         <span className="block text-5xl sm:text-6xl md:text-6xl text-[#fff]">Ravindran Dharshan</span>
                     </motion.h1>
 
-                    <div className="text-3xl sm:text-4xl md:text-4xl font-bold mb-6">
+                    <div className="text-3xl sm:text-4xl md:text-4xl font-bold mb-6 text-green-500">
                         <TypeAnimation
                             sequence={[
                                 'Software Developer', 1500,
@@ -99,17 +99,18 @@ const Hero = () => {
                             cursor={true}
                             repeat={Infinity}
                             deletionSpeed={20}
-                            style={{ display: 'inline-block' }}
+                            style={{display: 'inline-block'}}
                         />
                     </div>
 
                     <motion.p
-                        className="text-lg sm:text-xl md:text-lg mb-6 text-center md:text-left text-white font-bold"
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+                        className="text-lg sm:text-xl md:text-lg mb-6 text-center md:text-left text-white"
+                        initial={{opacity: 0, y: 50}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 1.2, delay: 0.5, ease: "easeOut"}}
                     >
-                        I am passionate about creating innovative software solutions that make a lasting impact by turning complex problems into simple digital experiences.
+                        I am passionate about creating innovative software solutions that make a lasting impact by
+                        turning complex problems into simple digital experiences.
                     </motion.p>
 
                     {/* Social Media Icons */}
@@ -119,27 +120,42 @@ const Hero = () => {
                         initial="hidden"
                         animate={controls}
                     >
-                        <a href="https://github.com/DharshanSR" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-                           className="hover:text-[#fff] transition-colors">
-                            <FaGithub size={28} />
-                        </a>
-                        <a href="https://www.linkedin.com/in/ravindran-dharshan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                           className="hover:text-[#fff] transition-colors">
-                            <FaLinkedin size={28} />
-                        </a>
-                        <a href="https://www.threads.net/@iam_dharshan_ravindran?xmt=AQGzpVkYlxQOdyClvp8s6k61D8RekgVWW40D7tKmLKEfS3c" target="_blank" rel="noopener noreferrer" aria-label="Threads"
-                           className="hover:text-[#fff] transition-colors">
-                            <FaThreads size={28} />
-                        </a>
-                        <a href="https://medium.com/@dharshanravindran8" target="_blank" rel="noopener noreferrer" aria-label="Medium"
-                           className="hover:text-[#fff] transition-colors">
-                            <FaMedium size={28} />
-                        </a>
-                        <a href="https://www.instagram.com/iam_dharshan_ravindran/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
-                           className="hover:text-[#fff] transition-colors">
-                            <FaInstagram size={28} />
-                        </a>
+                        {[
+                            {href: "https://github.com/DharshanSR", icon: <FaGithub size={28}/>, label: "GitHub"},
+                            {
+                                href: "https://www.linkedin.com/in/ravindran-dharshan/",
+                                icon: <FaLinkedin size={28}/>,
+                                label: "LinkedIn"
+                            },
+                            {
+                                href: "https://www.threads.net/@iam_dharshan_ravindran?xmt=AQGzpVkYlxQOdyClvp8s6k61D8RekgVWW40D7tKmLKEfS3c",
+                                icon: <FaThreads size={28}/>,
+                                label: "Threads"
+                            },
+                            {
+                                href: "https://medium.com/@dharshanravindran8",
+                                icon: <FaMedium size={28}/>,
+                                label: "Medium"
+                            },
+                            {
+                                href: "https://www.instagram.com/iam_dharshan_ravindran/",
+                                icon: <FaInstagram size={28}/>,
+                                label: "Instagram"
+                            },
+                        ].map(({href, icon, label}) => (
+                            <a
+                                key={label}
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={label}
+                                className="flex items-center justify-center transition-all duration-300 p-2 rounded-full hover:bg-gray-800 hover:shadow-lg hover:shadow-blue-500"
+                            >
+                                {icon}
+                            </a>
+                        ))}
                     </motion.div>
+
 
                     {/* Call to Action Button */}
                     <motion.div className="mt-8 md:mt-12 flex justify-center"
@@ -153,7 +169,7 @@ const Hero = () => {
                             className="px-8 py-3 md:px-8 md:py-3 bg-[#c3c3c0] text-[#071015] font-semibold rounded-lg shadow-lg hover:bg-[#8f989b] transition-transform transform hover:scale-105 flex items-center gap-2"
                             aria-label="Download CV"
                         >
-                            <FaDownload size={22} />
+                            <FaDownload size={22}/>
                             <span className="hidden md:inline">Download CV</span>
                         </a>
                     </motion.div>
