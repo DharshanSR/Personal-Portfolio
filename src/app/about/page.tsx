@@ -122,7 +122,7 @@ const AboutMe = () => {
                 </motion.div>
 
                 {/* About Me Text */}
-                <motion.div className="md:w-[90%] p-4 md:p-8 font-semibold" variants={staggerContainer}>
+                <motion.div className="md:w-[90%] p-4 md:p-8 font-medium" variants={staggerContainer}>
                     <motion.p className="text-xl text-[#c3c3c0] mb-4 text-justify" variants={fadeInUp}>
                         I am a highly motivated software developer with a strong foundation in web and mobile app
                         development. I thrive in fast-paced environments where I can leverage my problem-solving skills
