@@ -24,6 +24,8 @@ import FramerMotionIcon from '@/public/assests/icons/framer-motion.png';
 import Laravel from '@/public/assests/icons/laravel-2.svg';
 import FlaskIcon from '@/public/assests/icons/flask-svgrepo-com.svg';
 import DjangoIcon from '@/public/assests/icons/django-svgrepo-com.svg';
+import Threejs from '@/public/assests/icons/Threejs-logo.svg';
+import WebGL from '@/public/assests/icons/webgl-svgrepo-com.svg';
 
 // Version Control
 import GitIcon from '@/public/assests/icons/git-original.svg';
@@ -46,16 +48,19 @@ import NetlifyIcon from '@/public/assests/icons/netlify-original.svg';
 import RenderIcon from '@/public/assests/icons/render.png';
 
 // IDEs
-import AndroidStudioIcon from '@/public/assests/icons/androidstudio-original.svg';
 import IntelliJIcon from '@/public/assests/icons/intellij-original.svg';
 import PyCharmIcon from '@/public/assests/icons/pycharm-original.svg';
 import RStudioIcon from '@/public/assests/icons/rstudio-original.svg';
 import VSCodeIcon from '@/public/assests/icons/vscode-original.svg';
 import WebStormIcon from '@/public/assests/icons/webstorm-original.svg';
+import PHPStorm from '@/public/assests/icons/PhpStorm_Icon.svg.png'
 
 //cloud
 import AWSIcon from '@/public/assests/icons/aws-svgrepo-com.svg';
 import DockerIcon from '@/public/assests/icons/docker-svgrepo-com.svg';
+import AWSS3Bucket from '@/public/assests/icons/amazon-s3.svg';
+import AWSEC2Instance from '@/public/assests/icons/EC2.svg';
+import AzureIcon from '@/public/assests/icons/azure-icon-svgrepo-com.svg';
 
 // Define the categories, skills, and associated SVG icons
 const skills = {
@@ -64,6 +69,7 @@ const skills = {
         { name: 'JavaScript', icon: JavaScriptIcon },
         { name: 'HTML', icon: HTMLIcon },
         { name: 'CSS', icon: CSSIcon },
+        { name: 'Tailwind CSS', icon: TailwindCssIcon },
         { name: 'Python', icon: pythonIcon },
         { name: 'Java', icon: javaIcon },
         { name: 'R', icon: rIcon },
@@ -71,13 +77,14 @@ const skills = {
     ],
     Frameworks: [
         { name: 'React', icon: ReactIcon },
-        { name: 'Next.js', icon: NextJsIcon },
+        { name: 'Next js', icon: NextJsIcon },
         { name: 'Laravel', icon: Laravel},
         { name: 'Django', icon: DjangoIcon },
         { name: 'Flask', icon: FlaskIcon },
-        { name: 'Tailwind CSS', icon: TailwindCssIcon },
         { name: 'Framer Motion', icon: FramerMotionIcon },
         { name: 'React Native', icon: ReactNativeIcon },
+        { name: 'Three js', icon: Threejs},
+        { name: 'WebGL', icon: WebGL}
     ],
     Backend: [
         { name: 'Node.js', icon: NodeJsIcon },
@@ -95,21 +102,24 @@ const skills = {
     Cloud: [
         { name: 'AWS', icon: AWSIcon },
         { name: 'Docker', icon: DockerIcon },
+        { name: 'AWS S3 Bucket', icon: AWSS3Bucket },
+        { name: 'AWS EC2 Instance', icon: AWSEC2Instance },
+        { name: 'Azure', icon: AzureIcon },
     ],
-    'ides' : [
-        { name: 'Android Studio', icon: AndroidStudioIcon },
+    IDE : [
         { name: 'IntelliJ', icon: IntelliJIcon },
         { name: 'PyCharm', icon: PyCharmIcon },
         { name: 'RStudio', icon: RStudioIcon },
         { name: 'VSCode', icon: VSCodeIcon },
         { name: 'WebStorm', icon: WebStormIcon },
+        { name: 'PHPStorm', icon: PHPStorm},
     ],
-    'Deployment & Hosting': [
+    Deployment: [
         { name: 'Vercel', icon: VercelIcon },
         { name: 'Netlify', icon: NetlifyIcon },
         { name: 'Render', icon: RenderIcon },
     ],
-    'Version Control': [
+    VersionControl: [
         { name: 'Git', icon: GitIcon },
         { name: 'GitHub', icon: GitHubIcon },
         { name: 'GitLab', icon: GitLabIcon },
