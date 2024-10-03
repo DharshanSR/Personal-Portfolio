@@ -146,8 +146,6 @@ html {
   display: none; /* hide scrollbar buttons */
 }
 
-
-
 @media (max-width: 768px) {
   #hero {
     background-attachment: scroll; /* Disable parallax on mobile */
