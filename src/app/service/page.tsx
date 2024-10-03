@@ -1,9 +1,9 @@
 'use client';
-
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import ServiceCard from '@/components/ServiceCard';
+import { Tilt } from 'react-tilt';
 import mobileAppDevelopment from '@/public/assests/images/mobileapp-development.png';
 import webDevelopment from '@/public/assests/images/web-development.png';
 import aiMl from '@/public/assests/images/ai-ml.png';
@@ -13,27 +13,45 @@ import blogWriter from '@/public/assests/images/blog-writting.png';
 const services = [
     {
         title: 'Full Stack Development',
-        description: "Developing responsive, high-performance web applications with React, Next.js, TypeScript, Tailwind CSS, Node.js, and Express. Utilizing MongoDB, PostgreSQL, Docker, and CI/CD for robust, scalable solutions.",
+        description:
+            'Developing responsive, high-performance web applications with React, Next.js, TypeScript, Tailwind CSS, Node.js, and Express. Utilizing MongoDB, PostgreSQL, Docker, and CI/CD for robust, scalable solutions.',
         icon: webDevelopment.src, // Extract the `src` property
-        link: '/web-development',
+        link: '/service/web-development',
     },
     {
         title: 'Mobile App Development',
-        description: "Creating dynamic and scalable mobile applications for both iOS and Android using React Native and Flutter. Prioritizing user-centric design and robust performance.",
+        description:
+            'Creating dynamic and scalable mobile applications for both iOS and Android using React Native and Flutter. Prioritizing user-centric design and robust performance.',
         icon: mobileAppDevelopment.src, // Extract the `src` property
-        link: '/mobile-app-development',
+        link: '/service/mobile-app-development',
     },
     {
-        title: "Machine Learning & AI",
-        description: "Developing advanced machine learning models and intelligent systems through data analysis and predictive modeling.",
+        title: 'Machine Learning & AI',
+        description:
+            'Developing advanced machine learning models and intelligent systems through data analysis and predictive modeling.',
         icon: aiMl.src, // Extract the `src` property
-        link: "/machine-learning",
+        link: '/service/machine-learning',
     },
     {
-        title: "Blog & Article Writing",
-        description: "Crafting compelling and insightful blog posts and articles for platforms such as Medium and Stack Overflow.",
+        title: 'Blog & Article Writing',
+        description:
+            'Crafting compelling and insightful blog posts and articles for platforms such as Medium and Stack Overflow.',
         icon: blogWriter.src, // Extract the `src` property
-        link: "/blog-writing",
+        link: '/service/blog-writting',
+    },
+    {
+        title: 'Blog & Article Writing',
+        description:
+            'Crafting compelling and insightful blog posts and articles for platforms such as Medium and Stack Overflow.',
+        icon: blogWriter.src, // Extract the `src` property
+        link: '/service/blog-writting',
+    },
+    {
+        title: 'Blog & Article Writing',
+        description:
+            'Crafting compelling and insightful blog posts and articles for platforms such as Medium and Stack Overflow.',
+        icon: blogWriter.src, // Extract the `src` property
+        link: '/service/blog-writting',
     },
 ];
 
@@ -48,7 +66,7 @@ const useAnimationControl = () => {
     const controls = useAnimation();
     const [ref, inView] = useInView({
         triggerOnce: false, // Trigger animation only once when the element is in view
-        threshold: 0.2,    // When 20% of the card is visible
+        threshold: 0.2, // When 20% of the card is visible
     });
 
     React.useEffect(() => {
@@ -74,9 +92,9 @@ const ServicePage: React.FC = () => {
         <section id="services" className="container mx-auto px-4 py-20 bg-[#14141F]">
             <motion.h1
                 className="text-5xl font-extrabold mb-16 text-center text-white"
-                initial={{opacity: 0, y: -50}}
-                animate={{opacity: 1, y: 0}}
-                transition={{duration: 0.8}}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
             >
                 <h3 className="text-center text-2xl font-bold text-[#c4c6c4]">Service</h3>
                 My Expertise
@@ -92,12 +110,16 @@ const ServicePage: React.FC = () => {
                         animate={controls} // Controlled by inView state
                         variants={cardVariants} // Defined animation variants
                     >
-                        <ServiceCard
-                            title={service.title}
-                            description={service.description}
-                            icon={service.icon}
-                            link={service.link}
-                        />
+                        <Tilt options={{ max: 25 }}>
+                            <div className="tilt-card bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 transition-all duration-300">
+                                <ServiceCard
+                                    title={service.title}
+                                    description={service.description}
+                                    icon={service.icon}
+                                    link={service.link}
+                                />
+                            </div>
+                        </Tilt>
                     </motion.div>
                 ))}
             </div>
