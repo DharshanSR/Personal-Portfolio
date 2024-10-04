@@ -62,7 +62,17 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		animation: {
+			'spin-slide': 'spin 10s linear infinite, slide 10s linear infinite',
+		},
+
+		keyframes: {
+			slide: {
+				'0%': { transform: 'translateX(100vw) rotate(0deg)' }, // Start from right, no rotation
+				'100%': { transform: 'translateX(0) rotate(360deg)' },  // End at left, full rotation
+			},
+		},
   	}
   },
   plugins: [require("tailwindcss-animate")],
