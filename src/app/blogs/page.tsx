@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import BlogPreview from '@/components/BlogPreview';
-import {Section} from "lucide-react";
+import nextjsImage from "@/public/assests/images/unserstanding-nextjs.png";
 
 // Sample blog data
 const allBlogs = [
@@ -13,7 +13,7 @@ const allBlogs = [
         title: 'Understanding Next.js',
         description: 'A comprehensive guide to getting started with Next.js.',
         date: '2024-09-01',
-        image: '/assets/images/nextjs-guide.jpg',
+        image: nextjsImage,
         link: 'https://medium.com/@username/understanding-next-js-1234567890',
     },
     {
