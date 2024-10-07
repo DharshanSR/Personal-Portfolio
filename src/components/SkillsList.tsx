@@ -133,7 +133,7 @@ const container = {
         y: 0,
         transition: {
             delayChildren: 0.3,
-            staggerChildren: 0.2,
+            staggerChildren: 0.1,
         },
     },
 };
@@ -193,7 +193,7 @@ const SkillsList: React.FC = () => {
                                         variants={item}
                                         whileHover={{ scale: 1.1 }}
                                     >
-                                        <Image src={skill.icon} alt={skill.name} width={48} height={48} />
+                                        <Image src={skill.icon} alt={skill.name} width={50} height={50} />
                                         <span className="mt-2 text-sm text-[#868b94] font-semibold">{skill.name}</span>
                                     </motion.div>
                                 ))}
