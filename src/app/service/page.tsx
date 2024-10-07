@@ -8,51 +8,53 @@ import mobileAppDevelopment from '@/public/assests/images/mobileapp-development.
 import webDevelopment from '@/public/assests/images/web-development.png';
 import aiMl from '@/public/assests/images/ai-ml.png';
 import blogWriter from '@/public/assests/images/blog-writting.png';
+import cloudWork from "@/public/assests/images/cloud-working.png";
 
 // Array of service data with src extracted from image imports
 const services = [
     {
         title: 'Full Stack Development',
         description:
-            'Developing responsive, high-performance web applications with React, Next.js, TypeScript, Tailwind CSS, Node.js, and Express. Utilizing MongoDB, PostgreSQL, Docker, and CI/CD for robust, scalable solutions.',
+            'Building responsive web applications using React, Next.js, and Node.js for seamless user experiences. I specialize in creating robust and scalable solutions that ensure smooth interactions, enabling users to achieve their goals efficiently across all devices.',
         icon: webDevelopment.src, // Extract the `src` property
         link: '/service/web-development',
     },
     {
         title: 'Mobile App Development',
         description:
-            'Creating dynamic and scalable mobile applications for both iOS and Android using React Native and Flutter. Prioritizing user-centric design and robust performance.',
+            'Developing dynamic mobile applications for iOS and Android with a focus on user-centric design. I ensure that every app not only looks great but also provides intuitive navigation and functionality, helping businesses connect with their users on the go.',
         icon: mobileAppDevelopment.src, // Extract the `src` property
         link: '/service/mobile-app-development',
     },
     {
         title: 'Machine Learning & AI',
         description:
-            'Developing advanced machine learning models and intelligent systems through data analysis and predictive modeling.',
+            'Creating intelligent systems through data analysis and predictive modeling for informed decision-making. My expertise in machine learning helps organizations harness the power of their data, driving innovation insights that propel business growth.',
         icon: aiMl.src, // Extract the `src` property
         link: '/service/machine-learning',
     },
     {
-        title: 'Blog & Article Writing',
+        title: 'Cloud Services',
         description:
-            'Crafting compelling and insightful blog posts and articles for platforms such as Medium and Stack Overflow.',
-        icon: blogWriter.src, // Extract the `src` property
-        link: '/service/blog-writting',
+            'Leveraging scalable cloud solutions to enhance data storage, processing, and application deployment. I help businesses migrate to the cloud, optimizing their infrastructure for flexibility and efficiency, ensuring they remain competitive in today’s fast-paced environment.',
+        icon: cloudWork.src, // Extract the `src` property
+        link: '/service/cloud-services',
     },
     {
         title: 'Blog & Article Writing',
         description:
-            'Crafting compelling and insightful blog posts and articles for platforms such as Medium and Stack Overflow.',
+            'Crafting insightful blog posts and articles for platforms like Medium and Stack Overflow. I focus on creating engaging content that not only informs but also drives engagement and community building, helping brands establish their voice in the digital landscape.',
         icon: blogWriter.src, // Extract the `src` property
-        link: '/service/blog-writting',
+        link: '/service/blog-writing',
     },
     {
-        title: 'Blog & Article Writing',
+        title: 'UI/UX Design',
         description:
-            'Crafting compelling and insightful blog posts and articles for platforms such as Medium and Stack Overflow.',
+            'Designing user interfaces and experiences that prioritize usability and aesthetics. I employ a user-centered design approach, conducting research and testing to create visually appealing and intuitive designs that enhance user satisfaction.',
         icon: blogWriter.src, // Extract the `src` property
-        link: '/service/blog-writting',
+        link: '/service/ui-ux',
     },
+
 ];
 
 // Animation variants for each service card
@@ -101,7 +103,7 @@ const ServicePage: React.FC = () => {
             </motion.h1>
 
             {/* Grid Layout for Service Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {animatedServices.map(({ service, ref, controls }, index) => (
                     <motion.div
                         ref={ref} // Attach the reference to each service card for visibility detection
