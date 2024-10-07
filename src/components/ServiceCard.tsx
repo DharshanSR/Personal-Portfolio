@@ -14,18 +14,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, lin
     return (
         <Link
             href={link}
-            className="relative flex flex-col items-center text-center group transition-all duration-300"
+            className="relative flex flex-col items-center text-center group transition-transform duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
         >
             <div className="relative mb-6">
-                {/* Image with overlay on hover */}
                 <Image
                     src={icon}
                     alt={title}
                     width={200}
                     height={200}
-                    className="rounded-full border-4 border-gray-300 group-hover:border-blue-600 transition-all duration-300"
+                    className="rounded-full border-4 border-gray-300 transition-all duration-300"
                 />
-                <div className="absolute inset-0 bg-blue-600 bg-opacity-50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-blue-600 bg-opacity-50 rounded-full opacity-0 duration-300"></div>
             </div>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
@@ -35,10 +34,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, lin
                 {description}
             </p>
 
-            {/* Arrow transition on hover */}
-            <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <FiArrowRight size={28} className="text-blue-600" />
+            <div
+                className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:translate-y-1 group-hover:animate-bounce">
+                <FiArrowRight size={28} className="text-blue-600"/>
             </div>
+
         </Link>
     );
 };
