@@ -21,8 +21,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, lin
                     src={icon}
                     alt={title}
                     width={200}
-                    height={200}
-                    className="rounded-full border-4 border-gray-300 transition-all duration-300"
+                    height={100}
+                    className=" border-4 border-gray-300 transition-all duration-300"
                 />
                 <div className="absolute inset-0 bg-blue-600 bg-opacity-50 rounded-full opacity-0 duration-300"></div>
             </div>
