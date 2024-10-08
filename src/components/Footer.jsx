@@ -148,7 +148,7 @@ const Footer = () => {
                     className="fixed bottom-6 right-6 bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 text-white rounded-full p-4 transition-all duration-300 transform hover:scale-110 hover:bg-gradient-to-l hover:from-red-500 hover:via-pink-500 hover:to-purple-500"
                     aria-label="Scroll to top"
                 >
-                    <IoIosArrowUp className="w-8 h-8" />
+                    <IoIosArrowUp className="w-6 h-6" />
                 </button>
             )}
 
