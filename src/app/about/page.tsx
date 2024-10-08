@@ -15,6 +15,13 @@ const experiences = [
         role: "Software Engineer Intern",
         company: "Hologo World",
         duration: "Sep 2024 - Present",
+        location: "Newark, Delaware (Remote)",
+        logo: hologoWorldLogo,
+    },
+    {
+        role: "Software Engineer Intern",
+        company: "Hologo World",
+        duration: "Sep 2024 - Present",
         logo: hologoWorldLogo,
     },
 ];
@@ -90,7 +97,7 @@ const AboutMe = () => {
         <section id="about" className="container mx-auto px-4 py-20 bg-[#14141F]">
             {/* About Me Section */}
             <motion.h1
-                className="text-5xl font-extrabold text-center mb-8 text-[#c3c3c0]"
+                className="text-5xl font-extrabold text-center mb-2 text-[#c3c3c0]"
                 variants={fadeInUp}
                 initial="hidden"
                 animate={controlsAbout}
@@ -101,7 +108,7 @@ const AboutMe = () => {
             </motion.h1>
 
             <motion.div
-                className="flex flex-col md:flex-row items-start md:items-center mb-12"
+                className="flex flex-col md:flex-row items-start md:items-center mb-6"
                 variants={staggerContainer}
                 initial="hidden"
                 animate={controlsAbout}
@@ -132,8 +139,11 @@ const AboutMe = () => {
                         My passion for technology started during my early days of coding, and it has grown into a career
                         where I can apply my knowledge to real-world challenges.
                     </motion.p>
-                    <motion.p className="text-xl text-[#c3c3c0] mb-4 text-justify" variants={fadeInUp}>
-                        As I progress in my career, I aspire to join dynamic teams where I can contribute to solving complex challenges in the tech industry. My objective is to harness my expertise in modern technologies and cybersecurity to create impactful and innovative solutions that meet the ever-evolving demands of the digital world.
+                    <motion.p className="text-xl text-[#c3c3c0] mb-2 text-justify" variants={fadeInUp}>
+                        As I progress in my career, I aspire to join dynamic teams where I can contribute to solving
+                        complex challenges in the tech industry. My objective is to harness my expertise in modern
+                        technologies and cybersecurity to create impactful and innovative solutions that meet the
+                        ever-evolving demands of the digital world.
                     </motion.p>
                 </motion.div>
             </motion.div>
@@ -148,32 +158,47 @@ const AboutMe = () => {
             >
                 Experience
             </motion.h2>
-            <motion.div className="flex flex-wrap justify-center gap-6 mb-8" variants={staggerContainer} initial="hidden" animate={controlsExperience}>
+
+            <motion.div
+                className="relative flex flex-col justify-center items-center space-y-8 mb-8"
+                variants={staggerContainer}
+                initial="hidden"
+                animate={controlsExperience}
+            >
                 {experiences.map((exp, index) => (
                     <motion.div
                         key={index}
-                        className="border border-[#6e6663] rounded-lg shadow-md p-6 flex items-center space-x-4 max-w-md bg-[#c3c3c0]"
+                        className="relative w-full max-w-lg bg-[#f4f4f2] border-l-4 border-[#3c4b54] p-6 rounded-lg shadow-lg hover:shadow-xl hover:bg-[#e8e8e6] transition-all duration-300 ease-in-out transform hover:-translate-y-1"
                         variants={fadeInUp}
                     >
-                        {/* Company Logo */}
-                        <div>
-                            <Image
-                                src={exp.logo}
-                                alt={`${exp.company} logo`}
-                                width={100}
-                                height={64}
-                                className="object-contain"
-                            />
-                        </div>
-                        {/* Experience Info */}
-                        <div>
-                            <h3 className="text-xl font-semibold text-[#071015]">{exp.role}</h3>
-                            <p className="text-[#071015]">{exp.company}</p>
-                            <p className="text-[#6e6663] font-bold">{exp.duration}</p>
+                        {/* Timeline Dot */}
+                        <div
+                            className="absolute -left-6 top-8 w-4 h-4 bg-[#3c4b54] rounded-full border-4 border-white"></div>
+
+                        {/* Experience Content */}
+                        <div className="flex items-start space-x-4">
+                            {/* Company Logo */}
+                            <div className="w-20">
+                                <Image
+                                    src={exp.logo}
+                                    alt={`${exp.company} logo`}
+                                    width={80}
+                                    height={50}
+                                    className="object-contain"
+                                />
+                            </div>
+                            {/* Experience Info */}
+                            <div className="flex-1">
+                                <h2 className="text-xl font-semibold text-[#071015]">{exp.role}</h2>
+                                <h3 className="text-black">{exp.company}</h3>
+                                <p className="text-black">{exp.location}</p>
+                                <p className="text-[#6e6663] font-bold">{exp.duration}</p>
+                            </div>
                         </div>
                     </motion.div>
                 ))}
             </motion.div>
+
 
             {/* Education Section */}
             <motion.h2
@@ -185,7 +210,8 @@ const AboutMe = () => {
             >
                 Education
             </motion.h2>
-            <motion.div className="flex flex-wrap justify-center gap-6 mb-8" variants={staggerContainer} initial="hidden" animate={controlsEducation}>
+            <motion.div className="flex flex-wrap justify-center gap-6 mb-8" variants={staggerContainer}
+                        initial="hidden" animate={controlsEducation}>
                 {education.map((edu, index) => (
                     <motion.div
                         key={index}
