@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import {useState, useEffect} from 'react';
+import {usePathname} from 'next/navigation';
 import Link from 'next/link';
-import { motion } from 'framer-motion'; // Importing Framer Motion
+import {motion} from 'framer-motion'; // Importing Framer Motion
 import '@/app/styles.css'; // Ensure this CSS file contains the .no-scroll class
 
 const Navbar = () => {
@@ -14,13 +14,13 @@ const Navbar = () => {
 
     // Framer motion variants for entry animations
     const navbarVariants = {
-        hidden: { opacity: 0, y: -50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeInOut' } },
+        hidden: {opacity: 0, y: -50},
+        visible: {opacity: 1, y: 0, transition: {duration: 0.6, ease: 'easeInOut'}},
     };
 
     const mobileMenuVariants = {
-        hidden: { opacity: 0, x: '100%' },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: 'easeInOut' } },
+        hidden: {opacity: 0, x: '100%'},
+        visible: {opacity: 1, x: 0, transition: {duration: 0.4, ease: 'easeInOut'}},
     };
 
     useEffect(() => {
@@ -77,7 +77,7 @@ const Navbar = () => {
                 {/* Logo/Brand Name */}
                 <div className="text-2xl font-bold text-[#c3c3c0]">
                     <Link href="/" className="hover:text-[#8f989b]">
-                        My Portfolio
+                        RD
                     </Link>
                 </div>
 
@@ -105,37 +105,38 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop View - Navigation Links */}
-                <div className="hidden lg:flex space-x-6 font-bold">
+                <div className="hidden lg:flex space-x-6 font-bold p-2">
                     {['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'].map((item) => (
                         <Link
                             href={`/#${item}`}
                             key={item}
-                            className={`relative inline-block overflow-hidden transition-all duration-300 ease-in-out ${
-                                activeSection === item || pathname === `/${item}` ? 'text-[#6b7b83]' : ''
-                            }`}
+                            className={`relative inline-block overflow-hidden transition-all duration-500 ease-in-out transform-gpu ${
+                                activeSection === item || pathname === `/${item}` ? 'text-[#6b7b83]' : 'hover:text-[#8f989b]'
+                            } hover:scale-105 hover:opacity-80`}
                         >
+      <span
+          className="relative transition-all duration-300 ease-in-out"
+      >
+        {item === 'hero' ? 'Home' : item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
+      </span>
+                            {/* Updated underline reveal animation */}
                             <span
-                                className="relative group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r from-[#6b7b83] to-[#8f989b] transition-colors duration-300"
-                            >
-                                {item === 'hero' ? 'Home' : item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
-                            </span>
-                            {/* Border reveal animation */}
-                            <span
-                                className="absolute bottom-0 left-0 h-[2px] w-full bg-[#6b7b83] translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out"
+                                className="absolute bottom-0 left-0 h-[2px] w-full bg-[#6b7b83] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-in-out"
                             />
                         </Link>
                     ))}
                 </div>
 
+
                 {/* Contact Button - Visible only on desktop */}
-                <div className="hidden lg:flex">
-                    <Link
-                        href="/#contact-me"
-                        className="bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 text-white rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-gradient-to-l hover:from-red-500 hover:via-pink-500 hover:to-purple-500 cursor-pointer px-4 py-2"
-                    >
-                        Contact Me
-                    </Link>
-                </div>
+                {/*<div className="hidden lg:flex">*/}
+                {/*    <Link*/}
+                {/*        href="/#contact-me"*/}
+                {/*        className="bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 text-white rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-gradient-to-l hover:from-red-500 hover:via-pink-500 hover:to-purple-500 cursor-pointer px-4 py-2"*/}
+                {/*    >*/}
+                {/*        Contact Me*/}
+                {/*    </Link>*/}
+                {/*</div>*/}
             </div>
 
             {/* Mobile Menu - Shown when mobile menu is open */}
