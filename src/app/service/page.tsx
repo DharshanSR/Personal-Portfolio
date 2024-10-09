@@ -36,7 +36,7 @@ const services = [
     {
         title: 'Cloud Services',
         description:
-            'Leveraging scalable cloud solutions to enhance data storage, processing, and application deployment. I help businesses migrate to the cloud, optimizing their infrastructure for flexibility and efficiency, ensuring they remain competitive in today’s fast-paced environment.',
+            'Leveraging scalable cloud solutions to enhance data storage, processing, and application deployment. I help businesses migrate to the cloud, optimizing their infrastructure for efficiency, ensuring they remain competitive in today’s fast-paced environment.',
         icon: cloudWork.src, // Extract the `src` property
         link: '/service/cloud-services',
     },
