@@ -159,7 +159,7 @@ const SkillsList: React.FC = () => {
                 </motion.h1>
 
                 <motion.h2
-                    className="text-3xl font-bold text-center mb-12 text-[#071015]"
+                    className="text-3xl font-bold text-center mb-12 text-purple-400"
                     initial={{ opacity: 0, y: -50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
