@@ -67,7 +67,7 @@ const ProjectsPage = () => {
     return (
         <section id="projects" className="container mx-auto px-4 py-20">
             <h1 className="text-5xl font-extrabold mb-4 text-center text-[#c4c6c4]">My Projects</h1>
-            <p className="text-xl font-medium text-center text-gray-500 mb-8">
+            <p className="text-xl text-center text-purple-400 font-bold mb-8">
                 Discover my projects in Full Stack Development, Mobile Development and Machine Learning.
             </p>
 
