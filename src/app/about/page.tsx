@@ -7,8 +7,8 @@ import hologoWorldLogo from '@/public/assests/images/hologoWorld.png';
 import westminsterLogo from '@/public/assests/images/westminster-logo.png';
 import esoftLogo from '@/public/assests/images/esoft-logo.jpg';
 import hinduCollegeLogo from '@/public/assests/images/hindu_college.jpeg';
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import {motion, useAnimation} from "framer-motion";
+import {useInView} from "react-intersection-observer";
 
 const experiences = [
     {
@@ -50,19 +50,19 @@ const education = [
 const AboutMe = () => {
     // Define simple animations
     const fadeInUp = {
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+        hidden: {opacity: 0, y: 50},
+        visible: {opacity: 1, y: 0, transition: {duration: 0.6}},
     };
 
     const staggerContainer = {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+        hidden: {opacity: 0},
+        visible: {opacity: 1, transition: {staggerChildren: 0.2}},
     };
 
     // Using useInView hook with no triggerOnce so animation happens on scroll up and down
-    const [aboutRef, aboutInView] = useInView({ threshold: 0.1 });
-    const [experienceRef, experienceInView] = useInView({ threshold: 0.1 });
-    const [educationRef, educationInView] = useInView({ threshold: 0.1 });
+    const [aboutRef, aboutInView] = useInView({threshold: 0.1});
+    const [experienceRef, experienceInView] = useInView({threshold: 0.1});
+    const [educationRef, educationInView] = useInView({threshold: 0.1});
 
     const controlsAbout = useAnimation();
     const controlsExperience = useAnimation();
@@ -129,28 +129,33 @@ const AboutMe = () => {
                 </motion.div>
 
                 {/* About Me Text */}
-                <motion.div className="md:w-[90%] p-4 md:p-8 font-medium" variants={staggerContainer}>
+                <motion.div className="w-full max-w-4xl p-4 md:p-8 font-medium" variants={staggerContainer}>
                     <motion.p className="text-xl text-[#c3c3c0] mb-4 text-justify" variants={fadeInUp}>
-                        I am a highly motivated software developer with a strong foundation in web and mobile app
-                        development. I thrive in fast-paced environments where I can leverage my problem-solving skills
-                        to create innovative solutions.
+                        I am Ravindran Dharshan, a driven Software Developer currently studying at the University of
+                        Westminster, London. With a diverse skill set in Full-Stack Development, Data Science, Machine
+                        Learning, and Cloud Computing, I bring a unique combination of technical expertise and
+                        problem-solving capabilities. I am highly organized, committed, and able to meet deadlines while
+                        executing specific roles with precision.
                     </motion.p>
                     <motion.p className="text-xl text-[#c3c3c0] mb-4 text-justify" variants={fadeInUp}>
-                        My passion for technology started during my early days of coding, and it has grown into a career
-                        where I can apply my knowledge to real-world challenges.
+                        My ability to communicate effectively with individuals across various disciplines, coupled with
+                        excellent organizational skills, allows me to thrive in team-based environments. My goal is to
+                        transition into a full-time role where I can leverage my broad technical knowledge to support
+                        business objectives and drive innovation.
                     </motion.p>
                     <motion.p className="text-xl text-[#c3c3c0] mb-2 text-justify" variants={fadeInUp}>
-                        As I progress in my career, I aspire to join dynamic teams where I can contribute to solving
-                        complex challenges in the tech industry. My objective is to harness my expertise in modern
-                        technologies and cybersecurity to create impactful and innovative solutions that meet the
-                        ever-evolving demands of the digital world.
+                        I am passionate about developing original solutions to complex problems, guided by an intuitive
+                        and optimistic approach. Whether working on algorithms, full-stack projects, or business-related
+                        challenges, I apply my problem-solving skills to deliver impactful results. Additionally, I am
+                        adept at quickly grasping new concepts and helping others grow through self-motivation, making
+                        me an effective leader in team settings.
                     </motion.p>
                 </motion.div>
             </motion.div>
 
             {/* Experience Section */}
             <motion.h2
-                className="text-3xl font-semibold text-center text-[#3c4b54] mb-10 mt-10"
+                className="text-3xl font-semibold text-center text-purple-400 mb-10 mt-10"
                 variants={fadeInUp}
                 initial="hidden"
                 animate={controlsExperience}
@@ -202,7 +207,7 @@ const AboutMe = () => {
 
             {/* Education Section */}
             <motion.h2
-                className="text-3xl font-semibold text-center text-[#3c4b54] mb-10 mt-10"
+                className="text-3xl font-semibold text-center text-purple-400 mb-10 mt-10"
                 variants={fadeInUp}
                 initial="hidden"
                 animate={controlsEducation}
