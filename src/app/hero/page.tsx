@@ -95,16 +95,16 @@ const Hero = () => {
                                 'Cybersecurity Enthusiast', 1500,
                                 'Open-Source Contributor', 1500,
                             ]}
-                            speed={30}
+                            speed={50}
                             cursor={true}
                             repeat={Infinity}
-                            deletionSpeed={20}
+                            deletionSpeed={50}
                             style={{display: 'inline-block'}}
                         />
                     </div>
 
                     <motion.p
-                        className="text-lg sm:text-xl md:text-lg mb-6 text-center md:text-left text-white"
+                        className="text-lg sm:text-xl md:text-lg mb-4 text-center md:text-left text-white"
                         initial={{opacity: 0, y: 50}}
                         animate={{opacity: 1, y: 0}}
                         transition={{duration: 1.2, delay: 0.5, ease: "easeOut"}}
@@ -115,7 +115,7 @@ const Hero = () => {
 
                     {/* Social Media Icons */}
                     <motion.div
-                        className="flex justify-center space-x-6 mt-6"
+                        className="flex justify-center space-x-6 mt-4"
                         variants={socialIconsVariants}
                         initial="hidden"
                         animate={controls}
