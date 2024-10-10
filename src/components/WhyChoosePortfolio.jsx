@@ -43,9 +43,9 @@ const WhyChoosePortfolio = ({ refProp, isInView }) => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
             transition={{ duration: 0.6 }}
-            className="container mx-auto text-center py-20 bg-gray-200"
+            className="container mx-auto text-center py-20 bg-[#14141F]"
         >
-            <h3 className="text-4xl font-bold mb-12 text-white">Why Choose My Portfolio?</h3>
+            <h3 className="text-4xl font-bold mb-12 text-black">Why Choose My Portfolio?</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {cardData.map((card, index) => (
