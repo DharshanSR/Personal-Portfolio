@@ -19,7 +19,6 @@ import YourSvgIcon6 from '@/public/assests/icons/nodejs-original.svg';
 import YourSvgIcon7 from '@/public/assests/icons/react-original.svg';
 import CallToAction from "@/components/CallToAction";
 import WhyChoosePortfolio from "@/components/WhyChoosePortfolio";
-import ExploreMore from "@/components/ExploreMore";
 
 const FullStackDevelopment = () => {
     // Create refs for in-view detection
@@ -35,7 +34,7 @@ const FullStackDevelopment = () => {
     const isWhyChooseInView = useInView(refWhyChoose);
 
     return (
-        <div className="min-h-screen bg-gray-200">
+        <div className="min-h-screen bg-[#14141F]">
             {/* Navbar */}
             <div className="p-9 sticky top-0 z-50">
                 <Navbar/>
@@ -92,7 +91,7 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isOverviewInView ? 1 : 0, y: isOverviewInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-gray-200 container"
+                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-[#14141F] container"
             >
                 {/* First Section */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-10 mb-10">
@@ -106,8 +105,8 @@ const FullStackDevelopment = () => {
                         />
                     </div>
                     <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-gray-900">What is UI/UX Design?</h3>
-                        <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                        <h3 className="text-3xl font-bold mb-4 text-pink-500">What is UI/UX Design?</h3>
+                        <p className="text-gray-200 text-lg mb-6 leading-relaxed text-justify">
                             UI/UX Design is the process of enhancing user satisfaction by improving the usability,
                             accessibility,
                             and pleasure provided in the interaction between the user and the product. I specialize in
@@ -122,8 +121,8 @@ const FullStackDevelopment = () => {
                 {/* Why Choose UI/UX Design Section */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-10 md:mt-12">
                     <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-gray-900">Why Choose UI/UX Design?</h3>
-                        <p className="text-gray-700 text-lg leading-relaxed">
+                        <h3 className="text-3xl font-bold mb-4 text-pink-500">Why Choose UI/UX Design?</h3>
+                        <p className="text-gray-200 text-lg leading-relaxed text-justify">
                             In a competitive digital landscape, effective UI/UX design is essential for creating
                             memorable
                             user experiences. My expertise allows businesses to connect with their audience through
@@ -151,10 +150,10 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isTechnologiesInView ? 1 : 0, y: isTechnologiesInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="bg-white text-black py-20 mt-10 mb-10"
+                className="bg-[#14141F] text-black py-20 mt-10 mb-10"
             >
-                <h3 className="text-center text-4xl font-bold mb-4">Where I Apply My UI/UX Design Skills</h3>
-                <p className="text-center max-w-6xl mx-auto mb-12">
+                <h3 className="text-center text-4xl font-bold mb-4 text-pink-500">Where I Apply My UI/UX Design Skills</h3>
+                <p className="text-center max-w-6xl mx-auto mb-12 text-white" style={{ lineHeight: "1.8" }}>
                     I leverage various technologies to enhance my UI/UX design process. Utilizing tools like Figma and
                     Adobe XD
                     allows me to create intuitive and visually appealing interfaces. I also employ usability testing
@@ -187,7 +186,7 @@ const FullStackDevelopment = () => {
 
             <CallToAction/>
             {/* Footer */}
-            <DownFooter/>
+            <DownFooter arrowBgColor="#D53F8C" />
         </div>
     );
 };
