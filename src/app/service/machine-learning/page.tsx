@@ -13,13 +13,11 @@ import {
 } from 'react-icons/fa';
 import { SiTensorflow, SiPytorch, SiScikitlearn, SiKaggle, SiNumpy, SiPandas } from 'react-icons/si';// SVG Icons Import
 
-import YourSvgIcon1 from '@/public/assests/icons/react-original.svg';
-import YourSvgIcon2 from '@/public/assests/icons/nodejs-original.svg';
-import YourSvgIcon3 from '@/public/assests/icons/react-original.svg';
-import YourSvgIcon4 from '@/public/assests/icons/nodejs-original.svg';
-import YourSvgIcon5 from '@/public/assests/icons/react-original.svg';
-import YourSvgIcon6 from '@/public/assests/icons/nodejs-original.svg';
-import YourSvgIcon7 from '@/public/assests/icons/react-original.svg';
+import rIcon from '@/public/assests/icons/r-original.svg';
+import pythonIcon from '@/public/assests/icons/python-original.svg';
+import pytrouchIcon from '@/public/assests/icons/PyTorch.svg';
+import tenserflowIcon from "@/public/assests/icons/Tensorflow_logo.svg";
+
 import CallToAction from "@/components/CallToAction";
 import WhyChoosePortfolio from "@/components/WhyChoosePortfolio";
 
@@ -37,7 +35,7 @@ const FullStackDevelopment = () => {
     const isWhyChooseInView = useInView(refWhyChoose);
 
     return (
-        <div className="min-h-screen bg-gray-200">
+        <div className="min-h-screen bg-[#14141F]">
             {/* Navbar */}
             <div className="p-9 sticky top-0 z-50">
                 <Navbar/>
@@ -114,7 +112,7 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isOverviewInView ? 1 : 0, y: isOverviewInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-gray-200 container"
+                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-[#14141F] container"
             >
                 {/* First Section */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-10 mb-10">
@@ -128,8 +126,8 @@ const FullStackDevelopment = () => {
                         />
                     </div>
                     <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-gray-900">What is Machine Learning?</h3>
-                        <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                        <h3 className="text-3xl font-bold mb-4 text-orange-500">What is Machine Learning?</h3>
+                        <p className="text-gray-200 text-lg mb-6 leading-relaxed text-justify">
                             Machine Learning is a branch of artificial intelligence that focuses on developing algorithms that enable systems to learn from and make decisions based on data. By employing techniques such as supervised learning, unsupervised learning, and reinforcement learning, I create models that analyze patterns and predict outcomes, driving data-driven decision-making in various domains.
                         </p>
                     </div>
@@ -138,8 +136,8 @@ const FullStackDevelopment = () => {
                 {/* Second Section */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-10 md:mt-12">
                     <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-gray-900">Why Choose Machine Learning?</h3>
-                        <p className="text-gray-700 text-lg leading-relaxed">
+                        <h3 className="text-3xl font-bold mb-4 text-orange-500">Why Choose Machine Learning?</h3>
+                        <p className="text-gray-200 text-lg leading-relaxed text-justify">
                             In the age of big data, leveraging machine learning is essential for gaining insights and improving processes. With my expertise, I build predictive models that enhance operational efficiency, automate tasks, and personalize user experiences. My approach is grounded in continuous learning and adaptation, ensuring that solutions remain relevant and effective in dynamic environments.
                         </p>
                     </div>
@@ -162,21 +160,19 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isTechnologiesInView ? 1 : 0, y: isTechnologiesInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="bg-white text-black py-20 mt-10 mb-10"
+                className="bg-[#14141F] text-black py-20 mt-10 mb-10"
             >
-                <h3 className="text-center text-4xl font-bold mb-4">Technologies I Use in Machine Learning</h3>
-                <p className="text-center max-w-6xl mx-auto mb-12">
+                <h3 className="text-center text-4xl font-bold mb-4 text-orange-500">Technologies I Use in Machine Learning</h3>
+                <p className="text-center max-w-6xl mx-auto mb-12 text-white" style={{ lineHeight: "1.8" }}>
                     I utilize a variety of powerful tools and frameworks to build machine learning models and applications. Leveraging libraries such as TensorFlow and PyTorch for deep learning, alongside Scikit-learn for traditional machine learning algorithms, I create robust predictive models. Additionally, I incorporate data manipulation tools like Pandas and NumPy to preprocess and analyze data effectively, ensuring that the solutions I develop are data-driven and scalable.
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-                    <Image src={YourSvgIcon1} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon2} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon3} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon4} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon5} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon6} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon7} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110" />
+                    <Image src={rIcon} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={pythonIcon} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={pytrouchIcon} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={tenserflowIcon} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+
                 </div>
             </motion.section>
 
@@ -184,7 +180,7 @@ const FullStackDevelopment = () => {
 
             <CallToAction />
             {/* Footer */}
-            <DownFooter/>
+            <DownFooter arrowBgColor="#ED8936" />
         </div>
     );
 };
