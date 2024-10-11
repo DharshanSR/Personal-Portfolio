@@ -35,7 +35,7 @@ const FullStackDevelopment = () => {
     const isWhyChooseInView = useInView(refWhyChoose);
 
     return (
-        <div className="min-h-screen bg-gray-200">
+        <div className="min-h-screen bg-[#14141F]">
             {/* Navbar */}
             <div className="p-9 sticky top-0 z-50">
                 <Navbar/>
@@ -47,7 +47,7 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: -50}}
                 animate={{opacity: isHeroInView ? 1 : 0, y: isHeroInView ? 0 : -50}}
                 transition={{duration: 0.6}}
-                className="relative bg-gradient-to-r from-green-400 to-green-600 text-white py-20 text-center h-[90vh] flex flex-col justify-center items-center overflow-hidden"
+                className="relative bg-gradient-to-r from-green-400 to-green-800 text-white py-20 text-center h-[90vh] flex flex-col justify-center items-center overflow-hidden"
             >
                 {/* Shapes */}
                 <div className="absolute top-10 left-10 w-24 h-24 bg-white opacity-20 rounded-full"></div>
@@ -96,7 +96,7 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isOverviewInView ? 1 : 0, y: isOverviewInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-gray-200 container"
+                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-[#14141F] container"
             >
                 {/* First Section */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-10 mb-10">
@@ -110,8 +110,8 @@ const FullStackDevelopment = () => {
                         />
                     </div>
                     <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-gray-900">What is Mobile App Development?</h3>
-                        <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                        <h3 className="text-3xl font-bold mb-4 text-green-500">What is Mobile App Development?</h3>
+                        <p className="text-gray-200 text-lg mb-6 leading-relaxed text-justify">
                             Mobile app development involves creating software applications that run on mobile devices,
                             offering users a seamless experience. I specialize in building native and cross-platform apps
                             that cater to various business needs, ensuring functionality and performance across all devices.
@@ -122,8 +122,8 @@ const FullStackDevelopment = () => {
                 {/* Why Choose Mobile App Development Section */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-10 md:mt-12">
                     <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-gray-900">Why Choose Mobile App Development?</h3>
-                        <p className="text-gray-700 text-lg leading-relaxed">
+                        <h3 className="text-3xl font-bold mb-4 text-green-500">Why Choose Mobile App Development?</h3>
+                        <p className="text-gray-200 text-lg leading-relaxed text-justify">
                             In a mobile-driven world, having a strong mobile presence is essential for engaging customers
                             and enhancing brand loyalty. My expertise in mobile app development helps businesses reach
                             a wider audience while delivering exceptional user experiences. I focus on integrating user
@@ -148,10 +148,10 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isTechnologiesInView ? 1 : 0, y: isTechnologiesInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="bg-white text-black py-20 mt-10 mb-10"
+                className="bg-[#14141F] text-black py-20 mt-10 mb-10"
             >
-                <h3 className="text-center text-4xl font-bold mb-4">Technologies I Use in Mobile App Development</h3>
-                <p className="text-center max-w-6xl mx-auto mb-12">
+                <h3 className="text-center text-4xl font-bold mb-4 text-green-500">Technologies I Use in Mobile App Development</h3>
+                <p className="text-center max-w-6xl mx-auto mb-12 text-white" style={{ lineHeight: "1.8" }}>
                     I utilize a variety of cutting-edge technologies to create high-quality mobile applications.
                     Leveraging frameworks like React Native and Flutter allows me to develop cross-platform apps that
                     deliver seamless user experiences on both iOS and Android. Additionally, I incorporate tools like
@@ -181,7 +181,7 @@ const FullStackDevelopment = () => {
             <WhyChoosePortfolio refProp={refWhyChoose} isInView={isWhyChooseInView}/>
             <CallToAction/>
             {/* Footer */}
-            <DownFooter/>
+            <DownFooter arrowBgColor="#38A169" />
         </div>
     );
 };
