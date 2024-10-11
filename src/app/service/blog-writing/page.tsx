@@ -35,7 +35,7 @@ const FullStackDevelopment = () => {
     const isWhyChooseInView = useInView(refWhyChoose);
 
     return (
-        <div className="min-h-screen bg-gray-200">
+        <div className="min-h-screen bg-[#14141F]">
             {/* Navbar */}
             <div className="p-9 sticky top-0 z-50">
                 <Navbar/>
@@ -85,7 +85,7 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isOverviewInView ? 1 : 0, y: isOverviewInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-gray-200 container"
+                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-[#14141F] container"
             >
                 {/* First Section */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-10 mb-10">
@@ -99,8 +99,8 @@ const FullStackDevelopment = () => {
                         />
                     </div>
                     <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-gray-900">What is Blog and Article Writing?</h3>
-                        <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                        <h3 className="text-3xl font-bold mb-4 text-cyan-500">What is Blog and Article Writing?</h3>
+                        <p className="text-gray-200 text-lg mb-6 leading-relaxed text-justify">
                             Blog and article writing involves creating engaging and informative content for online
                             platforms,
                             tailored to attract and retain readers. I specialize in crafting articles that resonate with
@@ -115,8 +115,8 @@ const FullStackDevelopment = () => {
                 {/* Why Choose Blog and Article Writing Section */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-10 md:mt-12">
                     <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-gray-900">Why Choose Blog and Article Writing?</h3>
-                        <p className="text-gray-700 text-lg leading-relaxed">
+                        <h3 className="text-3xl font-bold mb-4 text-cyan-500">Why Choose Blog and Article Writing?</h3>
+                        <p className="text-gray-200 text-lg leading-relaxed text-justify">
                             In today's digital landscape, quality content is crucial for building brand authority and
                             driving
                             engagement. My expertise in blog and article writing allows businesses to connect with their
@@ -145,15 +145,14 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isTechnologiesInView ? 1 : 0, y: isTechnologiesInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="bg-white text-black py-20 mt-10 mb-10"
+                className="bg-[#14141F] text-black py-20 mt-10 mb-10"
             >
-                <h3 className="text-center text-4xl font-bold mb-4">Where I am Writing Blog and Article</h3>
-                <p className="text-center max-w-6xl mx-auto mb-12">
+                <h3 className="text-center text-4xl font-bold mb-4 text-cyan-500">Where I am Writing Blog and Article</h3>
+                <p className="text-center max-w-6xl mx-auto mb-12 text-white" style={{lineHeight: "1.8"}}>
                     I leverage various technologies to enhance my blog and article writing process. Utilizing platforms like
                     Medium and WordPress allows me to publish engaging content effectively. I also employ SEO tools to optimize
                     my articles for better visibility and reach. My writing process is supported by collaboration tools like
-                    Google Docs and Notion, ensuring efficient brainstorming and feedback. Furthermore, I use analytics
-                    platforms to track engagement and refine my content strategy based on audience insights.
+                    Google Docs and Notion, ensuring efficient brainstorming and feedback.
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
@@ -180,7 +179,7 @@ const FullStackDevelopment = () => {
 
             <CallToAction/>
             {/* Footer */}
-            <DownFooter/>
+            <DownFooter arrowBgColor="#00B5D8" />
         </div>
     );
 };
