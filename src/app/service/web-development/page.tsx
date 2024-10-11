@@ -9,13 +9,15 @@ import Navbar from "@/components/Navbar";
 import DownFooter from "@/components/DownFooter";
 import { FaReact, FaNodeJs, FaPython, FaHtml5, FaCss3Alt, FaJava, FaGithub, FaDocker } from 'react-icons/fa';
 // SVG Icons Import
-import YourSvgIcon1 from '@/public/assests/icons/react-original.svg';
-import YourSvgIcon2 from '@/public/assests/icons/nodejs-original.svg';
-import YourSvgIcon3 from '@/public/assests/icons/react-original.svg';
-import YourSvgIcon4 from '@/public/assests/icons/nodejs-original.svg';
-import YourSvgIcon5 from '@/public/assests/icons/react-original.svg';
-import YourSvgIcon6 from '@/public/assests/icons/nodejs-original.svg';
-import YourSvgIcon7 from '@/public/assests/icons/react-original.svg';
+import ReactIcon from '@/public/assests/icons/react-original.svg';
+import TypeScriptIcon from '@/public/assests/icons/typescript-original.svg';
+import NextJsIcon from '@/public/assests/icons/nextjs-original.svg';
+import TailwindCssIcon from '@/public/assests/icons/tailwindcss-original.svg';
+import Laravel from '@/public/assests/icons/laravel-2.svg';
+import Threejs from '@/public/assests/icons/Threejs-logo.svg';
+import ExpressIcon from '@/public/assests/icons/express-original.svg';
+import PHPIcon from '@/public/assests/icons/PHP.png';
+
 import CallToAction from "@/components/CallToAction";
 import WhyChoosePortfolio from "@/components/WhyChoosePortfolio";
 
@@ -33,7 +35,7 @@ const FullStackDevelopment = () => {
     const isWhyChooseInView = useInView(refWhyChoose);
 
     return (
-        <div className="min-h-screen bg-gray-200">
+        <div className="min-h-screen bg-[#14141F]">
             {/* Navbar */}
             <div className="p-9 sticky top-0 z-50">
                 <Navbar/>
@@ -103,7 +105,7 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isOverviewInView ? 1 : 0, y: isOverviewInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-gray-200 container"
+                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-[#14141F] container"
             >
                 {/* First Section */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-10 mb-10">
@@ -117,8 +119,8 @@ const FullStackDevelopment = () => {
                         />
                     </div>
                     <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-gray-900">What is Full Stack Development?</h3>
-                        <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                        <h3 className="text-3xl font-bold mb-4 text-purple-400">What is Full Stack Development?</h3>
+                        <p className="text-gray-200 text-lg mb-6 leading-relaxed text-justify">
                             Full Stack Development involves building both front-end and back-end components of a web
                             application, ensuring seamless user experiences and robust server-side functionality. I
                             utilize
@@ -132,8 +134,8 @@ const FullStackDevelopment = () => {
                 {/* Second Section */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-10 md:mt-12">
                     <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-gray-900">Why Choose Full Stack Development?</h3>
-                        <p className="text-gray-700 text-lg leading-relaxed">
+                        <h3 className="text-3xl font-bold mb-4 text-purple-400">Why Choose Full Stack Development?</h3>
+                        <p className="text-gray-200 text-lg leading-relaxed text-justify">
                             In today's fast-paced digital landscape, having a strong full stack development foundation
                             is crucial for delivering versatile solutions. By mastering both client-side and server-side
                             technologies,
@@ -162,22 +164,23 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isTechnologiesInView ? 1 : 0, y: isTechnologiesInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="bg-white text-black py-20 mt-10 mb-10"
+                className="bg-[#14141F] text-black py-20 mt-10 mb-10"
             >
-                <h3 className="text-center text-4xl font-bold mb-4">Technologies I Work With</h3>
-                <p className="text-center max-w-4xl mx-auto mb-12">
-                    We leverage cutting-edge frameworks like React.js and Angular.js, combined with robust back-end
-                    solutions such as Node.js and Django, to develop dynamic and user-centric web applications that
+                <h3 className="text-center text-4xl font-bold mb-4 text-purple-400">Technologies I Work With</h3>
+                <p className="text-center max-w-4xl mx-auto mb-12 font-light text-white" style={{ lineHeight: "1.8" }}>
+                    We leverage cutting-edge frameworks like React.js and Next js, combined with robust back-end
+                    solutions such as Node.js, Express and Laravel etc, to develop dynamic and user-centric web applications that
                     deliver exceptional performance and seamless user experiences.
                 </p>
                 <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-                    <Image src={YourSvgIcon1} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon2} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon3} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon4} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon5} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon6} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={YourSvgIcon7} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={ReactIcon} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={TypeScriptIcon} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={NextJsIcon} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={TailwindCssIcon} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={Laravel} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={ Threejs} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={ExpressIcon} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={PHPIcon} alt="React Icon" width={80} height={80} className="transition-transform duration-300 hover:scale-110"/>
                 </div>
             </motion.section>
 
@@ -186,7 +189,7 @@ const FullStackDevelopment = () => {
             <CallToAction />
 
             {/* Footer */}
-            <DownFooter/>
+            <DownFooter arrowBgColor="#6B46C1" />
         </div>
     );
 };
