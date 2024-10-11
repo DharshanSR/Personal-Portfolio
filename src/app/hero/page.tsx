@@ -5,7 +5,7 @@ import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { FaDownload, FaGithub, FaLinkedin, FaMedium, FaInstagram } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
-import profileImage from "@/public/assests/images/Graduate-Men.png";
+import profileImage from "@/public/assests/images/image (1).png";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -67,7 +67,7 @@ const Hero = () => {
         <section
             id="hero"
             ref={ref}
-            className="relative h-screen bg-[#14141F] text-[#c3c3c0] flex flex-col items-center justify-center py-20"
+            className="relative h-screen bg-[#14141F] text-[#fff] flex flex-col items-center justify-center py-20"
         >
             <div className="relative container mx-auto px-4 sm:px-6 py-12 md:py-20 flex flex-col items-center md:flex-row md:items-center md:justify-between">
                 {/* Text Content */}
@@ -86,7 +86,7 @@ const Hero = () => {
                         <span className="block text-5xl sm:text-6xl md:text-6xl text-[#fff]">Ravindran Dharshan</span>
                     </motion.h1>
 
-                    <div className="text-3xl sm:text-4xl md:text-4xl font-bold mb-6 text-green-500">
+                    <div className="text-3xl sm:text-4xl md:text-4xl font-bold mb-6 text-purple-400">
                         <TypeAnimation
                             sequence={[
                                 'Software Developer', 1500,
@@ -182,14 +182,14 @@ const Hero = () => {
                     initial="hidden"
                     animate={controls}
                 >
-                    <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80">
+                    <div className="relative">
                         <Image
+                            className="bg-transparent"
                             src={profileImage}
                             alt="Profile of Ravindran Dharshan"
-                            layout="fill"
-                            objectFit="cover"
+                            width={800}
+                            height={600}
                             quality={100} // Ensures high image quality
-                            className="rounded-full shadow-lg"
                             priority
                         />
                     </div>
