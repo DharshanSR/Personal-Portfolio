@@ -30,7 +30,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, lin
             <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                 {title}
             </h2>
-            <p className="text-gray-600 group-hover:text-gray-400 transition-colors duration-300">
+            <p className="text-cyan-600 group-hover:text-gray-400 transition-colors duration-300">
                 {description}
             </p>
 

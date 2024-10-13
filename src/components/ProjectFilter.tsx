@@ -26,9 +26,9 @@ const ProjectFilter = ({ categories, onFilterChange }: FilterProps) => {
                     <motion.button
                         key={category}
                         onClick={() => handleChange(category)}
-                        className={`p-2 border rounded transition-colors duration-300 
+                        className={`p-2 border rounded transition-colors duration-300 font-bold
                     ${selectedCategory === category ? 'bg-gradient-to-r from-blue-500 via-pink-500 to-red-500' : 'bg-white'} 
-                    text-gray-800 hover:text-white hover:bg-blue-600`}
+                    text-gray-800 hover:text-white hover:bg-purple-600`}
                         whileHover={{scale: 1.05}}
                         whileTap={{scale: 0.95}}
                         initial={{opacity: 0, y: 20}}

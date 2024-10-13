@@ -18,7 +18,7 @@ const cardVariants = {
 const ProjectCard = ({ id, title, description, image }: ProjectCardProps) => {
     return (
         <motion.div
-            className="border rounded-lg overflow-hidden shadow-lg bg-[#c3c3c0] transition-transform transform cursor-pointer"
+            className="border rounded-lg overflow-hidden shadow-lg bg-white transition-transform transform cursor-pointer" style={{lineHeight: "1.6"}}
             variants={cardVariants} // Apply card-level animation
             initial="hidden"
             whileInView="visible"
@@ -47,7 +47,7 @@ const ProjectCard = ({ id, title, description, image }: ProjectCardProps) => {
                             transition: { duration: 0.3 },
                         }} // Smooth hover animation
                         whileTap={{ scale: 0.50 }} // Tap animation for button click
-                        className="bg-[#3c4b54] text-white py-2 px-4 rounded transition cursor-pointer"
+                        className="bg-[#3c4b54] text-white py-2 px-4 rounded transition cursor-pointer border-l-8 border-purple-500"
                     >
                         Read More
                     </motion.button>

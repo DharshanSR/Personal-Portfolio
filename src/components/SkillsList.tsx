@@ -149,7 +149,7 @@ const SkillsList: React.FC = () => {
             <div className="container mx-auto px-4">
                 {/* Heading */}
                 <motion.h1
-                    className="text-5xl font-extrabold mb-6 text-center text-[#c3c3c0]"
+                    className="text-5xl font-extrabold mb-6 text-center text-white"
                     initial={{ opacity: 0, y: -50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -179,12 +179,12 @@ const SkillsList: React.FC = () => {
                     {Object.keys(skills).map((category) => (
                         <motion.div
                             key={category}
-                            className="bg-[#c3c3c0] p-6 rounded-lg shadow-md hover:shadow-lg transform transition-transform hover:scale-105"
+                            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transform transition-transform hover:scale-105"
                             whileHover={{ scale: 1.05 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                         >
-                            <h3 className="text-xl font-semibold mb-4 text-[#071015]">{category}</h3>
+                            <h3 className="text-xl font-semibold mb-4 text-[#071015]" style={{lineHeight: "1.6"}}>{category}</h3>
                             <div className="grid grid-cols-3 gap-4 cursor-pointer">
                                 {skills[category as keyof typeof skills].map((skill) => (
                                     <motion.div
@@ -194,7 +194,7 @@ const SkillsList: React.FC = () => {
                                         whileHover={{ scale: 1.1 }}
                                     >
                                         <Image src={skill.icon} alt={skill.name} width={50} height={50} />
-                                        <span className="mt-2 text-sm text-[#868b94] font-semibold">{skill.name}</span>
+                                        <span className="mt-2 text-sm text-cyan-600 font-semibold" style={{lineHeight: "1.6"}}>{skill.name}</span>
                                     </motion.div>
                                 ))}
                             </div>
