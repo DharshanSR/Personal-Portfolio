@@ -1,13 +1,13 @@
 'use client';
 
-import {useState} from 'react';
-import {useForm, SubmitHandler} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
+import { useState } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import {FaLinkedin, FaGithub, FaTwitter, FaEnvelope} from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import Modal from '@/components/ContactModal';
 import AutoCloseModal from "@/components/AutoCloseModal";
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import contactImage from "@/public/assests/images/contactme.png";
 
@@ -59,7 +59,7 @@ const ContactForm: React.FC = () => {
         register,
         handleSubmit,
         reset,
-        formState: {errors},
+        formState: { errors },
     } = useForm<IFormInput>({
         resolver: yupResolver(schema),
     });
@@ -123,8 +123,8 @@ const ContactForm: React.FC = () => {
 
     // Define motion variants for hover and animation
     const socialIconVariants = {
-        hover: {scale: 1.2, rotate: 15, transition: {type: 'spring', stiffness: 300}},
-        rest: {scale: 1, rotate: 0},
+        hover: { scale: 1.2, rotate: 15, transition: { type: 'spring', stiffness: 300 } },
+        rest: { scale: 1, rotate: 0 },
     };
 
     return (
@@ -133,9 +133,9 @@ const ContactForm: React.FC = () => {
                 <motion.h2
                     id="contact-me"
                     className="text-4xl md:text-5xl text-center font-extrabold text-white mb-12 mt-12"
-                    initial={{opacity: 0, y: -20}}
-                    animate={{opacity: 1, y: 0}}
-                    transition={{duration: 0.5}}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
                 >
                     Contact Me
                 </motion.h2>
@@ -144,17 +144,17 @@ const ContactForm: React.FC = () => {
                     {/* Information Section */}
                     <motion.div
                         className="md:w-1/2 bg-purple-700 text-white p-8 flex flex-col justify-center"
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        transition={{duration: 1}}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1 }}
                     >
                         {/* Image Section */}
                         <div className="flex flex-col md:flex-row space-x-4 mb-6">
                             <motion.div
-                                initial={{opacity: 0, scale: 0.9}}
-                                animate={{opacity: 1, scale: 1}}
-                                transition={{duration: 0.5}}
-                                whileHover={{scale: 1.05}} // Added hover zoom effect
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.5 }}
+                                whileHover={{ scale: 1.05 }} // Added hover zoom effect
                             >
                                 <div className="relative">
                                     <Image
@@ -172,7 +172,7 @@ const ContactForm: React.FC = () => {
 
                         </div>
 
-                        <h3 className="text-4xl font-extrabold mb-4 text-center">Reach Out to Me</h3>
+                        <h3 className="text-4xl font-extrabold mb-4 text-center">Get In Touch</h3>
                         <p className="mb-6 text-lg leading-loose">
                             I’m eager to collaborate on forward-thinking projects. Whether you have a big idea or simply want to connect, let's team up and create something impactful! Together, we can push boundaries and bring innovative visions to life.
                         </p>
@@ -190,7 +190,7 @@ const ContactForm: React.FC = () => {
                                 whileHover="hover"
                                 initial="rest"
                             >
-                                <FaLinkedin className="text-white hover:text-[#0077B5]"/>
+                                <FaLinkedin className="text-white hover:text-[#0077B5]" />
                             </motion.a>
                             <motion.a
                                 href="https://github.com/yourprofile"
@@ -202,7 +202,7 @@ const ContactForm: React.FC = () => {
                                 whileHover="hover"
                                 initial="rest"
                             >
-                                <FaGithub className="text-white hover:text-[#333]"/>
+                                <FaGithub className="text-white hover:text-[#333]" />
                             </motion.a>
                             <motion.a
                                 href="https://twitter.com/yourprofile"
@@ -214,7 +214,7 @@ const ContactForm: React.FC = () => {
                                 whileHover="hover"
                                 initial="rest"
                             >
-                                <FaTwitter className="text-white hover:text-[#1DA1F2]"/>
+                                <FaTwitter className="text-white hover:text-[#1DA1F2]" />
                             </motion.a>
                             <motion.a
                                 href="mailto:youremail@example.com"
@@ -224,7 +224,7 @@ const ContactForm: React.FC = () => {
                                 whileHover="hover"
                                 initial="rest"
                             >
-                                <FaEnvelope className="text-white hover:text-[#D14836]"/>
+                                <FaEnvelope className="text-white hover:text-[#D14836]" />
                             </motion.a>
                         </div>
                     </motion.div>
@@ -241,7 +241,7 @@ const ContactForm: React.FC = () => {
                                         id="firstName"
                                         placeholder="John"
                                         {...register('firstName')}
-                                        className={`mt-2 p-3 block w-full border text-black ${errors.firstName ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                                        className={` border-l-8 border-purple-500 mt-2 p-3 block w-full border text-black ${errors.firstName ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
                                         aria-invalid={errors.firstName ? 'true' : 'false'}
                                         aria-describedby="firstName-error"
                                     />
@@ -259,7 +259,7 @@ const ContactForm: React.FC = () => {
                                         id="lastName"
                                         placeholder="Doe"
                                         {...register('lastName')}
-                                        className={`mt-2 p-3 block w-full border text-black ${errors.lastName ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                                        className={`border-l-8 border-purple-500 mt-2 p-3 block w-full border text-black ${errors.lastName ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
                                         aria-invalid={errors.lastName ? 'true' : 'false'}
                                         aria-describedby="lastName-error"
                                     />
@@ -277,7 +277,7 @@ const ContactForm: React.FC = () => {
                                     id="email"
                                     placeholder="john.doe@example.com"
                                     {...register('email')}
-                                    className={`mt-2 p-3 block w-full border text-black ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                                    className={` border-l-8 border-purple-500 mt-2 p-3 block w-full border text-black ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
                                     aria-invalid={errors.email ? 'true' : 'false'}
                                     aria-describedby="email-error"
                                 />
@@ -289,13 +289,13 @@ const ContactForm: React.FC = () => {
                             </div>
                             <div>
                                 <label htmlFor="mobile"
-                                       className="block text-sm font-bold text-gray-200">Mobile</label>
+                                    className="block text-sm font-bold text-gray-200">Mobile</label>
                                 <input
                                     type="tel"
                                     id="mobile"
                                     placeholder="+1234567890"
                                     {...register('mobile')}
-                                    className={`mt-2 p-3 block w-full border text-black ${errors.mobile ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                                    className={`border-l-8 border-purple-500 mt-2 p-3 block w-full border text-black ${errors.mobile ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
                                     aria-invalid={errors.mobile ? 'true' : 'false'}
                                     aria-describedby="mobile-error"
                                 />
@@ -307,12 +307,12 @@ const ContactForm: React.FC = () => {
                             </div>
                             <div>
                                 <label htmlFor="message"
-                                       className="block text-sm font-bold text-gray-200">Message</label>
+                                    className="block text-sm font-bold text-gray-200">Message</label>
                                 <textarea
                                     id="message"
                                     placeholder="Your message..."
                                     {...register('message')}
-                                    className={`mt-2 p-3 block w-full border text-black ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                                    className={` border-l-8 border-purple-500 mt-2 p-3 block w-full border text-black ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500`}
                                     aria-invalid={errors.message ? 'true' : 'false'}
                                     aria-describedby="message-error"
                                     rows={5}
