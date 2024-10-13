@@ -45,13 +45,13 @@ const WhyChoosePortfolio = ({ refProp, isInView }) => {
             transition={{ duration: 0.6 }}
             className="container mx-auto text-center py-20 bg-[#14141F]"
         >
-            <h3 className="text-4xl font-bold mb-12 text-black">Why Choose My Portfolio?</h3>
+            <h3 className="text-4xl font-bold mb-12 text-white">Why Choose My Portfolio?</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {cardData.map((card, index) => (
                     <motion.div
                         key={index}
-                        className="relative p-8 rounded-xl shadow-lg transition-transform transform hover:scale-105 bg-white bg-opacity-70 backdrop-blur-lg"
+                        className="border-l-8 border-purple-500 relative p-8 rounded-xl shadow-lg transition-transform transform hover:scale-105 bg-white bg-opacity-70 backdrop-blur-lg"
                         whileHover={{ scale: 1.08 }}
                         whileTap={{ scale: 0.95 }}
                     >
