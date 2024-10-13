@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { projects } from '@/data/projects';
 import { notFound } from 'next/navigation';
 import { useRouter } from 'next/navigation';
@@ -8,7 +8,6 @@ import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { techIcons } from "@/data/techIcons";
-import { FiArrowUp } from 'react-icons/fi'; // Import the up arrow icon
 import { FaGithub, FaLink } from "react-icons/fa6";
 import DownFooter from "@/components/DownFooter";
 
@@ -22,29 +21,6 @@ const fadeInUp = {
 const ProjectDetailsPage = ({ params }) => {
     const router = useRouter();
     const project = projects.find((proj) => proj.id === params.projectId);
-
-    const [showArrow, setShowArrow] = useState(false); // State to track arrow visibility
-
-    // Scroll event listener
-    useEffect(() => {
-        const handleScroll = () => {
-            setShowArrow(window.scrollY > 100); // Show arrow after 100px scroll
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    // Function to scroll to the top
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth', // Smooth scrolling effect
-        });
-    };
 
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
@@ -61,13 +37,13 @@ const ProjectDetailsPage = ({ params }) => {
             <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
                 {/* Back to Projects Button */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                    initial={{opacity: 0, scale: 0.8}}
+                    animate={{opacity: 1, scale: 1}}
+                    transition={{duration: 0.6, ease: 'easeOut'}}
                 >
                     <Button
                         onClick={() => router.push('/#projects')}
-                        className="mb-10 mt-4 bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 text-white py-2 px-4 rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-gradient-to-l hover:from-red-500 hover:via-pink-500 hover:to-purple-500 cursor-pointer"
+                        className="mb-10 mt-4 bg-orange-500 hover:bg-orange-900 text-white py-2 px-4 rounded-lg transform transition-all duration-300 hover:scale-105 cursor-pointer"
                     >
                         Back To Projects
                     </Button>
@@ -76,8 +52,9 @@ const ProjectDetailsPage = ({ params }) => {
                 {/* Project Title */}
                 <motion.h1
                     className="text-3xl sm:text-4xl font-extrabold text-center mb-6 text-blue-600"
+                    style={{lineHeight: "1.6"}}
                     variants={fadeInUp}
-                    transition={{ duration: 0.8 }}
+                    transition={{duration: 0.8}}
                 >
                     {project.title}
                 </motion.h1>
@@ -85,9 +62,9 @@ const ProjectDetailsPage = ({ params }) => {
                 {/* Project Image */}
                 <motion.div
                     className="relative shadow-lg rounded-lg overflow-hidden mb-6 w-full sm:w-[600px] mx-auto"
-                    whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                    whileHover={{scale: 1.05, transition: {duration: 0.3}}}
                     variants={fadeInUp}
-                    transition={{ duration: 0.8 }}
+                    transition={{duration: 0.8}}
                 >
                     <Image
                         src={project.image}
@@ -100,58 +77,59 @@ const ProjectDetailsPage = ({ params }) => {
 
                 {/* Project Description */}
                 <motion.p
-                    className="text-base sm:text-lg mb-12 mt-4 text-justify text-white"
+                    className="text-xl mb-12 mt-4 text-justify text-white" style={{lineHeight: "1.6"}}
                     variants={fadeInUp}
-                    transition={{ duration: 0.8 }}
+                    transition={{duration: 0.8}}
                 >
                     {project.detailedDescription}
                 </motion.p>
 
                 {/* Technologies Section */}
-                <h2 className="text-lg sm:text-xl font-semibold mb-10 text-white">Technology Used</h2>
-                <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10">
+                <h1 className="text-2xl font-semibold mb-10 text-white">Technology Used</h1>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 mb-10">
                     {project.technologies.map((tech, index) => (
-                        <motion.span
+                        <motion.div
                             key={index}
-                            className="bg-white border border-gray-300 rounded-full px-3 py-1 text-xs sm:text-sm font-medium shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-125 hover:bg-blue-600 cursor-pointer"
+                            className="bg-gray-800 rounded-lg p-4 shadow-lg transform transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
                             variants={fadeInUp}
                             initial="initial"
                             animate="animate"
-                            transition={{ delay: 0.1 * index, duration: 0.5 }}
+                            transition={{delay: 0.1 * index, duration: 0.5}}
                         >
                             {techIcons[tech] && (
                                 <Image
                                     src={techIcons[tech]}
                                     alt={`${tech} icon`}
-                                    width={20}
-                                    height={20}
-                                    className="inline mr-1"
+                                    width={30}
+                                    height={30}
+                                    className="mx-auto mb-2"
                                 />
                             )}
-                            <span className="text-gray-800 hover:text-white font-bold">{tech}</span>
-                        </motion.span>
+                            <p className="text-center text-white font-semibold">{tech}</p>
+                        </motion.div>
                     ))}
                 </div>
+
 
                 {/* GitHub and Live Demo Section */}
                 <motion.div
                     className="mb-8"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}
+                    initial={{opacity: 0, y: 50}}
+                    animate={{opacity: 1, y: 0}}
+                    transition={{delay: 0.3, duration: 0.8}}
                 >
                     {project.github && (
                         <>
-                            <h2 className="text-lg sm:text-xl font-semibold mb-8 text-white">GitHub Repository</h2>
+                            <h1 className="text-lg sm:text-xl font-semibold mb-8 text-white">GitHub Repository</h1>
                             <motion.a
                                 href={project.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-block bg-blue-600 text-white px-3 py-2 rounded-lg shadow-lg hover:bg-blue-500 transition duration-300"
-                                whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                                whileHover={{scale: 1.05, transition: {duration: 0.3}}}
                             >
                                 <div className="flex items-center space-x-2">
-                                    <FaGithub className="w-6 h-6" />
+                                    <FaGithub className="w-6 h-6"/>
                                     <span className="text-lg font-medium">GitHub Repo</span>
                                 </div>
                             </motion.a>
@@ -166,10 +144,10 @@ const ProjectDetailsPage = ({ params }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-block bg-green-600 text-white px-3 py-2 rounded-lg shadow-lg hover:bg-green-500 transition duration-300"
-                                whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                                whileHover={{scale: 1.05, transition: {duration: 0.3}}}
                             >
                                 <div className="flex items-center space-x-2">
-                                    <FaLink className="w-6 h-6" />
+                                    <FaLink className="w-6 h-6"/>
                                     <span className="text-lg font-medium">Live Link</span>
                                 </div>
                             </motion.a>
@@ -181,9 +159,9 @@ const ProjectDetailsPage = ({ params }) => {
                 {project.moreImages.length > 0 && (
                     <motion.div
                         ref={ref}
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ delay: 0.3, duration: 0.8 }}
+                        initial={{opacity: 0, y: 50}}
+                        animate={isInView ? {opacity: 1, y: 0} : {}}
+                        transition={{delay: 0.3, duration: 0.8}}
                         className="mt-8"
                     >
                         <h2 className="text-2xl sm:text-3xl font-bold mb-10 text-white">More Images</h2>
@@ -193,7 +171,7 @@ const ProjectDetailsPage = ({ params }) => {
                                 <motion.div
                                     key={idx}
                                     className="relative shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-                                    whileHover={{ scale: 1.05 }}
+                                    whileHover={{scale: 1.05}}
                                 >
                                     <Image
                                         src={img}
@@ -209,22 +187,7 @@ const ProjectDetailsPage = ({ params }) => {
                 )}
             </div>
 
-            {/* Scroll-to-top Arrow */}
-            {showArrow && (
-                <motion.div
-                    className="fixed bottom-4 right-4 p-3 bg-blue-600 rounded-full cursor-pointer text-white shadow-lg"
-                    onClick={scrollToTop}
-                    whileHover={{ scale: 1.1 }} // Animate on hover
-                    whileTap={{ scale: 0.95 }}   // Animate on click
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 50 }}
-                >
-                    <FiArrowUp size={24} />
-                </motion.div>
-            )}
-
-            <DownFooter />
+            <DownFooter arrowBgColor="#00B5D8"/>
         </motion.div>
     );
 };
