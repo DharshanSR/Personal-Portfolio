@@ -126,7 +126,7 @@ html {
 
 /* The thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
-  background-color: #7b7b7b; /* muted color for the thumb */
+  background-color: #A855F7; /* muted color for the thumb */
   border-radius: 8px; /* round the corners of the thumb */
   border: 2px solid transparent; /* transparent border for spacing */
 }
@@ -150,4 +150,10 @@ html {
   #hero {
     background-attachment: scroll; /* Disable parallax on mobile */
   }
+}
+
+.hover-effect-1:hover {
+  transform: scale(1.3);
+  background-color: rebeccapurple;
+  color: #fff;
 }
