@@ -73,7 +73,7 @@ const Achievements: React.FC = () => {
                                 </div>
                             </div>
                             {/* Reason for the Certificate */}
-                            <div className="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 p-2 rounded text-center items-center">
+                            <div className="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 p-2 rounded text-center items-center border-l-8 border-purple-500">
                                 <p className="text-xs">{certificate.reason}</p>
                             </div>
                             {/* Overlay for Hover Effect */}
