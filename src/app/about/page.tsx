@@ -97,14 +97,14 @@ const AboutMe = () => {
         <section id="about" className="container mx-auto px-4 py-20 bg-[#14141F]">
             {/* About Me Section */}
             <motion.h1
-                className="text-5xl font-extrabold text-center mb-2 text-[#c3c3c0]"
+                className="text-5xl font-extrabold text-center mb-2 text-white"
                 variants={fadeInUp}
                 initial="hidden"
                 animate={controlsAbout}
                 ref={aboutRef}
             >
                 About Me
-                <p className="text-lg mt-2 text-gray-600 font-bold">A glimpse into my journey and achievements</p>
+                <p className="text-lg mt-2 text-purple-500 font-bold">A glimpse into my journey and achievements</p>
             </motion.h1>
 
             <motion.div
@@ -115,35 +115,35 @@ const AboutMe = () => {
                 ref={aboutRef}
             >
                 {/* Larger Profile Image */}
-                <motion.div
-                    className="relative mb-6 md:mb-0 md:mr-8"
-                    variants={fadeInUp}
-                >
-                    <Image
-                        src={profileImage}
-                        alt="Profile"
-                        width={850}
-                        height={850}
-                        className="object-cover sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]"
-                    />
-                </motion.div>
+                {/*<motion.div*/}
+                {/*    className="relative mb-6 md:mb-0 md:mr-8"*/}
+                {/*    variants={fadeInUp}*/}
+                {/*>*/}
+                {/*    <Image*/}
+                {/*        src={profileImage}*/}
+                {/*        alt="Profile"*/}
+                {/*        width={850}*/}
+                {/*        height={850}*/}
+                {/*        className="object-cover sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]"*/}
+                {/*    />*/}
+                {/*</motion.div>*/}
 
                 {/* About Me Text */}
-                <motion.div className="w-full max-w-4xl p-4 md:p-8 font-medium" variants={staggerContainer}>
-                    <motion.p className="text-xl text-[#c3c3c0] mb-4 text-justify" variants={fadeInUp}>
+                <motion.div className="w-full max-w-full p-4 md:p-8 font-medium" style={{lineHeight: "1.6"}} variants={staggerContainer}>
+                    <motion.p className="text-xl text-white mb-4 text-justify" variants={fadeInUp}>
                         I am Ravindran Dharshan, a driven Software Developer currently studying at the University of
                         Westminster, London. With a diverse skill set in Full-Stack Development, Data Science, Machine
                         Learning, and Cloud Computing, I bring a unique combination of technical expertise and
                         problem-solving capabilities. I am highly organized, committed, and able to meet deadlines while
                         executing specific roles with precision.
                     </motion.p>
-                    <motion.p className="text-xl text-[#c3c3c0] mb-4 text-justify" variants={fadeInUp}>
+                    <motion.p className="text-xl text-white mb-4 text-justify" style={{lineHeight: "1.6"}} variants={fadeInUp}>
                         My ability to communicate effectively with individuals across various disciplines, coupled with
                         excellent organizational skills, allows me to thrive in team-based environments. My goal is to
                         transition into a full-time role where I can leverage my broad technical knowledge to support
                         business objectives and drive innovation.
                     </motion.p>
-                    <motion.p className="text-xl text-[#c3c3c0] mb-2 text-justify" variants={fadeInUp}>
+                    <motion.p className="text-xl text-white mb-2 text-justify" style={{lineHeight: "1.6"}} variants={fadeInUp}>
                         I am passionate about developing original solutions to complex problems, guided by an intuitive
                         and optimistic approach. Whether working on algorithms, full-stack projects, or business-related
                         challenges, I apply my problem-solving skills to deliver impactful results. Additionally, I am
@@ -173,7 +173,7 @@ const AboutMe = () => {
                 {experiences.map((exp, index) => (
                     <motion.div
                         key={index}
-                        className="relative w-full max-w-lg bg-[#f4f4f2] border-l-4 border-[#3c4b54] p-6 rounded-lg shadow-lg hover:shadow-xl hover:bg-[#e8e8e6] transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+                        className="relative w-full max-w-lg bg-white border-l-8 border-purple-500 p-6 rounded-lg shadow-lg hover:shadow-xl hover:bg-purple-100 transition-all duration-300 ease-in-out transform hover:-translate-y-1"
                         variants={fadeInUp}
                     >
                         {/* Timeline Dot */}
@@ -181,9 +181,9 @@ const AboutMe = () => {
                             className="absolute -left-6 top-8 w-4 h-4 bg-[#3c4b54] rounded-full border-4 border-white"></div>
 
                         {/* Experience Content */}
-                        <div className="flex items-start space-x-4">
+                        <div className="flex items-start space-x-4 cursor-pointer">
                             {/* Company Logo */}
-                            <div className="w-20">
+                            <div className="w-20 hover:scale-105">
                                 <Image
                                     src={exp.logo}
                                     alt={`${exp.company} logo`}
@@ -193,7 +193,7 @@ const AboutMe = () => {
                                 />
                             </div>
                             {/* Experience Info */}
-                            <div className="flex-1">
+                            <div className="flex-1" style={{lineHeight: "1.6"}}>
                                 <h2 className="text-xl font-semibold text-[#071015]">{exp.role}</h2>
                                 <h3 className="text-black">{exp.company}</h3>
                                 <p className="text-black">{exp.location}</p>
@@ -220,7 +220,7 @@ const AboutMe = () => {
                 {education.map((edu, index) => (
                     <motion.div
                         key={index}
-                        className="border border-[#6e6663] rounded-lg shadow-md p-6 flex items-center space-x-4 max-w-md bg-[#c3c3c0]"
+                        className="border-l-8 border-purple-500 rounded-lg shadow-md p-6 flex items-center space-x-4 max-w-md bg-white" style={{lineHeight: "1.6"}}
                         variants={fadeInUp}
                     >
                         {/* Institution Logo */}
