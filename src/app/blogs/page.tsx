@@ -10,7 +10,7 @@ import nextjsImage from "@/public/assests/images/unserstanding-nextjs.png";
 const allBlogs = [
     {
         id: '1',
-        title: 'Understanding Next.js',
+        title: 'Understanding Next.js: A Comprehensive Overview',
         description: 'A comprehensive guide to getting started with Next.js.',
         date: '2024-09-01',
         image: nextjsImage,
@@ -18,16 +18,16 @@ const allBlogs = [
     },
     {
         id: '2',
-        title: 'TypeScript with React',
-        description: 'Learn how to use TypeScript with React to build type-safe applications.',
+        title: 'The Role of AI in Modern Software Development',
+        description: 'Exploring how AI transforming software development practices and tools',
         date: '2024-09-02',
         image: '/assets/images/typescript-react.jpg',
         link: 'https://medium.com/@username/typescript-with-react-0987654321',
     },
     {
-        id: '1',
-        title: 'Understanding Next.js',
-        description: 'A comprehensive guide to getting started with Next.js.',
+        id: '3',
+        title: 'Unlocking the Potential of IoT: Key Design Strategies',
+        description: 'An overview of key design strategies for IoT applications.',
         date: '2024-09-01',
         image: '/assets/images/nextjs-guide.jpg',
         link: 'https://medium.com/@username/understanding-next-js-1234567890',
@@ -92,7 +92,7 @@ const BlogPage: React.FC = () => {
 
     return (
         <div id="blogs" className="container mx-auto px-4 py-20">
-            <h1 className="text-5xl font-extrabold text-[#c4c6c4] text-center mb-16">Blogs</h1>
+            <h1 className="text-5xl font-extrabold text-white text-center mb-16">Blogs</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {blogsToShow.map((blog) => {
                     const { ref, inView } = useAnimateOnInView();
@@ -122,7 +122,7 @@ const BlogPage: React.FC = () => {
                     whileHover={{ scale: 1.05, backgroundColor: '#6e6663' }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setShowAll(!showAll)}
-                    className="bg-[#3c4b54] text-[#c3c3c0] px-4 py-2 rounded transition"
+                    className="bg-[#3c4b54] text-[#c3c3c0] px-4 py-2 rounded transition border-l-8 border-purple-500"
                 >
                     {showAll ? 'View Less' : 'View More'}
                 </motion.button>
