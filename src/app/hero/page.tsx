@@ -105,6 +105,7 @@ const Hero = () => {
 
                     <motion.p
                         className="text-lg sm:text-xl md:text-lg mb-4 text-center md:text-left text-white"
+                        style={{lineHeight: "1.6"}}
                         initial={{opacity: 0, y: 50}}
                         animate={{opacity: 1, y: 0}}
                         transition={{duration: 1.2, delay: 0.5, ease: "easeOut"}}
@@ -149,7 +150,7 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={label}
-                                className="flex items-center justify-center transition-all duration-300 p-2 rounded-full hover:bg-gray-800 hover:shadow-lg hover:shadow-blue-500"
+                                className="flex items-center justify-center transition-all duration-300 p-2 rounded-full hover-effect-1"
                             >
                                 {icon}
                             </a>
@@ -166,7 +167,7 @@ const Hero = () => {
                         <a
                             href="/Ravindran_Dharshan_CV.pdf"
                             download
-                            className="px-8 py-3 md:px-8 md:py-3 bg-[#c3c3c0] text-[#071015] font-semibold rounded-lg shadow-lg hover:bg-[#8f989b] transition-transform transform hover:scale-105 flex items-center gap-2"
+                            className="px-8 py-3 md:px-8 md:py-3 bg-white text-[#071015] font-semibold rounded-lg shadow-lg hover:bg-purple-500 transition-transform transform hover:scale-105 flex items-center gap-2"
                             aria-label="Download CV"
                         >
                             <FaDownload size={22}/>
