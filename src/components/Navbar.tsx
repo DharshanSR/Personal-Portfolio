@@ -70,13 +70,13 @@ const Navbar = () => {
             animate="visible"
             variants={navbarVariants}
             className={`fixed top-0 left-0 w-full p-4 z-50 transition-all duration-300 ${
-                isScrolled ? 'bg-[#A9A9A9] opacity-100 shadow-lg' : 'bg-[#14141F] opacity-80'
+                isScrolled ? 'bg-gray-800 opacity-100 shadow-lg' : 'bg-[#14141F] opacity-80'
             }`}
         >
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo/Brand Name */}
-                <div className="text-2xl font-bold text-[#c3c3c0]">
-                    <Link href="/" className="hover:text-[#8f989b]">
+                <div className="text-3xl font-bold text-white">
+                    <Link href="/" className="hover:text-purple-500">
                         RD
                     </Link>
                 </div>
@@ -105,14 +105,16 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop View - Navigation Links */}
-                <div className="hidden lg:flex space-x-6 font-bold p-2">
+                <div className="hidden lg:flex space-x-4 font-bold p-2 text-1xl">
                     {['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'].map((item) => (
                         <Link
                             href={`/#${item}`}
                             key={item}
                             className={`relative inline-block overflow-hidden transition-all duration-500 ease-in-out transform-gpu ${
-                                activeSection === item || pathname === `/${item}` ? 'text-[#6b7b83]' : 'hover:text-[#8f989b]'
-                            } hover:scale-105 hover:opacity-80`}
+                                activeSection === item || pathname === `/${item}` ? 'text-purple-500' : 'text-white'} hover:text-purple-600 
+    cursor-pointer transition-colors duration-100 ease-in-out after:absolute after:left-0 after:bottom-[-2px] 
+    after:w-full after:h-1 after:bg-purple-300 after:scale-x-0 hover:after:scale-x-100 after:origin-left 
+    hover:after:transition-transform hover:after:duration-300`}
                         >
       <span
           className="relative transition-all duration-300 ease-in-out"
@@ -129,14 +131,14 @@ const Navbar = () => {
 
 
                 {/* Contact Button - Visible only on desktop */}
-                {/*<div className="hidden lg:flex">*/}
-                {/*    <Link*/}
-                {/*        href="/#contact-me"*/}
-                {/*        className="bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 text-white rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-gradient-to-l hover:from-red-500 hover:via-pink-500 hover:to-purple-500 cursor-pointer px-4 py-2"*/}
-                {/*    >*/}
-                {/*        Contact Me*/}
-                {/*    </Link>*/}
-                {/*</div>*/}
+                <div className="hidden lg:flex">
+                    <a
+                        href="mailto:dharshanravindran8@gmail.com"
+                        className="bg-purple-500 text-white rounded-lg transform transition-all duration-300 hover:scale-105 cursor-pointer px-4 py-2 font-bold hover:bg-cyan-700"
+                    >
+                        Get In Touch
+                    </a>
+                </div>
             </div>
 
             {/* Mobile Menu - Shown when mobile menu is open */}
