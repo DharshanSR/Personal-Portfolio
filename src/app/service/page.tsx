@@ -113,7 +113,7 @@ const ServicePage: React.FC = () => {
                         variants={cardVariants} // Defined animation variants
                     >
                         <Tilt options={{ max: 25 }}>
-                            <div className="tilt-card bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 transition-all duration-300">
+                            <div className="tilt-card bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 transition-all duration-300" style={{lineHeight: "1.6"}}>
                                 <ServiceCard
                                     title={service.title}
                                     description={service.description}

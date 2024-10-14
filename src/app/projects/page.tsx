@@ -66,8 +66,8 @@ const ProjectsPage = () => {
 
     return (
         <section id="projects" className="container mx-auto px-4 py-20">
-            <h1 className="text-5xl font-extrabold mb-4 text-center text-[#c4c6c4]">My Projects</h1>
-            <p className="text-xl text-center text-purple-400 font-bold mb-8">
+            <h1 className="text-5xl font-extrabold mb-4 text-center text-white">My Projects</h1>
+            <p className="text-xl text-center text-purple-300 font-bold mb-8">
                 Discover my projects in Full Stack Development, Mobile Development and Machine Learning.
             </p>
 
@@ -137,7 +137,7 @@ const ProjectsPage = () => {
                     onClick={handleToggle}
                     whileHover={{ scale: 1.05, backgroundColor: isExpanded ? "#6e6663" : "#383835" }}
                     whileTap={{ scale: 0.95 }}
-                    className={`px-4 py-2 rounded transition cursor-pointer ${isExpanded ? 'bg-[#8f989b] text-[#071015]' : 'bg-[#465759] text-white'}`}
+                    className={`px-4 py-2 rounded transition cursor-pointer ${isExpanded ? 'bg-[#8f989b] text-[#071015]' : 'bg-[#465759] text-white border-l-8 border-purple-500'}`}
                 >
                     {isExpanded ? 'View Less' : 'View More'}
                 </motion.button>
