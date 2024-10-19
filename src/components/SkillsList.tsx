@@ -26,6 +26,8 @@ import FlaskIcon from '@/public/assests/icons/flask-svgrepo-com.svg';
 import DjangoIcon from '@/public/assests/icons/django-svgrepo-com.svg';
 import Threejs from '@/public/assests/icons/Threejs-logo.svg';
 import WebGL from '@/public/assests/icons/webgl-svgrepo-com.svg';
+import AngularIcon from "@/public/assests/icons/angular-icon.svg";
+import SpringBoot from "@/public/assests/icons/spring-3.svg";
 
 // Version Control
 import GitIcon from '@/public/assests/icons/git-original.svg';
@@ -41,6 +43,7 @@ import ExpressIcon from '@/public/assests/icons/express-original.svg';
 import JsonIcon from '@/public/assests/icons/json-original.svg';
 import NpmIcon from '@/public/assests/icons/npm-original-wordmark.svg';
 import AppwriteIcon from '@/public/assests/icons/appwrite-original.svg';
+import socketIcon from "@/public/assests/icons/socket-io.svg";
 
 // Deployment & Hosting
 import VercelIcon from '@/public/assests/icons/vercel-original.svg';
@@ -78,19 +81,22 @@ const skills = {
     Frameworks: [
         { name: 'React', icon: ReactIcon },
         { name: 'Next js', icon: NextJsIcon },
+        { name: 'Angular', icon: AngularIcon },
+        { name: 'Spring Boot', icon: SpringBoot},
         { name: 'Laravel', icon: Laravel},
-        { name: 'Django', icon: DjangoIcon },
-        { name: 'Flask', icon: FlaskIcon },
+        // { name: 'Django', icon: DjangoIcon },
+        // { name: 'Flask', icon: FlaskIcon },
         { name: 'Framer Motion', icon: FramerMotionIcon },
         { name: 'React Native', icon: ReactNativeIcon },
         { name: 'Three js', icon: Threejs},
-        { name: 'WebGL', icon: WebGL}
+        { name: 'WebGL', icon: WebGL},
     ],
     Backend: [
         { name: 'Node.js', icon: NodeJsIcon },
         { name: 'Express', icon: ExpressIcon },
         { name: 'JSON', icon: JsonIcon },
         { name: 'NPM', icon: NpmIcon },
+        { name:'Socket.io', icon: socketIcon}
     ],
     Databases: [
         { name: 'Firebase', icon: FirebaseIcon },
