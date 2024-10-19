@@ -17,6 +17,7 @@ import Laravel from '@/public/assests/icons/laravel-2.svg';
 import Threejs from '@/public/assests/icons/Threejs-logo.svg';
 import ExpressIcon from '@/public/assests/icons/express-original.svg';
 import PHPIcon from '@/public/assests/icons/PHP.png';
+import AngularIcon from '@/public/assests/icons/angular-icon.svg';
 
 import CallToAction from "@/components/CallToAction";
 import WhyChoosePortfolio from "@/components/WhyChoosePortfolio";
@@ -174,12 +175,12 @@ const FullStackDevelopment = () => {
                 </p>
                 <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
                     <Image src={ReactIcon} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
+                    <Image src={AngularIcon} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
                     <Image src={TypeScriptIcon} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
                     <Image src={NextJsIcon} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
                     <Image src={TailwindCssIcon} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
                     <Image src={Laravel} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
                     <Image src={ Threejs} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={ExpressIcon} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
                     <Image src={PHPIcon} alt="React Icon" width={80} height={80} className="transition-transform duration-300 hover:scale-110"/>
                 </div>
             </motion.section>
