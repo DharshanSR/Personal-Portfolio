@@ -105,7 +105,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop View - Navigation Links */}
-                <div className="hidden lg:flex space-x-4 font-bold p-2 text-1xl">
+                <div className="hidden lg:flex space-x-6 font-bold p-2 text-1xl">
                     {['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'].map((item) => (
                         <Link
                             href={`/#${item}`}
