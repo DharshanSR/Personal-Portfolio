@@ -15,7 +15,6 @@ import NextJsIcon from '@/public/assests/icons/nextjs-original.svg';
 import TailwindCssIcon from '@/public/assests/icons/tailwindcss-original.svg';
 import Laravel from '@/public/assests/icons/laravel-2.svg';
 import Threejs from '@/public/assests/icons/Threejs-logo.svg';
-import ExpressIcon from '@/public/assests/icons/express-original.svg';
 import PHPIcon from '@/public/assests/icons/PHP.png';
 import AngularIcon from '@/public/assests/icons/angular-icon.svg';
 
