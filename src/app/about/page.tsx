@@ -7,6 +7,7 @@ import hologoWorldLogo from '@/public/assests/images/hologoWorld.png';
 import westminsterLogo from '@/public/assests/images/westminster-logo.png';
 import esoftLogo from '@/public/assests/images/esoft-logo.jpg';
 import hinduCollegeLogo from '@/public/assests/images/hindu_college.jpeg';
+import girlscriptcodeOfSummer from "@/public/assests/images/gssoc.jpg";
 import {motion, useAnimation} from "framer-motion";
 import {useInView} from "react-intersection-observer";
 
@@ -19,10 +20,10 @@ const experiences = [
         logo: hologoWorldLogo,
     },
     {
-        role: "Software Engineer Intern",
-        company: "Hologo World",
-        duration: "Sep 2024 - Present",
-        logo: hologoWorldLogo,
+        role: "Open Source Contributor",
+        company: "GirlScript Summer of Code",
+        duration: "Oct 2024 - Present",
+        logo: girlscriptcodeOfSummer,
     },
 ];
 
@@ -129,7 +130,7 @@ const AboutMe = () => {
                 {/*</motion.div>*/}
 
                 {/* About Me Text */}
-                <motion.div className="w-full max-w-full p-4 md:p-8 font-medium" style={{lineHeight: "1.6"}} variants={staggerContainer}>
+                <motion.div className="w-full max-w-full p-4 md:p-8 font-medium" style={{lineHeight: "2.0"}} variants={staggerContainer}>
                     <motion.p className="text-xl text-white mb-4 text-justify" variants={fadeInUp}>
                         I am Ravindran Dharshan, a driven Software Developer currently studying at the University of
                         Westminster, London. With a diverse skill set in Full-Stack Development, Data Science, Machine
