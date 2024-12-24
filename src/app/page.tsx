@@ -1,23 +1,29 @@
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ProjectsPage from "@/app/projects/page";
+import Hero from "@/app/hero/page";
+import AboutMe from "@/app/about/page";
 import ServicePage from "@/app/service/page";
 import BlogPage from "@/app/blogs/page";
 import SkillsPage from "@/app/skills/page";
+import ProjectsPage from "@/app/projects/page";
 import AchievementsPage from "@/app/achievements/page";
-import AboutMe from "@/about/page";
+import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
+import {AnimatedTestimonialsDemo} from "@/app/testimonials/page";
 
 export default function Home() {
     return (
-        <div>
+        <main>
             {/*<Navbar/>*/}
+            {/*<Hero />*/}
             <AboutMe />
             {/*<ServicePage />*/}
             {/*<ProjectsPage />*/}
-            {/*<BlogPage />*/}
             {/*<SkillsPage />*/}
+            {/*<AnimatedTestimonialsDemo />*/}
+            {/*<BlogPage />*/}
             {/*<AchievementsPage />*/}
+            {/*<ContactForm />*/}
             {/*<Footer/>*/}
-        </div>
+        </main>
     );
 }
