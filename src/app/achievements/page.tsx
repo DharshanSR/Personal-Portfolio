@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -26,13 +26,18 @@ const Achievements: React.FC = () => {
     }, [isModalOpen]);
 
     return (
-        <section id="achievements" className="py-20">
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-center sm:mb-10 text-[#c3c3c0]">Achievements & Certificates</h2>
-            <p className="text-lg font-bold text-purple-400 text-center mb-8">
-                A glimpse into my achievements and the credentials I’ve earned along the way in software and machine learning.
-            </p>
+        <section id="achievements" className="py-20 relative">
+            <h2 className="text-6xl font-extrabold text-center sm:mb-10 text-[#00B5D8] z-20 relative justify-center">
+                Achievements & Certificates
+                <p className="text-lg font-bold text-[#9B4D96] text-center mb-8 z-10 relative">
+                    A glimpse into my achievements and the credentials I’ve earned along the way in software and machine
+                    learning.
+                </p>
+            </h2>
 
-            <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 px-4 sm:px-6 lg:px-8">
+
+            <div
+                className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 px-4 sm:px-6 lg:px-8">
                 {certificates.map((certificate, index) => {
                     const ref = React.useRef<HTMLDivElement>(null);
                     const inView = useInView(ref, { once: true });
@@ -73,7 +78,7 @@ const Achievements: React.FC = () => {
                                 </div>
                             </div>
                             {/* Reason for the Certificate */}
-                            <div className="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 p-2 rounded text-center items-center border-l-8 border-purple-500">
+                            <div className="absolute bottom-4 left-4 bg-gradient-to-l from-purple-600 via-blue-500 to-teal-500 text-black bg-opacity-70 p-2 rounded text-center items-center">
                                 <p className="text-xs">{certificate.reason}</p>
                             </div>
                             {/* Overlay for Hover Effect */}

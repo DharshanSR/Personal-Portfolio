@@ -7,11 +7,11 @@ import { z } from 'zod';
 const contactFormSchema = z.object({
     firstName: z.string()
         .min(1, { message: 'First name is required' })
-        .max(10, { message: 'First name must be at most 10 characters' })
+        .max(50, { message: 'First name must be at most 50 characters' })
         .regex(/^[A-Za-z]+$/, { message: 'First name must contain only letters' }),
     lastName: z.string()
         .min(1, { message: 'Last name is required' })
-        .max(10, { message: 'Last name must be at most 10 characters' })
+        .max(50, { message: 'Last name must be at most 50 characters' })
         .regex(/^[A-Za-z]+$/, { message: 'Last name must contain only letters' }),
     email: z.string()
         .min(1, { message: 'Email is required' })
@@ -44,24 +44,47 @@ export async function POST(req: Request) {
 
         // Create a unique subject with a timestamp
         const timestamp = new Date().toISOString();
-        const subject = `New Contact Form Submission from ${firstName} ${lastName} on ${timestamp}`;
+        const subject = `New Message from ${firstName} ${lastName} on ${timestamp}`;
 
         // Styled HTML email content including the mobile number
         const htmlContent = `
-            <div style="font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #e0f7fa; max-width: 600px; margin: auto;">
-              <h2 style="color: #4A90E2; text-align: center;">👋 New Contact Form Submission</h2>
-              <hr style="border: 1px solid #4A90E2;" />
-              <div style="margin: 20px 0; text-align: center;">
-                <p style="font-size: 18px; margin: 0;"><strong>First Name:</strong> ${firstName}</p>
-                <p style="font-size: 18px; margin: 0;"><strong>Last Name:</strong> ${lastName}</p>
-                <p style="font-size: 18px; margin: 0;"><strong>Email:</strong> ${email}</p>
-                <p style="font-size: 18px; margin: 0;"><strong>Mobile:</strong> ${mobile}</p>
-                <p style="font-size: 18px; margin: 0;"><strong>Message:</strong></p>
-                <p style="background-color: #ffffff; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 500px; margin: auto;">${message}</p>
-              </div>
-              <footer style="text-align: center; margin-top: 20px;">
-                <p style="color: #888888; font-size: 14px;">This email was sent from your contact form on your website.</p>
-              </footer>
+            <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; padding: 30px; background-color: #f8f9fa; max-width: 650px; margin: 0 auto; border-radius: 8px; border: 1px solid #e1e1e1;">
+                <header style="text-align: center; padding-bottom: 20px; border-bottom: 2px solid #007bff;">
+                    <h1 style="color: #007bff; font-size: 28px; margin: 0; font-weight: 600;">New Contact Form Submission</h1>
+                    <p style="color: #555; font-size: 16px; margin: 10px 0;">You have a new submission from your contact form.</p>
+                </header>
+
+                <section style="padding-top: 30px;">
+                    <h3 style="color: #333; font-size: 22px; font-weight: 500; margin-bottom: 10px;">Contact Details</h3>
+                    <table style="width: 100%; margin-bottom: 20px;">
+                        <tr>
+                            <td style="padding: 8px; font-weight: bold; color: #333; width: 30%;">First Name:</td>
+                            <td style="padding: 8px; color: #555;">${firstName}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; font-weight: bold; color: #333; width: 30%;">Last Name:</td>
+                            <td style="padding: 8px; color: #555;">${lastName}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; font-weight: bold; color: #333; width: 30%;">Email:</td>
+                            <td style="padding: 8px; color: #555;">${email}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; font-weight: bold; color: #333; width: 30%;">Mobile:</td>
+                            <td style="padding: 8px; color: #555;">${mobile}</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section style="padding-top: 20px;">
+                    <h3 style="color: #333; font-size: 22px; font-weight: 500; margin-bottom: 10px;">Message</h3>
+                    <p style="background-color: #ffffff; padding: 15px; border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); color: #555;">${message}</p>
+                </section>
+
+                <footer style="padding-top: 30px; text-align: center; border-top: 2px solid #e1e1e1; margin-top: 20px;">
+                    <p style="color: #888; font-size: 14px;">This email was sent from the contact form on your website. If you didn’t request this submission, please disregard this message.</p>
+                    <p style="color: #888; font-size: 14px;">© 2024 Ravindran Dharshan</p>
+                </footer>
             </div>
         `;
 
@@ -85,6 +108,6 @@ export async function POST(req: Request) {
 
         // Log the error and return an error response
         console.error('Error sending email:', err);
-        return new Response(JSON.stringify({ message: 'Internal Server Error' }), { status: 500 });
+        return new Response(JSON.stringify({ message: 'Internal Server Error', error: err.message }), { status: 500 });
     }
 }
