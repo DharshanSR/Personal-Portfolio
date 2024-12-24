@@ -3,8 +3,20 @@ import project1Image from "@/public/assests/images/mobileapp-development.png";
 
 export const projects = [
     {
+        id: 'Cloudify',
+        title: 'Cloudify',
+        description: 'This is a brief description of project 2.',
+        detailedDescription: 'This is a more detailed description of Project 2. It provides additional context about the project, its objectives, key functionalities, and any significant milestones or hurdles encountered during its development.',
+        image: '/assets/images/project2.jpg',
+        technologies: ['React', 'Node.js', 'MongoDB'],
+        github: 'https://github.com/yourgithub/project2',
+        live: 'https://yourliveproject.com/project2',
+        moreImages: ['/assets/images/project2-1.jpg', '/assets/images/project2-2.jpg'],
+        category: 'Web', // Add category
+    },
+    {
         id: 'Google-Docs-Clone',
-        title: 'Google-Docs-Clone',
+        title: 'Google Docs Clone',
         description: 'This is a brief description of project 1.',
         detailedDescription: 'This is a more detailed description of Project 1. It includes more information about the project, ' +
             'such as its purpose, key features, and any notable achievements or challenges faced during development.' +
@@ -18,11 +30,47 @@ export const projects = [
         category: 'Web', // Add category
     },
     {
-        id: '2',
-        title: 'Project 2',
+        id: 'Article-Summarizer',
+        title: 'Article Summarizer',
         description: 'This is a brief description of project 2.',
         detailedDescription: 'This is a more detailed description of Project 2. It provides additional context about the project, its objectives, key functionalities, and any significant milestones or hurdles encountered during its development.',
-        image: '/assets/images/project2.jpg',
+        image: '/assets/images/project3.jpg',
+        technologies: ['React', 'Node.js', 'MongoDB'],
+        github: 'https://github.com/yourgithub/project2',
+        live: 'https://yourliveproject.com/project2',
+        moreImages: ['/assets/images/project2-1.jpg', '/assets/images/project2-2.jpg'],
+        category: 'Web', // Add category
+    },
+    {
+        id: 'MLP-Neural-Network',
+        title: 'MLP Neural Network',
+        description: 'This is a brief description of project 2.',
+        detailedDescription: 'This is a more detailed description of Project 2. It provides additional context about the project, its objectives, key functionalities, and any significant milestones or hurdles encountered during its development.',
+        image: '/assets/images/project3.jpg',
+        technologies: ['React', 'Node.js', 'MongoDB'],
+        github: 'https://github.com/yourgithub/project2',
+        live: 'https://yourliveproject.com/project2',
+        moreImages: ['/assets/images/project2-1.jpg', '/assets/images/project2-2.jpg'],
+        category: 'AI & ML', // Add category
+    },
+    {
+        id: 'Game-Scape3D',
+        title: 'Game Scape3D',
+        description: 'This is a brief description of project 2.',
+        detailedDescription: 'This is a more detailed description of Project 2. It provides additional context about the project, its objectives, key functionalities, and any significant milestones or hurdles encountered during its development.',
+        image: '/assets/images/project3.jpg',
+        technologies: ['React', 'Node.js', 'MongoDB'],
+        github: 'https://github.com/yourgithub/project2',
+        live: 'https://yourliveproject.com/project2',
+        moreImages: ['/assets/images/project2-1.jpg', '/assets/images/project2-2.jpg'],
+        category: 'Web', // Add category
+    },
+    {
+        id: 'ElderPal',
+        title: 'ElderPal',
+        description: 'This is a brief description of project 2.',
+        detailedDescription: 'This is a more detailed description of Project 2. It provides additional context about the project, its objectives, key functionalities, and any significant milestones or hurdles encountered during its development.',
+        image: '/assets/images/project3.jpg',
         technologies: ['React', 'Node.js', 'MongoDB'],
         github: 'https://github.com/yourgithub/project2',
         live: 'https://yourliveproject.com/project2',
@@ -30,8 +78,8 @@ export const projects = [
         category: 'Mobile', // Add category
     },
     {
-        id: '3',
-        title: 'Project 3',
+        id: 'AI-Trip-Planner',
+        title: 'Trip Planner',
         description: 'This is a brief description of project 2.',
         detailedDescription: 'This is a more detailed description of Project 2. It provides additional context about the project, its objectives, key functionalities, and any significant milestones or hurdles encountered during its development.',
         image: '/assets/images/project3.jpg',
@@ -39,55 +87,7 @@ export const projects = [
         github: 'https://github.com/yourgithub/project2',
         live: 'https://yourliveproject.com/project2',
         moreImages: ['/assets/images/project2-1.jpg', '/assets/images/project2-2.jpg'],
-        category: 'AI & ML', // Add category
-    },
-    {
-        id: '4',
-        title: 'Project 3',
-        description: 'This is a brief description of project 2.',
-        detailedDescription: 'This is a more detailed description of Project 2. It provides additional context about the project, its objectives, key functionalities, and any significant milestones or hurdles encountered during its development.',
-        image: '/assets/images/project3.jpg',
-        technologies: ['React', 'Node.js', 'MongoDB'],
-        github: 'https://github.com/yourgithub/project2',
-        live: 'https://yourliveproject.com/project2',
-        moreImages: ['/assets/images/project2-1.jpg', '/assets/images/project2-2.jpg'],
-        category: 'AI & ML', // Add category
-    },
-    {
-        id: '5',
-        title: 'Project 3',
-        description: 'This is a brief description of project 2.',
-        detailedDescription: 'This is a more detailed description of Project 2. It provides additional context about the project, its objectives, key functionalities, and any significant milestones or hurdles encountered during its development.',
-        image: '/assets/images/project3.jpg',
-        technologies: ['React', 'Node.js', 'MongoDB'],
-        github: 'https://github.com/yourgithub/project2',
-        live: 'https://yourliveproject.com/project2',
-        moreImages: ['/assets/images/project2-1.jpg', '/assets/images/project2-2.jpg'],
-        category: 'AI & ML', // Add category
-    },
-    {
-        id: '6',
-        title: 'Project 3',
-        description: 'This is a brief description of project 2.',
-        detailedDescription: 'This is a more detailed description of Project 2. It provides additional context about the project, its objectives, key functionalities, and any significant milestones or hurdles encountered during its development.',
-        image: '/assets/images/project3.jpg',
-        technologies: ['React', 'Node.js', 'MongoDB'],
-        github: 'https://github.com/yourgithub/project2',
-        live: 'https://yourliveproject.com/project2',
-        moreImages: ['/assets/images/project2-1.jpg', '/assets/images/project2-2.jpg'],
-        category: 'AI & ML', // Add category
-    },
-    {
-        id: '7',
-        title: 'Project 3',
-        description: 'This is a brief description of project 2.',
-        detailedDescription: 'This is a more detailed description of Project 2. It provides additional context about the project, its objectives, key functionalities, and any significant milestones or hurdles encountered during its development.',
-        image: '/assets/images/project3.jpg',
-        technologies: ['React', 'Node.js', 'MongoDB'],
-        github: 'https://github.com/yourgithub/project2',
-        live: 'https://yourliveproject.com/project2',
-        moreImages: ['/assets/images/project2-1.jpg', '/assets/images/project2-2.jpg'],
-        category: 'AI & ML', // Add category
+        category: 'Web', // Add category
     },
     {
         id: '8',

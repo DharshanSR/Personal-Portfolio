@@ -7,9 +7,7 @@ import { useRef } from 'react';
 import fsdImage from "@/public/assests/images/image.png";
 import Navbar from "@/components/Navbar";
 import DownFooter from "@/components/DownFooter";
-import { AiFillAndroid, AiFillApple, AiFillMobile } from 'react-icons/ai';
-import { FaReact} from 'react-icons/fa';
-import { SiFlutter } from 'react-icons/si';
+import {FaArrowRight, FaMobileAlt} from 'react-icons/fa';
 
 import YourSvgIcon1 from '@/public/assests/icons/react-original.svg';
 import YourSvgIcon2 from '@/public/assests/icons/nodejs-original.svg';
@@ -20,6 +18,7 @@ import YourSvgIcon6 from '@/public/assests/icons/nodejs-original.svg';
 import YourSvgIcon7 from '@/public/assests/icons/react-original.svg';
 import CallToAction from "@/components/CallToAction";
 import WhyChoosePortfolio from "@/components/WhyChoosePortfolio";
+import Link from "next/link";
 
 const FullStackDevelopment = () => {
     // Create refs for in-view detection
@@ -35,7 +34,7 @@ const FullStackDevelopment = () => {
     const isWhyChooseInView = useInView(refWhyChoose);
 
     return (
-        <div className="min-h-screen bg-[#14141F]">
+        <div className="min-h-screen bg-[#2A2A3C]">
             {/* Navbar */}
             <div className="p-9 sticky top-0 z-50">
                 <Navbar/>
@@ -46,101 +45,284 @@ const FullStackDevelopment = () => {
                 ref={refHero}
                 initial={{opacity: 0, y: -50}}
                 animate={{opacity: isHeroInView ? 1 : 0, y: isHeroInView ? 0 : -50}}
-                transition={{duration: 0.6}}
-                className="relative bg-gradient-to-r from-green-400 to-green-800 text-white py-20 text-center h-[90vh] flex flex-col justify-center items-center overflow-hidden"
+                transition={{duration: 0.8, ease: "easeInOut"}}
+                className="relative bg-gradient-to-r from-[#2A2A3C] to-[#1F1F2E] text-white py-24 md:py-32 text-center h-[90vh] flex flex-col justify-center items-center overflow-hidden"
             >
-                {/* Shapes */}
-                <div className="absolute top-10 left-10 w-24 h-24 bg-white opacity-20 rounded-full"></div>
-                <div className="absolute top-1/3 left-1/3 w-32 h-32 bg-white opacity-10 rounded-full"></div>
-                <div
-                    className="absolute bottom-20 right-20 w-16 h-16 bg-white opacity-25 rounded-full animate-bounce"></div>
-                <div
-                    className="absolute bottom-0 left-0 w-0 h-0 border-l-[50px] border-l-transparent border-r-[50px] border-r-transparent border-b-[100px] border-b-white opacity-10 animate-spin-slide"></div>
+                {/* Animated Background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f1d] to-[#1f1f2e] opacity-30"></div>
 
-                {/* Programming Icons */}
-                <div className="absolute top-20 right-20 text-white text-5xl opacity-70">
-                    <FaReact />
-                </div>
-                {/* Android Icon */}
-                <div className="absolute top-40 left-40 text-white text-5xl opacity-70">
-                    <AiFillAndroid />
-                </div>
-                {/* iOS Icon */}
-                <div className="absolute bottom-10 left-10 text-white text-5xl opacity-70">
-                    <AiFillApple />
-                </div>
-                {/* Mobile Icon */}
-                <div className="absolute bottom-20 right-40 text-white text-5xl opacity-70">
-                    <AiFillMobile />
+                {/* Mobile Development Code Snippets */}
+                <div className="absolute inset-0 flex justify-center items-center">
+                    {/* Android Code Snippet */}
+                    <div
+                        className="absolute top-10 left-10 z-0 text-green-500 opacity-70 font-mono text-lg md:text-xl animate-pulse">
+<pre>
+{`import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}`}
+</pre>
+                    </div>
+
+                    {/* Swift (iOS) Code Snippet */}
+                    <div
+                        className="absolute top-5 -right-20 transform -translate-x-1/2 z-0 text-blue-500 opacity-70 font-mono text-lg md:text-xl animate-pulse">
+<pre>
+{`import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        Text("Hello, iOS Development!")
+            .padding()
+    }
+}
+
+@main
+struct MyApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}`}
+</pre>
+                    </div>
+
+                    {/* Flutter Code Snippet */}
+                    <div
+                        className="absolute bottom-1 left-20 transform -translate-x-1/2 z-0 text-teal-500 opacity-70 font-mono text-lg md:text-xl animate-pulse">
+<pre>
+{`import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+    @override
+    Widget build(BuildContext context) {
+        return MaterialApp(
+            home: Scaffold(
+                appBar: AppBar(title: Text('Flutter Mobile App')),
+                body: Center(child: Text('Hello, Flutter!')),
+            ),
+        );
+    }
+}`}
+</pre>
+                    </div>
                 </div>
 
-                {/* Additional Icons for Wing Effect */}
-                <div className="absolute top-5 left-1/4 text-white text-5xl opacity-70">
-                    <SiFlutter />
-                </div>
+                {/* Intro Animation with Minimalistic Styling */}
+                <motion.div
+                    initial={{scale: 0.8, opacity: 0}}
+                    animate={{scale: 1, opacity: 1}}
+                    transition={{duration: 0.8, delay: 0.3, ease: "easeInOut"}}
+                    className="relative flex flex-col items-center px-6 md:px-12 z-10"
+                >
+                    <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight transform-gpu transition-all duration-1000 hover:scale-110 hover:text-green-400">
+                        Mobile Development
+                    </h2>
 
-                {/* Text Content */}
-                <h2 className="text-5xl font-bold">Mobile App Development</h2>
-                <p className="mt-4 text-lg max-w-6xl mx-auto">
-                    Elevate your business with my mobile app development expertise. I create intuitive and engaging
-                    applications for both iOS and Android platforms, ensuring a seamless user experience. My approach
-                    focuses on user-centered design and efficient performance, empowering your organization to connect
-                    with customers on-the-go.
-                </p>
+                    {/* Subheading with Smooth Fade-In */}
+                    <motion.p
+                        initial={{opacity: 0}}
+                        animate={{opacity: isHeroInView ? 1 : 0}}
+                        transition={{duration: 0.8, delay: 0.5, ease: "easeInOut"}}
+                        className="mt-6 text-lg md:text-xl max-w-6xl mx-auto text-gray-300 leading-relaxed"
+                        style={{lineHeight: "2.0"}}
+                    >
+                        Elevate your business with my mobile app development expertise. I create intuitive and engaging
+                        applications for both iOS and Android platforms, ensuring a seamless user experience. My
+                        approach
+                        focuses on user-centered design and efficient performance, empowering your organization to
+                        connect
+                        with customers on-the-go.
+                    </motion.p>
 
+                    {/* Call to Action Button with Hover Effect */}
+                    <motion.a
+                        href="#contact"
+                        initial={{scale: 0.8}}
+                        animate={{scale: 1}}
+                        transition={{duration: 0.6, delay: 0.8, ease: "easeInOut"}}
+                        className="mt-8 px-6 py-3 bg-green-500 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105"
+                    >
+                        Get In Touch
+                    </motion.a>
+                </motion.div>
             </motion.section>
 
-            {/* Machine Learning Overview Section */}
+            {/* MobileApp Development Overview Section */}
             <motion.section
                 ref={refOverview}
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isOverviewInView ? 1 : 0, y: isOverviewInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-[#14141F] container"
+                className="py-20 max-w-7xl mx-auto px-6 md:px-12"
             >
-                {/* First Section */}
-                <div className="flex flex-col md:flex-row items-center gap-8 mt-10 mb-10">
-                    <div className="md:w-1/2">
+                {/* Section Header */}
+                <div className="text-center mb-16">
+                    <h3 className="text-5xl font-extrabold text-green-500">Transforming Ideas into Mobile Solutions</h3>
+                    <p
+                        className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed"
+                        style={{lineHeight: "2.0"}}
+                    >
+                        I craft user-friendly, scalable mobile apps that blend design and functionality seamlessly,
+                        ensuring exceptional performance and engaging user experiences.
+                    </p>
+                </div>
+
+                {/* Content Section */}
+                <div className="flex flex-col md:flex-row items-center gap-10">
+                    {/* Left: Image */}
+                    <div className="relative md:w-1/2">
                         <Image
-                            src={fsdImage} // Replace with your mobile app-related image
-                            alt="Mobile App Development"
-                            width={900}
-                            height={600}
-                            className="rounded-lg shadow-lg transition-transform duration-300 hover:scale-110"
+                            src={fsdImage}
+                            alt="Mobile App Development Process"
+                            width={600}
+                            height={400}
+                            className="rounded-xl shadow-md transition-transform duration-300 hover:scale-105"
                         />
                     </div>
-                    <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-green-500">What is Mobile App Development?</h3>
-                        <p className="text-gray-200 text-lg mb-6 leading-relaxed text-justify">
-                            Mobile app development involves creating software applications that run on mobile devices,
-                            offering users a seamless experience. I specialize in building native and cross-platform apps
-                            that cater to various business needs, ensuring functionality and performance across all devices.
-                        </p>
+
+                    {/* Right: Content */}
+                    <div
+                        className="md:w-1/2 space-y-8 h-[300px] overflow-y-auto scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-green-600"
+                        style={{lineHeight: "2.0"}}
+                    >
+                        {/* Feature 1 */}
+                        <motion.div
+                            initial={{opacity: 0, x: 50}}
+                            animate={{opacity: isOverviewInView ? 1 : 0, x: isOverviewInView ? 0 : 50}}
+                            transition={{duration: 0.4}}
+                            className="flex gap-4"
+                        >
+                            <div
+                                className="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center text-2xl font-bold">
+                                1
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-200">Cross-Platform Solutions</h4>
+                                <p className="text-gray-300 leading-relaxed">
+                                    I build mobile apps for both iOS and Android, ensuring seamless performance and
+                                    consistent
+                                    experiences across platforms.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Feature 2 */}
+                        <motion.div
+                            initial={{opacity: 0, x: 50}}
+                            animate={{opacity: isOverviewInView ? 1 : 0, x: isOverviewInView ? 0 : 50}}
+                            transition={{duration: 0.4}}
+                            className="flex gap-4"
+                        >
+                            <div
+                                className="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center text-2xl font-bold">
+                                2
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-200">User-First Design</h4>
+                                <p className="text-gray-300 leading-relaxed">
+                                    My designs prioritize user experience, combining intuitive navigation with visually
+                                    appealing
+                                    layouts to maximize engagement.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Feature 3 */}
+                        <motion.div
+                            initial={{opacity: 0, x: 50}}
+                            animate={{opacity: isOverviewInView ? 1 : 0, x: isOverviewInView ? 0 : 50}}
+                            transition={{duration: 0.4}}
+                            className="flex gap-4"
+                        >
+                            <div
+                                className="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center text-2xl font-bold">
+                                3
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-200">Efficient Back-End Integration</h4>
+                                <p className="text-gray-300 leading-relaxed">
+                                    I integrate back-end systems to provide apps with powerful functionalities, enabling
+                                    features
+                                    like real-time updates, analytics, and secure databases.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Feature 4 */}
+                        <motion.div
+                            initial={{opacity: 0, x: 50}}
+                            animate={{opacity: isOverviewInView ? 1 : 0, x: isOverviewInView ? 0 : 50}}
+                            transition={{duration: 0.4}}
+                            className="flex gap-4"
+                        >
+                            <div
+                                className="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center text-2xl font-bold">
+                                4
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-200">Advanced Analytics Integration</h4>
+                                <p className="text-gray-300 leading-relaxed">
+                                    Gain insights into user behavior with analytics tools that help businesses grow and
+                                    adapt
+                                    based on real-world data.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Feature 5 */}
+                        <motion.div
+                            initial={{opacity: 0, x: 50}}
+                            animate={{opacity: isOverviewInView ? 1 : 0, x: isOverviewInView ? 0 : 50}}
+                            transition={{duration: 0.4}}
+                            className="flex gap-4"
+                        >
+                            <div
+                                className="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center text-2xl font-bold">
+                                5
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-200">Cloud Integration</h4>
+                                <p className="text-gray-300 leading-relaxed">
+                                    I leverage cloud technologies for app scalability, ensuring seamless data
+                                    synchronization and
+                                    remote accessibility.
+                                </p>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
 
-                {/* Why Choose Mobile App Development Section */}
-                <div className="flex flex-col md:flex-row items-center gap-8 mt-10 md:mt-12">
-                    <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-green-500">Why Choose Mobile App Development?</h3>
-                        <p className="text-gray-200 text-lg leading-relaxed text-justify">
-                            In a mobile-driven world, having a strong mobile presence is essential for engaging customers
-                            and enhancing brand loyalty. My expertise in mobile app development helps businesses reach
-                            a wider audience while delivering exceptional user experiences. I focus on integrating user
-                            feedback and analytics to ensure continuous improvement and innovation in the apps I create.
-                        </p>
-                    </div>
-                    <div className="md:w-1/2">
-                        <Image
-                            src={fsdImage} // Replace with another mobile app-related image or the same one
-                            alt="Why Choose Mobile App Development"
-                            width={900}
-                            height={600}
-                            className="rounded-lg shadow-lg transition-transform duration-300 hover:scale-110"
-                        />
-                    </div>
+                {/* Footer: CTA */}
+                <div className="mt-16 text-center">
+                    <Link
+                        href="/#mobile-development-projects"
+                        className="inline-flex items-center justify-center gap-3 text-gray-200 font-medium text-lg hover:text-gray-400 transition-colors"
+                    >
+                        <button
+                            className="flex items-center justify-center gap-3 bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600 transition-colors">
+                            {/* Icon before text */}
+                            <FaMobileAlt className="text-2xl"/>
+
+                            {/* Text */}
+                            Explore My Mobile Projects
+
+                            {/* Icon after text */}
+                            <FaArrowRight className="text-2xl animate-bounce"/>
+                        </button>
+                    </Link>
                 </div>
             </motion.section>
+
 
             {/* Technologies Section */}
             <motion.section
@@ -150,8 +332,9 @@ const FullStackDevelopment = () => {
                 transition={{duration: 0.6}}
                 className="bg-[#14141F] text-black py-20 mt-10 mb-10"
             >
-                <h3 className="text-center text-4xl font-bold mb-4 text-green-500">Technologies I Use in Mobile App Development</h3>
-                <p className="text-center max-w-6xl mx-auto mb-12 text-white" style={{ lineHeight: "1.8" }}>
+                <h3 className="text-center text-4xl font-bold mb-4 text-green-500">Technologies I Use in Mobile App
+                    Development</h3>
+                <p className="text-center max-w-6xl mx-auto mb-12 text-white" style={{lineHeight: "1.8"}}>
                     I utilize a variety of cutting-edge technologies to create high-quality mobile applications.
                     Leveraging frameworks like React Native and Flutter allows me to develop cross-platform apps that
                     deliver seamless user experiences on both iOS and Android. Additionally, I incorporate tools like
@@ -181,7 +364,7 @@ const FullStackDevelopment = () => {
             <WhyChoosePortfolio refProp={refWhyChoose} isInView={isWhyChooseInView}/>
             <CallToAction/>
             {/* Footer */}
-            <DownFooter arrowBgColor="#38A169" />
+            <DownFooter arrowBgColor="#38A169"/>
         </div>
     );
 };

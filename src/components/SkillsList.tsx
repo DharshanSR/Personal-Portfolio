@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 import Image from 'next/image';
 
 // languages
@@ -68,72 +68,72 @@ import AzureIcon from '@/public/assests/icons/azure-icon-svgrepo-com.svg';
 // Define the categories, skills, and associated SVG icons
 const skills = {
     Languages: [
-        { name: 'TypeScript', icon: TypeScriptIcon },
-        { name: 'JavaScript', icon: JavaScriptIcon },
-        { name: 'HTML', icon: HTMLIcon },
-        { name: 'CSS', icon: CSSIcon },
-        { name: 'Tailwind CSS', icon: TailwindCssIcon },
-        { name: 'Python', icon: pythonIcon },
-        { name: 'Java', icon: javaIcon },
-        { name: 'R', icon: rIcon },
-        { name: 'PHP', icon: PHPIcon },
+        {name: 'TypeScript', icon: TypeScriptIcon},
+        {name: 'JavaScript', icon: JavaScriptIcon},
+        {name: 'HTML', icon: HTMLIcon},
+        {name: 'CSS', icon: CSSIcon},
+        {name: 'Tailwind CSS', icon: TailwindCssIcon},
+        {name: 'Python', icon: pythonIcon},
+        {name: 'Java', icon: javaIcon},
+        {name: 'R', icon: rIcon},
+        {name: 'PHP', icon: PHPIcon},
     ],
     Frameworks: [
-        { name: 'React', icon: ReactIcon },
-        { name: 'Next js', icon: NextJsIcon },
-        { name: 'Angular', icon: AngularIcon },
-        { name: 'Spring Boot', icon: SpringBoot},
-        { name: 'Laravel', icon: Laravel},
+        {name: 'React', icon: ReactIcon},
+        {name: 'Next js', icon: NextJsIcon},
+        {name: 'Angular', icon: AngularIcon},
+        {name: 'Spring Boot', icon: SpringBoot},
+        {name: 'Laravel', icon: Laravel},
         // { name: 'Django', icon: DjangoIcon },
         // { name: 'Flask', icon: FlaskIcon },
-        { name: 'Framer Motion', icon: FramerMotionIcon },
-        { name: 'React Native', icon: ReactNativeIcon },
-        { name: 'Three js', icon: Threejs},
-        { name: 'WebGL', icon: WebGL},
+        {name: 'Framer Motion', icon: FramerMotionIcon},
+        {name: 'React Native', icon: ReactNativeIcon},
+        {name: 'Three js', icon: Threejs},
+        {name: 'WebGL', icon: WebGL},
     ],
     Backend: [
-        { name: 'Node.js', icon: NodeJsIcon },
-        { name: 'Express', icon: ExpressIcon },
-        { name: 'JSON', icon: JsonIcon },
-        { name: 'NPM', icon: NpmIcon },
-        { name:'Socket.io', icon: socketIcon}
+        {name: 'Node.js', icon: NodeJsIcon},
+        {name: 'Express', icon: ExpressIcon},
+        {name: 'JSON', icon: JsonIcon},
+        {name: 'NPM', icon: NpmIcon},
+        {name: 'Socket.io', icon: socketIcon}
     ],
     Databases: [
-        { name: 'Firebase', icon: FirebaseIcon },
-        { name: 'MongoDB', icon: MongoDbIcon },
-        { name: 'PostgreSQL', icon: PostgreSqlIcon },
-        { name: 'MySQL', icon: MySqlIcon },
-        { name: 'Appwrite', icon: AppwriteIcon },
+        {name: 'Firebase', icon: FirebaseIcon},
+        {name: 'MongoDB', icon: MongoDbIcon},
+        {name: 'PostgreSQL', icon: PostgreSqlIcon},
+        {name: 'MySQL', icon: MySqlIcon},
+        {name: 'Appwrite', icon: AppwriteIcon},
     ],
     Cloud: [
-        { name: 'AWS', icon: AWSIcon },
-        { name: 'Docker', icon: DockerIcon },
-        { name: 'AWS S3 Bucket', icon: AWSS3Bucket },
-        { name: 'AWS EC2 Instance', icon: AWSEC2Instance },
-        { name: 'Azure', icon: AzureIcon },
+        {name: 'AWS', icon: AWSIcon},
+        {name: 'Docker', icon: DockerIcon},
+        {name: 'AWS S3 Bucket', icon: AWSS3Bucket},
+        {name: 'AWS EC2 Instance', icon: AWSEC2Instance},
+        {name: 'Azure', icon: AzureIcon},
     ],
-    IDE : [
-        { name: 'IntelliJ', icon: IntelliJIcon },
-        { name: 'PyCharm', icon: PyCharmIcon },
-        { name: 'RStudio', icon: RStudioIcon },
-        { name: 'VSCode', icon: VSCodeIcon },
-        { name: 'WebStorm', icon: WebStormIcon },
-        { name: 'PHPStorm', icon: PHPStorm},
+    IDE: [
+        {name: 'IntelliJ', icon: IntelliJIcon},
+        {name: 'PyCharm', icon: PyCharmIcon},
+        {name: 'RStudio', icon: RStudioIcon},
+        {name: 'VSCode', icon: VSCodeIcon},
+        {name: 'WebStorm', icon: WebStormIcon},
+        {name: 'PHPStorm', icon: PHPStorm},
     ],
     Deployment: [
-        { name: 'Vercel', icon: VercelIcon },
-        { name: 'Netlify', icon: NetlifyIcon },
-        { name: 'Render', icon: RenderIcon },
+        {name: 'Vercel', icon: VercelIcon},
+        {name: 'Netlify', icon: NetlifyIcon},
+        {name: 'Render', icon: RenderIcon},
     ],
     VersionControl: [
-        { name: 'Git', icon: GitIcon },
-        { name: 'GitHub', icon: GitHubIcon },
-        { name: 'GitLab', icon: GitLabIcon },
+        {name: 'Git', icon: GitIcon},
+        {name: 'GitHub', icon: GitHubIcon},
+        {name: 'GitLab', icon: GitLabIcon},
     ],
 };
 
 const container = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: {opacity: 0, y: 20},
     visible: {
         opacity: 1,
         y: 0,
@@ -145,31 +145,31 @@ const container = {
 };
 
 const item = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1 },
+    hidden: {opacity: 0, scale: 0.9},
+    visible: {opacity: 1, scale: 1},
 };
 
 const SkillsList: React.FC = () => {
     return (
-        <section className="py-20 bg-[#14141F]" id="skills">
-            <div className="container mx-auto px-4">
+        <section className="py-20 bg-[#2A2A3C] relative" id="skills">
+            <div className="container mx-auto px-4 relative z-20">
                 {/* Heading */}
                 <motion.h1
-                    className="text-5xl font-extrabold mb-6 text-center text-white"
-                    initial={{ opacity: 0, y: -50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
+                    className="text-5xl font-extrabold mb-6 text-center text-[#00B5D8]"
+                    initial={{opacity: 0, y: -50}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{duration: 0.5}}
+                    viewport={{once: true}}
                 >
                     Skills
                 </motion.h1>
 
                 <motion.h2
-                    className="text-3xl font-bold text-center mb-12 text-purple-400"
-                    initial={{ opacity: 0, y: -50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
+                    className="text-3xl font-bold text-center mb-12 text-[#9B4D96]"
+                    initial={{opacity: 0, y: -50}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{duration: 0.5}}
+                    viewport={{once: true}}
                 >
                     Technologies I Work With
                 </motion.h2>
@@ -180,27 +180,29 @@ const SkillsList: React.FC = () => {
                     variants={container}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true }}
+                    viewport={{once: true}}
                 >
                     {Object.keys(skills).map((category) => (
                         <motion.div
                             key={category}
                             className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transform transition-transform hover:scale-105"
-                            whileHover={{ scale: 1.05 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
+                            whileHover={{scale: 1.05}}
+                            whileInView={{opacity: 1}}
+                            viewport={{once: true}}
                         >
-                            <h3 className="text-xl font-semibold mb-4 text-[#071015]" style={{lineHeight: "1.6"}}>{category}</h3>
+                            <h3 className="text-xl font-semibold mb-4 text-[#071015] text-center"
+                                style={{lineHeight: "1.6"}}>{category}</h3>
                             <div className="grid grid-cols-3 gap-4 cursor-pointer">
                                 {skills[category as keyof typeof skills].map((skill) => (
                                     <motion.div
                                         key={skill.name}
                                         className="flex flex-col items-center justify-center text-center"
                                         variants={item}
-                                        whileHover={{ scale: 1.1 }}
+                                        whileHover={{scale: 1.1}}
                                     >
-                                        <Image src={skill.icon} alt={skill.name} width={50} height={50} />
-                                        <span className="mt-2 text-sm text-cyan-600 font-semibold" style={{lineHeight: "1.6"}}>{skill.name}</span>
+                                        <Image src={skill.icon} alt={skill.name} width={50} height={50}/>
+                                        <span className="mt-2 text-sm text-cyan-600 font-semibold"
+                                              style={{lineHeight: "2.0"}}>{skill.name}</span>
                                     </motion.div>
                                 ))}
                             </div>

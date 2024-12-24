@@ -9,7 +9,6 @@ interface ProjectCardProps {
     image: string;
 }
 
-// Animation variants for project cards
 const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
@@ -18,38 +17,55 @@ const cardVariants = {
 const ProjectCard = ({ id, title, description, image }: ProjectCardProps) => {
     return (
         <motion.div
-            className="border rounded-lg overflow-hidden shadow-lg bg-white transition-transform transform cursor-pointer" style={{lineHeight: "1.6"}}
-            variants={cardVariants} // Apply card-level animation
+            className="relative rounded-xl shadow-md bg-gradient-to-tr from-gray-100 to-gray-50 overflow-hidden hover:shadow-xl transition-all"
+            style={{ lineHeight: '1.6' }}
+            variants={cardVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }} // Trigger animation when 20% of the card is in view
-            whileHover={{ scale: 1.05, backgroundColor: "#d0d0d0" }} // Add hover effect
+            viewport={{ once: true, amount: 0.3 }}
+            whileHover={{ scale: 1.03 }}
         >
-            <div className="relative w-full h-48 sm:h-56 md:h-64">
+            {/* Background Shapes */}
+            <div className="absolute inset-0 -z-10">
+                {/* Top-Left Triangle */}
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-purple-400 via-pink-300 to-blue-400 clip-triangle opacity-40"></div>
+                {/* Bottom-Right Triangle */}
+                {/*<div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-green-300 via-yellow-200 to-red-300 clip-triangle opacity-50"></div>*/}
+            </div>
+
+            {/* Image Section */}
+            <div className="relative w-full h-56 overflow-hidden">
                 <Image
                     src={image}
                     alt={title}
                     layout="fill"
                     objectFit="cover"
-                    className="rounded-t-lg"
+                    className="rounded-t-xl transition-transform duration-300 hover:scale-105"
                 />
             </div>
-            <div className="p-4">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-[#6e6663]">
+
+            {/* Content Section */}
+            <div className="px-6 py-4">
+                <h3 className="text-lg md:text-xl font-bold text-gray-800 text-center">
                     {title}
                 </h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">{description}</p>
+                <p className="text-gray-600 text-sm md:text-base mt-2 text-center">
+                    {description}
+                </p>
+            </div>
+
+            {/* Button Section */}
+            <div className="flex justify-center mt-4 mb-6">
                 <Link href={`/projects/${id}`} passHref>
                     <motion.button
                         whileHover={{
                             scale: 1.1,
-                            backgroundColor: "#6e6663",
-                            transition: { duration: 0.3 },
-                        }} // Smooth hover animation
-                        whileTap={{ scale: 0.50 }} // Tap animation for button click
-                        className="bg-[#3c4b54] text-white py-2 px-4 rounded transition cursor-pointer border-l-8 border-purple-500"
+                            color: '#ffffff',
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-6 py-2 bg-gradient-to-l from-purple-600 via-blue-500 to-teal-500 text-white font-medium rounded-lg shadow-md focus:ring-4 focus:ring-green-700 focus:outline-none"
                     >
-                        Read More
+                        Learn More
                     </motion.button>
                 </Link>
             </div>

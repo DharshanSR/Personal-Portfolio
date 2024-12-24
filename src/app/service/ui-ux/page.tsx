@@ -34,7 +34,7 @@ const FullStackDevelopment = () => {
     const isWhyChooseInView = useInView(refWhyChoose);
 
     return (
-        <div className="min-h-screen bg-[#14141F]">
+        <div className="min-h-screen bg-[#2A2A3C]">
             {/* Navbar */}
             <div className="p-9 sticky top-0 z-50">
                 <Navbar/>
@@ -91,7 +91,7 @@ const FullStackDevelopment = () => {
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isOverviewInView ? 1 : 0, y: isOverviewInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-[#14141F] container"
+                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-[#2A2A3C] container"
             >
                 {/* First Section */}
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-10 mb-10">

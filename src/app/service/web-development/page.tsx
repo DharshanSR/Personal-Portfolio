@@ -2,24 +2,22 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import {motion, useInView} from 'framer-motion';
+import {useRef} from 'react';
 import fsdImage from "@/public/assests/images/image.png";
 import Navbar from "@/components/Navbar";
 import DownFooter from "@/components/DownFooter";
-import { FaReact, FaNodeJs, FaPython, FaHtml5, FaCss3Alt, FaJava, FaGithub, FaDocker } from 'react-icons/fa';
-// SVG Icons Import
+import {FaBriefcase, FaArrowRight} from "react-icons/fa";
 import ReactIcon from '@/public/assests/icons/react-original.svg';
 import TypeScriptIcon from '@/public/assests/icons/typescript-original.svg';
 import NextJsIcon from '@/public/assests/icons/nextjs-original.svg';
 import TailwindCssIcon from '@/public/assests/icons/tailwindcss-original.svg';
 import Laravel from '@/public/assests/icons/laravel-2.svg';
-import Threejs from '@/public/assests/icons/Threejs-logo.svg';
-import PHPIcon from '@/public/assests/icons/PHP.png';
 import AngularIcon from '@/public/assests/icons/angular-icon.svg';
 
 import CallToAction from "@/components/CallToAction";
 import WhyChoosePortfolio from "@/components/WhyChoosePortfolio";
+import Link from "next/link";
 
 const FullStackDevelopment = () => {
     // Create refs for in-view detection
@@ -35,126 +33,277 @@ const FullStackDevelopment = () => {
     const isWhyChooseInView = useInView(refWhyChoose);
 
     return (
-        <div className="min-h-screen bg-[#14141F]">
+        <div className="min-h-screen bg-[#2A2A3C]">
             {/* Navbar */}
             <div className="p-9 sticky top-0 z-50">
                 <Navbar/>
             </div>
 
-            {/* Hero Section */}
             <motion.section
                 ref={refHero}
                 initial={{opacity: 0, y: -50}}
                 animate={{opacity: isHeroInView ? 1 : 0, y: isHeroInView ? 0 : -50}}
-                transition={{duration: 0.6}}
-                className="relative bg-gradient-to-r from-indigo-800 to-purple-900 text-white py-20 text-center h-[90vh] flex flex-col justify-center items-center overflow-hidden"
+                transition={{duration: 0.8, ease: "easeInOut"}}
+                className="relative bg-gradient-to-r from-[#2A2A3C] to-[#1F1F2E] text-white py-24 md:py-32 text-center h-[90vh] flex flex-col justify-center items-center overflow-hidden"
             >
-                {/* Shapes */}
-                <div className="absolute top-10 left-10 w-24 h-24 bg-white opacity-20 rounded-full"></div>
-                <div className="absolute top-1/3 left-1/3 w-32 h-32 bg-white opacity-10 rounded-full"></div>
-                <div
-                    className="absolute bottom-20 right-20 w-16 h-16 bg-white opacity-25 rounded-full animate-bounce"></div>
-                <div
-                    className="absolute bottom-0 left-0 w-0 h-0 border-l-[50px] border-l-transparent border-r-[50px] border-r-transparent border-b-[100px] border-b-white opacity-10 animate-spin-slide"></div>
+                {/* Animated Background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f1d] to-[#1f1f2e] opacity-30"></div>
 
-                <div
-                    className="absolute top-0 left-0 w-0 h-0 border-l-[50px] border-l-transparent border-r-[50px] border-r-transparent border-b-[100px] border-b-white opacity-10 animate-spin-slide"></div>
+                {/* Full Stack Development Code Snippets */}
+                <div className="absolute inset-0 flex justify-center items-center">
+                    {/* Angular Code Snippet */}
+                    <div
+                        className="absolute top-10 left-16 z-0 text-green-500 opacity-70 font-mono text-lg md:text-xl animate-pulse">
+            <pre>
+                {`import { Component } from '@angular/core';
 
-                {/* Programming Icons */}
-                <div className="absolute top-20 right-20 text-white text-5xl opacity-70">
-                    <FaReact/>
-                </div>
-                <div className="absolute top-40 left-40 text-white text-5xl opacity-70">
-                    <FaNodeJs/>
-                </div>
-                <div className="absolute bottom-10 left-10 text-white text-5xl opacity-70">
-                    <FaPython/>
-                </div>
-                <div className="absolute bottom-20 right-40 text-white text-5xl opacity-70">
-                    <FaHtml5/>
+@Component({
+  selector: 'app-root',
+  template: '<h1>Full Stack Development with Angular</h1>',
+})
+export class AppComponent { title = 'Angular Full Stack App'; }`}
+            </pre>
+                    </div>
+
+                    {/* React Code Snippet */}
+                    <div
+                        className="absolute top-10 left-3/4 transform -translate-x-1/2 z-0 text-blue-500 opacity-70 font-mono text-lg md:text-xl animate-pulse">
+            <pre>
+                {`import React, { useState } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>React + Full Stack Development</h1>
+      <button onClick={() => setCount(count + 1)}>Count: {count}</button>
+    </div>
+  );
+}`}
+            </pre>
+                    </div>
+
+                    {/* Node.js Code Snippet */}
+                    <div
+                        className="absolute bottom-32 right-16 z-0 text-yellow-500 opacity-70 font-mono text-lg md:text-xl animate-pulse">
+            <pre>
+                {`const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello, Full Stack!');
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));`}
+            </pre>
+                    </div>
+
+                    {/* MongoDB Code Snippet */}
+                    <div
+                        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0 text-teal-500 opacity-70 font-mono text-lg md:text-xl animate-pulse">
+            <pre>
+                {`const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/fullstack_db', { useNewUrlParser: true })
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log('MongoDB Error:', err));`}
+            </pre>
+                    </div>
                 </div>
 
-                {/* Additional Icons for Wing Effect */}
-                <div className="absolute top-5 left-1/4 text-white text-5xl opacity-70">
-                    <FaCss3Alt/>
-                </div>
-                <div className="absolute top-32 left-1/2 text-white text-5xl opacity-70">
-                    <FaJava/>
-                </div>
-                <div className="absolute bottom-5 right-1/4 text-white text-5xl opacity-70">
-                    <FaGithub/>
-                </div>
-                <div className="absolute bottom-32 right-1/2 text-white text-5xl opacity-70">
-                    <FaDocker/>
-                </div>
+                {/* Intro Animation with Minimalistic Styling */}
+                <motion.div
+                    initial={{scale: 0.8, opacity: 0}}
+                    animate={{scale: 1, opacity: 1}}
+                    transition={{duration: 0.8, delay: 0.3, ease: "easeInOut"}}
+                    className="relative flex flex-col items-center px-6 md:px-12 z-10"
+                >
+                    <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight transform-gpu transition-all duration-1000 hover:scale-110 hover:text-blue-400">
+                        Full Stack Development
+                    </h2>
 
-                {/* Text Content */}
-                <h2 className="text-5xl font-bold">Full Stack Development</h2>
-                <p className="mt-4 text-lg max-w-6xl mx-auto">
-                    Set your vision, and I’ll bring it to life with my expertise in full-stack development. With a
-                    strong foundation in modern technologies and a commitment to agile methodologies, I create
-                    high-impact web applications that resonate with users. By focusing on both front-end aesthetics and
-                    back-end functionality, I ensure seamless interactions and optimal performance.
-                </p>
+                    {/* Subheading with Smooth Fade-In */}
+                    <motion.p
+                        initial={{opacity: 0}}
+                        animate={{opacity: isHeroInView ? 1 : 0}}
+                        transition={{duration: 0.8, delay: 0.5, ease: "easeInOut"}}
+                        className="mt-6 text-lg md:text-xl max-w-6xl mx-auto text-gray-300 leading-relaxed"
+                        style={{lineHeight: "2.0"}}
+                    >
+                        Transform your vision into reality with my expertise in full-stack development. I specialize in
+                        creating impactful web applications with cutting-edge technologies, balancing exceptional design
+                        and robust functionality to deliver a seamless user experience.
+                    </motion.p>
+
+                    {/* Call to Action Button with Hover Effect */}
+                    <motion.a
+                        href="#contact"
+                        initial={{scale: 0.8}}
+                        animate={{scale: 1}}
+                        transition={{duration: 0.6, delay: 0.8, ease: "easeInOut"}}
+                        className="mt-8 px-6 py-3 bg-blue-500 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105"
+                    >
+                        Get In Touch
+                    </motion.a>
+                </motion.div>
             </motion.section>
 
-
-            {/* Full Stack Development Overview Section */}
+            {/* Full Stack Development - Modern UI */}
             <motion.section
                 ref={refOverview}
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: isOverviewInView ? 1 : 0, y: isOverviewInView ? 0 : 50}}
                 transition={{duration: 0.6}}
-                className="py-20 max-w-7xl mx-auto px-4 md:px-8 bg-[#14141F] container"
+                className="py-20 max-w-7xl mx-auto px-6 md:px-12"
             >
-                {/* First Section */}
-                <div className="flex flex-col md:flex-row items-center gap-8 mt-10 mb-10">
-                    <div className="md:w-1/2">
+                {/* Section Header */}
+                <div className="text-center mb-16">
+                    <h3 className="text-5xl font-extrabold text-blue-600">Crafting Seamless Digital Solutions</h3>
+                    <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed"
+                       style={{lineHeight: "2.0"}}>
+                        I combine creativity and technical expertise to design and develop complete digital ecosystems
+                        that prioritize user experience and scalability.
+                    </p>
+                </div>
+
+                {/* Content Section */}
+                <div className="flex flex-col md:flex-row items-center gap-10">
+                    {/* Left: Image */}
+                    <div className="relative md:w-1/2">
                         <Image
                             src={fsdImage}
-                            alt="Full Stack Development"
-                            width={900}
-                            height={600}
-                            className="rounded-lg shadow-lg transition-transform duration-300 hover:scale-110"
+                            alt="Full Stack Development Process"
+                            width={600}
+                            height={400}
+                            className="rounded-xl shadow-md transition-transform duration-300 hover:scale-105"
                         />
                     </div>
-                    <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-purple-400">What is Full Stack Development?</h3>
-                        <p className="text-gray-200 text-lg mb-6 leading-relaxed text-justify">
-                            Full Stack Development involves building both front-end and back-end components of a web
-                            application, ensuring seamless user experiences and robust server-side functionality. I
-                            utilize
-                            technologies like the MERN stack (MongoDB, Express, React, and Node.js), server-side
-                            rendering,
-                            microservices architecture, and more to create efficient and scalable solutions.
-                        </p>
+
+                    {/* Right: Content */}
+                    <div
+                        className="md:w-1/2 space-y-8 h-[300px] overflow-y-auto scrollbar-thin scrollbar-thumb-blue-600 scrollbar-track-blue-500"
+                        style={{lineHeight: "2.0"}}>
+                        {/* Feature 1 */}
+                        <motion.div
+                            initial={{opacity: 0, x: 50}}
+                            animate={{opacity: isOverviewInView ? 1 : 0, x: isOverviewInView ? 0 : 50}}
+                            transition={{duration: 0.4}}
+                            className="flex gap-4"
+                        >
+                            <div
+                                className="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center text-2xl font-bold">
+                                1
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-200">User-Centric Design</h4>
+                                <p className="text-gray-300 leading-relaxed" style={{lineHeight: "2.0"}}>
+                                    Each project begins with a focus on the user. From intuitive interfaces to smooth
+                                    interactions, my designs ensure accessibility and engagement.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Feature 2 */}
+                        <motion.div
+                            initial={{opacity: 0, x: 50}}
+                            animate={{opacity: isOverviewInView ? 1 : 0, x: isOverviewInView ? 0 : 50}}
+                            transition={{duration: 0.4}}
+                            className="flex gap-4"
+                        >
+                            <div
+                                className="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center text-2xl font-bold">
+                                2
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-200">Scalable Architecture</h4>
+                                <p className="text-gray-300 leading-relaxed" style={{lineHeight: "2.0"}}>
+                                    Using best practices, I ensure back-end systems are built to handle growth
+                                    seamlessly, supporting your future ambitions.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Feature 3 */}
+                        <motion.div
+                            initial={{opacity: 0, x: 50}}
+                            animate={{opacity: isOverviewInView ? 1 : 0, x: isOverviewInView ? 0 : 50}}
+                            transition={{duration: 0.4}}
+                            className="flex gap-4"
+                        >
+                            <div
+                                className="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center text-2xl font-bold">
+                                3
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-200">Performance Optimization</h4>
+                                <p className="text-gray-300 leading-relaxed" style={{lineHeight: "2.0"}}>
+                                    By prioritizing efficiency, I develop applications that perform exceptionally well,
+                                    ensuring fast load times and smooth operations.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Feature 4 */}
+                        <motion.div
+                            initial={{opacity: 0, x: 50}}
+                            animate={{opacity: isOverviewInView ? 1 : 0, x: isOverviewInView ? 0 : 50}}
+                            transition={{duration: 0.4}}
+                            className="flex gap-4"
+                        >
+                            <div
+                                className="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center text-2xl font-bold">
+                                4
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-200">Robust Security</h4>
+                                <p className="text-gray-300 leading-relaxed" style={{lineHeight: "2.0"}}>
+                                    Security is a top priority in every project, ensuring user data and systems are
+                                    protected against potential threats.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Feature 5 */}
+                        <motion.div
+                            initial={{opacity: 0, x: 50}}
+                            animate={{opacity: isOverviewInView ? 1 : 0, x: isOverviewInView ? 0 : 50}}
+                            transition={{duration: 0.4}}
+                            className="flex gap-4"
+                        >
+                            <div
+                                className="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center text-2xl font-bold">
+                                5
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-200">Advanced Analytics</h4>
+                                <p className="text-gray-300 leading-relaxed" style={{lineHeight: "2.0"}}>
+                                    Gain valuable insights with analytics that help you make informed decisions and
+                                    drive innovation.
+                                </p>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
 
-                {/* Second Section */}
-                <div className="flex flex-col md:flex-row items-center gap-8 mt-10 md:mt-12">
-                    <div className="md:w-1/2">
-                        <h3 className="text-3xl font-bold mb-4 text-purple-400">Why Choose Full Stack Development?</h3>
-                        <p className="text-gray-200 text-lg leading-relaxed text-justify">
-                            In today's fast-paced digital landscape, having a strong full stack development foundation
-                            is crucial for delivering versatile solutions. By mastering both client-side and server-side
-                            technologies,
-                            I ensure that every aspect of an application is optimized for performance and user
-                            engagement. My focus is
-                            on creating applications that not only fulfill business requirements but also provide
-                            seamless
-                            interactions for users.
-                        </p>
-                    </div>
-                    <div className="md:w-1/2">
-                        <Image
-                            src={fsdImage}
-                            alt="Why Choose Full Stack Development"
-                            width={900}
-                            height={600}
-                            className="rounded-lg shadow-lg transition-transform duration-300 hover:scale-110"
-                        />
-                    </div>
+                {/* Footer: CTA */}
+                <div className="mt-16 text-center">
+                    <Link
+                        href="/#projects"
+                        className="inline-flex items-center justify-center gap-3 text-gray-200 font-medium text-lg hover:text-gray-400 transition-colors"
+                    >
+                        <button
+                            className="flex items-center justify-center gap-3 bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors">
+                            {/* Icon before text */}
+                            <FaBriefcase className="text-2xl"/>
+
+                            {/* Text */}
+                            Explore My Work
+
+                            {/* Icon after text */}
+                            <FaArrowRight className="text-2xl animate-bounce"/>
+                        </button>
+                    </Link>
                 </div>
             </motion.section>
 
@@ -166,8 +315,8 @@ const FullStackDevelopment = () => {
                 transition={{duration: 0.6}}
                 className="bg-[#14141F] text-black py-20 mt-10 mb-10"
             >
-                <h3 className="text-center text-4xl font-bold mb-4 text-purple-400">Technologies I Work With</h3>
-                <p className="text-center max-w-4xl mx-auto mb-12 font-light text-white" style={{ lineHeight: "1.8" }}>
+                <h3 className="text-center text-4xl font-bold mb-4 text-blue-500">Technologies I Work With</h3>
+                <p className="text-center max-w-5xl mx-auto mb-12 font-light text-white" style={{ lineHeight: "1.8" }}>
                     We leverage cutting-edge frameworks like React.js and Next js, combined with robust back-end
                     solutions such as Node.js, Express and Laravel etc, to develop dynamic and user-centric web applications that
                     deliver exceptional performance and seamless user experiences.
@@ -179,17 +328,15 @@ const FullStackDevelopment = () => {
                     <Image src={NextJsIcon} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
                     <Image src={TailwindCssIcon} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
                     <Image src={Laravel} alt="React Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={ Threejs} alt="Node.js Icon" width={60} height={60} className="transition-transform duration-300 hover:scale-110"/>
-                    <Image src={PHPIcon} alt="React Icon" width={80} height={80} className="transition-transform duration-300 hover:scale-110"/>
                 </div>
             </motion.section>
 
-            <WhyChoosePortfolio refProp={refWhyChoose} isInView={isWhyChooseInView} />
+            <WhyChoosePortfolio refProp={refWhyChoose} isInView={isWhyChooseInView}/>
 
-            <CallToAction />
+            <CallToAction/>
 
             {/* Footer */}
-            <DownFooter arrowBgColor="#6B46C1" />
+            <DownFooter arrowBgColor="#6B46C1"/>
         </div>
     );
 };

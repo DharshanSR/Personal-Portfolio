@@ -5,58 +5,60 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import BlogPreview from '@/components/BlogPreview';
 import nextjsImage from "@/public/assests/images/unserstanding-nextjs.png";
+import triangleshape from "@/public/assests/images/triangle_light.png";  // Ensure this path is correct!
+import Image from 'next/image';  // Import next/image for optimized images
 
-// Sample blog data
+// Sample blog data (Added date prop)
 const allBlogs = [
     {
         id: '1',
         title: 'Understanding Next.js: A Comprehensive Overview',
         description: 'A comprehensive guide to getting started with Next.js.',
-        date: '2024-09-01',
         image: nextjsImage,
         link: 'https://medium.com/@username/understanding-next-js-1234567890',
+        date: '2024-11-30', // Example date
     },
     {
         id: '2',
-        title: 'The Role of AI in Modern Software Development',
-        description: 'Exploring how AI transforming software development practices and tools',
-        date: '2024-09-02',
-        image: '/assets/images/typescript-react.jpg',
-        link: 'https://medium.com/@username/typescript-with-react-0987654321',
-    },
-    {
-        id: '3',
-        title: 'Unlocking the Potential of IoT: Key Design Strategies',
-        description: 'An overview of key design strategies for IoT applications.',
-        date: '2024-09-01',
-        image: '/assets/images/nextjs-guide.jpg',
-        link: 'https://medium.com/@username/understanding-next-js-1234567890',
-    },
-    {
-        id: '2',
-        title: 'TypeScript with React',
-        description: 'Learn how to use TypeScript with React to build type-safe applications.',
-        date: '2024-09-02',
-        image: '/assets/images/typescript-react.jpg',
-        link: 'https://medium.com/@username/typescript-with-react-0987654321',
+        title: 'Advanced React Patterns for Developers',
+        description: 'A deep dive into advanced patterns for React.',
+        image: nextjsImage,
+        link: 'https://medium.com/@username/advanced-react-patterns-1234567890',
+        date: '2024-11-29', // Example date
     },
     {
         id: '1',
-        title: 'Understanding Next.js',
+        title: 'Understanding Next.js: A Comprehensive Overview',
         description: 'A comprehensive guide to getting started with Next.js.',
-        date: '2024-09-01',
-        image: '/assets/images/nextjs-guide.jpg',
+        image: nextjsImage,
         link: 'https://medium.com/@username/understanding-next-js-1234567890',
+        date: '2024-11-30', // Example date
     },
     {
         id: '2',
-        title: 'TypeScript with React',
-        description: 'Learn how to use TypeScript with React to build type-safe applications.',
-        date: '2024-09-02',
-        image: '/assets/images/typescript-react.jpg',
-        link: 'https://medium.com/@username/typescript-with-react-0987654321',
+        title: 'Advanced React Patterns for Developers',
+        description: 'A deep dive into advanced patterns for React.',
+        image: nextjsImage,
+        link: 'https://medium.com/@username/advanced-react-patterns-1234567890',
+        date: '2024-11-29', // Example date
     },
-    // Add more blog posts here
+    {
+        id: '1',
+        title: 'Understanding Next.js: A Comprehensive Overview',
+        description: 'A comprehensive guide to getting started with Next.js.',
+        image: nextjsImage,
+        link: 'https://medium.com/@username/understanding-next-js-1234567890',
+        date: '2024-11-30', // Example date
+    },
+    {
+        id: '2',
+        title: 'Advanced React Patterns for Developers',
+        description: 'A deep dive into advanced patterns for React.',
+        image: nextjsImage,
+        link: 'https://medium.com/@username/advanced-react-patterns-1234567890',
+        date: '2024-11-29', // Example date
+    },
+    // Add more blogs as necessary
 ];
 
 const BlogPage: React.FC = () => {
@@ -74,14 +76,12 @@ const BlogPage: React.FC = () => {
 
     const blogsToShow = showAll ? allBlogs : allBlogs.slice(0, isMobile ? 6 : 8);
 
-    // Animation variants for blog cards and hover effects
     const cardVariants = {
         hidden: { opacity: 0, y: 50 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         hover: { scale: 1.05, boxShadow: '0 10px 20px rgba(0, 0, 0, 0.15)', transition: { duration: 0.3 } },
     };
 
-    // Custom hook for intersection observer to trigger animation on view
     const useAnimateOnInView = () => {
         const { ref, inView } = useInView({
             triggerOnce: false,
@@ -91,11 +91,32 @@ const BlogPage: React.FC = () => {
     };
 
     return (
-        <div id="blogs" className="container mx-auto px-4 py-20">
-            <h1 className="text-5xl font-extrabold text-white text-center mb-16">Blogs</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <section id="blogs" className="container mx-auto px-4 py-20 relative">
+
+            {/* Main Heading */}
+            <div className="relative z-10">
+                <h1 className="text-5xl md:text-6xl font-extrabold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-500">
+                    My Blogs
+                </h1>
+            </div>
+
+            {/* Add Triangle Shape (Outside Container) */}
+            <div className="absolute left-[-120px] top-[90%] transform -translate-y-1/2 z-20 sm:block">
+                <Image
+                    alt="triangle light"
+                    loading="lazy"
+                    width={240}
+                    height={220}
+                    className="max-h-[200px] max-w-[400px] w-auto aspect-auto"
+                    style={{color: 'transparent'}}
+                    src={triangleshape}
+                />
+            </div>
+
+            {/* Blog Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
                 {blogsToShow.map((blog) => {
-                    const { ref, inView } = useAnimateOnInView();
+                    const {ref, inView} = useAnimateOnInView();
                     return (
                         <motion.div
                             ref={ref}
@@ -109,25 +130,27 @@ const BlogPage: React.FC = () => {
                             <BlogPreview
                                 title={blog.title}
                                 description={blog.description}
-                                date={blog.date}
                                 link={blog.link}
                                 image={blog.image}
+                                date={blog.date}  // Pass the date prop
                             />
                         </motion.div>
                     );
                 })}
             </div>
-            <div className="mt-6 text-center">
+
+            {/* Show More/Less Button */}
+            <div className="mt-6 text-center relative z-10">
                 <motion.button
-                    whileHover={{ scale: 1.05, backgroundColor: '#6e6663' }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{scale: 1.05, backgroundColor: '#6e6663'}}
+                    whileTap={{scale: 0.95}}
                     onClick={() => setShowAll(!showAll)}
-                    className="bg-[#3c4b54] text-[#c3c3c0] px-4 py-2 rounded transition border-l-8 border-purple-500"
+                    className="px-4 py-2 rounded transition bg-gradient-to-l from-purple-600 via-blue-500 to-teal-500 text-white"
                 >
                     {showAll ? 'View Less' : 'View More'}
                 </motion.button>
             </div>
-        </div>
+        </section>
     );
 };
 

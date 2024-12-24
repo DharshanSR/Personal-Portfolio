@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'; // Import Framer Motion
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
+import Image from 'next/image';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { projects as allProjects } from '@/data/projects';
 import ProjectCard from '@/components/ProjectCard';
@@ -65,10 +66,18 @@ const ProjectsPage = () => {
     const projectsToShow = isExpanded ? filteredProjects : filteredProjects.slice(0, visibleCount);
 
     return (
-        <section id="projects" className="container mx-auto px-4 py-20">
-            <h1 className="text-5xl font-extrabold mb-4 text-center text-white">My Projects</h1>
-            <p className="text-xl text-center text-purple-300 font-bold mb-8">
-                Discover my projects in Full Stack Development, Mobile Development and Machine Learning.
+        <section id="projects" className="container mx-auto px-4 py-20 relative">
+
+            {/* Main Heading (h1) */}
+            <div className="relative z-10">
+                <h1 className="text-6xl font-extrabold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-500">
+                    My Projects
+                </h1>
+            </div>
+
+            <p className="text-lg text-center text-[#9B4D96] dark:text-gray-300 font-medium mb-10 leading-relaxed max-w-4xl mx-auto">
+                Explore a collection of my work in Full Stack Development, Mobile Development, and Machine Learning.
+                Each project reflects my passion for solving real-world problems with innovative solutions.
             </p>
 
             <ProjectFilter categories={categories} onFilterChange={handleFilterChange} />
@@ -135,11 +144,26 @@ const ProjectsPage = () => {
             <div className="text-center mt-6">
                 <motion.button
                     onClick={handleToggle}
-                    whileHover={{ scale: 1.05, backgroundColor: isExpanded ? "#6e6663" : "#383835" }}
+                    whileHover={{
+                        scale: 1.05,
+                        backgroundColor: isExpanded ? "#3a3a3a" : "#2c2c2c",
+                        transition: { duration: 0.3 },
+                    }}
                     whileTap={{ scale: 0.95 }}
-                    className={`px-4 py-2 rounded transition cursor-pointer ${isExpanded ? 'bg-[#8f989b] text-[#071015]' : 'bg-[#465759] text-white border-l-8 border-purple-500'}`}
+                    className={`relative px-6 py-3 font-semibold text-sm rounded-lg overflow-hidden cursor-pointer transition-all duration-300 
+        ${isExpanded ? 'bg-gradient-to-r from-gray-400 via-gray-600 to-gray-800 text-white' : 'bg-gradient-to-l from-purple-600 via-blue-500 to-teal-500 text-white'}`}
                 >
-                    {isExpanded ? 'View Less' : 'View More'}
+                    <span
+                        className="absolute top-0 left-0 w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 transform rotate-45 translate-x-[-50%] translate-y-[-50%]"
+                    ></span>
+                    <span
+                        className="absolute bottom-0 right-0 w-8 h-8 bg-gradient-to-bl from-teal-500 to-green-500 transform rotate-45 translate-x-[50%] translate-y-[50%]"
+                    ></span>
+                    <span
+                        className="absolute inset-0 rounded-lg bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                    ></span>
+
+                    <span className="relative z-10">{isExpanded ? 'View Less' : 'View More'}</span>
                 </motion.button>
             </div>
         </section>

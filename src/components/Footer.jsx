@@ -1,159 +1,112 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaMedium, FaTwitter, FaInstagram } from 'react-icons/fa';
-import { MdEmail, MdPhone } from 'react-icons/md';
-import { FiArrowUp } from 'react-icons/fi';
-import {IoIosArrowUp} from "react-icons/io";
-
-// Automatically get the current year
-const currentYear = new Date().getFullYear();
+import React from 'react';
+import { FaLinkedin, FaTwitter, FaGithub, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
-    const [showScrollTopButton, setShowScrollTopButton] = useState(false);
-
-    // Handle scroll events
-    const handleScroll = () => {
-        if (window.scrollY > 200) {
-            setShowScrollTopButton(true);
-        } else {
-            setShowScrollTopButton(false);
-        }
-    };
-
-    // Scroll to top when button is clicked
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    const currentYear = new Date().getFullYear();  // Get the current year
 
     return (
-        <>
-            <footer className="bg-gray-900 text-gray-200 py-10">
-                <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-6">
-
-                    {/* About Me */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-4 text-white">About Me</h3>
-                        <p className="text-gray-400 leading-relaxed text-justify">
-                            I am Ravindran Dharshan, a full-stack developer specializing in modern web technologies like
-                            Next.js, TypeScript, and Tailwind CSS. Passionate about delivering elegant solutions.
+        <footer className="bg-[#4D90A1] text-gray-100 px-8 py-20 md:px-20 lg:px-32">
+            {/* Header Section */}
+            <div className="text-center md:text-left space-y-6">
+                <h1 className="text-4xl font-semibold leading-tight text-gray-50 md:max-w-lg">
+                    Empowering innovation <br /> <span className="text-teal-400">through cutting-edge technology</span>
+                </h1>
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+                    <div className="text-gray-300 text-sm space-y-2">
+                        <p>
+                            Delivering <span className="text-teal-400 font-medium">tailored solutions</span> for modern challenges.
+                        </p>
+                        <p>
+                            Combining <span className="text-teal-400 font-medium">expertise</span> in AI, machine
+                            learning, and software development.
+                        </p>
+                        <p>
+                            Committed to creating <span
+                            className="text-teal-400 font-medium">global impact</span> through technology.
                         </p>
                     </div>
+                    <button
+                        className="bg-teal-400 text-gray-900 font-semibold py-2 px-6 rounded-lg hover:bg-teal-500 transition">
+                        Let's Collaborate
+                    </button>
+                </div>
+            </div>
 
-                    {/* Contact Information */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-4 text-white">Contact</h3>
-                        <ul>
-                            <li className="flex items-center space-x-3 mb-2">
-                                <MdEmail className="w-6 h-6 text-indigo-400"/>
-                                <a href="mailto:dharshanravindran8@gmail.com"
-                                   className="hover:text-indigo-300 transition-colors duration-300">
-                                    dharshanravindran8@gmail.com
-                                </a>
-                            </li>
-                            <li className="flex items-center space-x-3">
-                                <MdPhone className="w-6 h-6 text-indigo-400"/>
-                                <a href="tel:+94 776285156"
-                                   className="hover:text-indigo-300 transition-colors duration-300">
-                                    +94 77 628 156
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            {/* Divider */}
+            <div className="h-px bg-gray-700 my-8"></div>
 
-                    {/* Useful Links */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-4 text-white">Quick Links</h3>
-                        <ul className="space-y-3">
-                            {[
-                                { path: 'hero', label: 'Home' },
-                                { path: 'about', label: 'About' },
-                                { path: 'services', label: 'Services' },
-                                { path: 'projects', label: 'Projects' },
-                                { path: 'skills', label: 'Skills' },
-                                { path: 'blogs', label: 'Blogs' },
-                                { path: 'achievements', label: 'Achievements' },
-                                { path: 'contact-me', label: 'Contact Me' }
-                            ].map(({ path, label }) => (
-                                <li key={path} className="group">
-                                    <Link
-                                        href={`/#${path}`}
-                                        className="flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 transition-colors duration-300"
-                                    >
-                                        <span
-                                            className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                            &gt;
-                                        </span>
-                                        <span className="transition-transform duration-300 group-hover:translate-x-1">
-                                            {label}
-                                        </span>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Social Media */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-4 text-white">Follow Me</h3>
-                        <div className="flex space-x-4">
-                            <a href="https://github.com/yourgithub" className="group">
-                                <FaGithub
-                                    className="w-7 h-7 text-gray-400 group-hover:text-indigo-400 transition-colors duration-300"/>
-                                <span className="sr-only">Github</span>
-                            </a>
-                            <a href="https://linkedin.com/in/yourlinkedin" className="group">
-                                <FaLinkedin
-                                    className="w-7 h-7 text-gray-400 group-hover:text-indigo-400 transition-colors duration-300"/>
-                                <span className="sr-only">LinkedIn</span>
-                            </a>
-                            <a href="https://medium.com/@yourmedium" className="group">
-                                <FaMedium
-                                    className="w-7 h-7 text-gray-400 group-hover:text-indigo-400 transition-colors duration-300"/>
-                                <span className="sr-only">Medium</span>
-                            </a>
-                            <a href="https://twitter.com/yourtwitter" className="group">
-                                <FaTwitter
-                                    className="w-7 h-7 text-gray-400 group-hover:text-indigo-400 transition-colors duration-300"/>
-                                <span className="sr-only">Twitter</span>
-                            </a>
-                            <a href="https://instagram.com/yourinstagram" className="group">
-                                <FaInstagram
-                                    className="w-7 h-7 text-gray-400 group-hover:text-indigo-400 transition-colors duration-300"/>
-                                <span className="sr-only">Instagram</span>
-                            </a>
-                        </div>
-                    </div>
+            {/* Links Section */}
+            <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div>
+                    <h4 className="text-lg font-semibold mb-4">About Me</h4>
+                    <ul className="space-y-2 text-gray-400 text-sm">
+                        <li>
+                            <a href="#about" className="hover:text-gray-200">My Journey</a>
+                        </li>
+                        <li>
+                            <a href="#projects" className="hover:text-gray-200">Projects</a>
+                        </li>
+                        <li>
+                            <a href="#skills" className="hover:text-gray-200">Skills</a>
+                        </li>
+                        <li>
+                            <a href="#contact" className="hover:text-gray-200">Contact</a>
+                        </li>
+                    </ul>
                 </div>
 
-                {/* Second Section - Copyright */}
-                <div className="mt-10 text-center text-gray-500 text-sm font-bold">
-                    &copy; {currentYear} Ravindran Dharshan. All rights reserved.
+                <div>
+                    <h4 className="text-lg font-semibold mb-4">Resources</h4>
+                    <ul className="space-y-2 text-gray-400 text-sm">
+                        <li>
+                            <a href="#blog" className="hover:text-gray-200">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" className="hover:text-gray-200">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="#resume" className="hover:text-gray-200">Resume</a>
+                        </li>
+                        <li>
+                            <a href="#github" className="hover:text-gray-200">GitHub</a>
+                        </li>
+                    </ul>
                 </div>
-            </footer>
 
-            {/* Scroll to Top Button */}
-            {showScrollTopButton && (
-                <button
-                    onClick={scrollToTop}
-                    className="fixed bottom-6 right-6 bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 text-white rounded-full p-4 transition-all duration-300 transform hover:scale-110 hover:bg-gradient-to-l hover:from-red-500 hover:via-pink-500 hover:to-purple-500"
-                    aria-label="Scroll to top"
-                >
-                    <IoIosArrowUp className="w-6 h-6" />
-                </button>
-            )}
+                <div>
+                    <h4 className="text-lg font-semibold mb-4">Follow Me</h4>
+                    <div className="flex space-x-4 text-gray-400">
+                        <a href="#" className="hover:text-gray-200">
+                            <FaLinkedin size={24} />
+                        </a>
+                        <a href="#" className="hover:text-gray-200">
+                            <FaTwitter size={24} />
+                        </a>
+                        <a href="#" className="hover:text-gray-200">
+                            <FaGithub size={24} />
+                        </a>
+                        <a href="#" className="hover:text-gray-200">
+                            <FaInstagram size={24} />
+                        </a>
+                    </div>
+                </div>
+            </div>
 
+            {/* Logo Section */}
+            <div className="mt-6 text-center relative">
+                {/* Transparent and larger personal brand text */}
+                <p className="text-[12rem] font-bold text-gray-50 text-opacity-10 absolute inset-0 flex items-center justify-center pointer-events-none">
+                    My Portfolio
+                </p>
+            </div>
 
-        </>
+            {/* Footer with current year */}
+            <div className="text-center text-white text-lg mt-12">
+                <p>&copy; {currentYear} My Portfolio. All rights reserved.</p>
+            </div>
+        </footer>
     );
 };
 

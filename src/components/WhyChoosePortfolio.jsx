@@ -1,4 +1,3 @@
-// WhyChoosePortfolio.js
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaMobileAlt, FaLaptopCode, FaUsers, FaLightbulb, FaCheckCircle } from 'react-icons/fa';
@@ -8,32 +7,32 @@ const WhyChoosePortfolio = ({ refProp, isInView }) => {
         {
             icon: <FaCode />,
             title: 'Expertise in Multiple Technologies',
-            description: 'I have strong knowledge in various technologies to handle different aspects of development.',
+            description: 'I excel in a wide range of technologies, ensuring holistic and effective development.',
         },
         {
             icon: <FaMobileAlt />,
-            title: 'Responsive Design Principles',
-            description: 'Creating adaptable designs that work seamlessly across devices.',
+            title: 'Responsive & Modern Design',
+            description: 'Designs that adapt effortlessly to all screens and deliver top-notch aesthetics.',
         },
         {
             icon: <FaLaptopCode />,
-            title: 'Continuous Learning',
-            description: 'Staying up-to-date with the latest technologies to provide cutting-edge solutions.',
+            title: 'Lifelong Learning',
+            description: 'I’m committed to staying ahead with the latest tech trends and solutions.',
         },
         {
             icon: <FaUsers />,
-            title: 'User-Centric Approach',
-            description: 'My design focuses on ensuring a delightful user experience with every interaction.',
+            title: 'User-Centric Thinking',
+            description: 'Crafting intuitive designs that prioritize exceptional user experiences.',
         },
         {
             icon: <FaLightbulb />,
-            title: 'Problem Solving Skills',
-            description: 'Capable of solving complex challenges with creative and efficient solutions.',
+            title: 'Innovative Problem Solving',
+            description: 'Bringing fresh ideas and solutions to the table for complex challenges.',
         },
         {
             icon: <FaCheckCircle />,
-            title: 'Proven Success',
-            description: 'My portfolio showcases projects that demonstrate my expertise and commitment.',
+            title: 'Proven Track Record',
+            description: 'Delivering projects that demonstrate quality, creativity, and results.',
         },
     ];
 
@@ -43,23 +42,36 @@ const WhyChoosePortfolio = ({ refProp, isInView }) => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
             transition={{ duration: 0.6 }}
-            className="container mx-auto text-center py-20 bg-[#14141F]"
+            className="relative py-20 bg-[#2A2A3C] text-white"
         >
-            <h3 className="text-4xl font-bold mb-12 text-white">Why Choose My Portfolio?</h3>
+            {/* Section Heading */}
+            <h3 className="text-4xl font-bold text-center mb-12 text-white">
+                Why Choose Me?
+            </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Glassmorphic Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-6xl mx-auto relative">
                 {cardData.map((card, index) => (
                     <motion.div
                         key={index}
-                        className="border-l-8 border-purple-500 relative p-8 rounded-xl shadow-lg transition-transform transform hover:scale-105 bg-white bg-opacity-70 backdrop-blur-lg"
-                        whileHover={{ scale: 1.08 }}
+                        className="relative bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-3 transition-all duration-300"
+                        whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg">
-                            <i className="text-4xl">{card.icon}</i>
+                        {/* Icon */}
+                        <div className="flex items-center justify-center w-14 h-14 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full mb-4 shadow-md">
+                            <i className="text-2xl">{card.icon}</i>
                         </div>
-                        <h4 className="text-xl font-semibold mt-10 mb-2 text-gray-800">{card.title}</h4>
-                        <p className="text-gray-700">{card.description}</p>
+
+                        {/* Title */}
+                        <h4 className="text-xl font-semibold text-white mb-3">
+                            {card.title}
+                        </h4>
+
+                        {/* Description */}
+                        <p className="text-sm text-gray-300">
+                            {card.description}
+                        </p>
                     </motion.div>
                 ))}
             </div>
