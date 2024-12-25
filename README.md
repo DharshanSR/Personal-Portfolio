@@ -1,1 +1,1 @@
-this is my portfolio
+This is my personal portfolio
