@@ -1,9 +1,9 @@
 "use client";
 
-import {IconArrowLeft, IconArrowRight} from "@tabler/icons-react";
-import {motion, AnimatePresence} from "framer-motion";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 type Testimonial = {
     quote: string;
@@ -11,6 +11,7 @@ type Testimonial = {
     designation: string;
     src: string;
 };
+
 export const AnimatedTestimonials = ({
                                          testimonials,
                                          autoplay = false,
@@ -28,9 +29,7 @@ export const AnimatedTestimonials = ({
         setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
     };
 
-    const isActive = (index: number) => {
-        return index === active;
-    };
+    const isActive = (index: number) => index === active;
 
     useEffect(() => {
         if (autoplay) {
@@ -39,13 +38,17 @@ export const AnimatedTestimonials = ({
         }
     }, [autoplay]);
 
-    const randomRotateY = () => {
-        return Math.floor(Math.random() * 21) - 10;
-    };
+    const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
+
     return (
-        <section id="testimonials">
+        <section id="testimonials" className="relative z-10">
+            <div className="text-center mb-12">
+                <h2 className="text-5xl font-extrabold text-white mt-8">Testimonials</h2>
+                <p className="text-gray-400 mt-4">Insights from professionals I've collaborated with.</p>
+            </div>
             <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
-                <div className="relative grid grid-cols-1 md:grid-cols-2  gap-40">
+                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12">
+                    {/* Image Section */}
                     <div>
                         <div className="relative h-80 w-full">
                             <AnimatePresence>
@@ -93,21 +96,13 @@ export const AnimatedTestimonials = ({
                             </AnimatePresence>
                         </div>
                     </div>
-                    <div className="flex justify-between flex-col py-4">
+                    {/* Text Section */}
+                    <div className="flex flex-col justify-between py-4">
                         <motion.div
                             key={active}
-                            initial={{
-                                y: 20,
-                                opacity: 0,
-                            }}
-                            animate={{
-                                y: 0,
-                                opacity: 1,
-                            }}
-                            exit={{
-                                y: -20,
-                                opacity: 0,
-                            }}
+                            initial={{y: 20, opacity: 0}}
+                            animate={{y: 0, opacity: 1}}
+                            exit={{y: -20, opacity: 0}}
                             transition={{
                                 duration: 0.2,
                                 ease: "easeInOut",
@@ -145,20 +140,20 @@ export const AnimatedTestimonials = ({
                                 ))}
                             </motion.p>
                         </motion.div>
-                        <div className="flex gap-4 pt-12 md:pt-0">
+                        <div className="flex gap-4 pt-12 md:pt-0 mt-12">
                             <button
                                 onClick={handlePrev}
-                                className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+                                className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group"
                             >
                                 <IconArrowLeft
-                                    className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300"/>
+                                    className="h-5 w-5 text-black dark:text-neutral-400 group-hover:rotate-12 transition-transform duration-300"/>
                             </button>
                             <button
                                 onClick={handleNext}
-                                className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+                                className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group"
                             >
                                 <IconArrowRight
-                                    className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300"/>
+                                    className="h-5 w-5 text-black dark:text-neutral-400 group-hover:-rotate-12 transition-transform duration-300"/>
                             </button>
                         </div>
                     </div>
