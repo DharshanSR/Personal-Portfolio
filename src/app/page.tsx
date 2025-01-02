@@ -19,11 +19,11 @@ export default function Home() {
             {/*<ServicePage />*/}
             {/*<ProjectsPage />*/}
             {/*<SkillsPage />*/}
-            <AnimatedTestimonialsDemo />
+            {/*<AnimatedTestimonialsDemo />*/}
             {/*<BlogPage />*/}
             {/*<AchievementsPage />*/}
             {/*<ContactForm />*/}
-            {/*<Footer/>*/}
+            <Footer/>
         </main>
     );
 }
