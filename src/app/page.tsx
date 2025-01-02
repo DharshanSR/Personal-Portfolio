@@ -15,11 +15,11 @@ export default function Home() {
         <main>
             {/*<Navbar/>*/}
             {/*<Hero />*/}
-            <AboutMe />
+            {/*<AboutMe />*/}
             {/*<ServicePage />*/}
             {/*<ProjectsPage />*/}
             {/*<SkillsPage />*/}
-            {/*<AnimatedTestimonialsDemo />*/}
+            <AnimatedTestimonialsDemo />
             {/*<BlogPage />*/}
             {/*<AchievementsPage />*/}
             {/*<ContactForm />*/}

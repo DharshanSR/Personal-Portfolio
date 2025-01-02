@@ -33,7 +33,7 @@ const Navbar = () => {
                 setIsScrolled(false);
             }
 
-            const sections = ['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'];
+            const sections = ['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'testimonials', 'contact-me'];
             sections.forEach((section) => {
                 const element = document.getElementById(section);
                 if (element) {
@@ -106,7 +106,7 @@ const Navbar = () => {
 
                 {/* Desktop View - Navigation Links */}
                 <div className="hidden lg:flex space-x-6 font-bold p-2 text-1xl">
-                    {['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'contact-me'].map((item) => (
+                    {['hero', 'about', 'services', 'blogs', 'skills', 'projects', 'achievements', 'testimonials', 'contact-me'].map((item) => (
                         <Link
                             href={`/#${item}`}
                             key={item}
@@ -127,17 +127,6 @@ const Navbar = () => {
                             />
                         </Link>
                     ))}
-                </div>
-
-
-                {/* Contact Button - Visible only on desktop */}
-                <div className="hidden lg:flex">
-                    <a
-                        href="mailto:dharshanravindran8@gmail.com"
-                        className="bg-purple-500 text-white rounded-lg transform transition-all duration-300 hover:scale-105 cursor-pointer px-4 py-2 font-bold hover:bg-cyan-700"
-                    >
-                        Get In Touch
-                    </a>
                 </div>
             </div>
 
