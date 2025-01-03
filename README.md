@@ -1,1 +1,1 @@
-This is my personal portfolio
+This is my personal portfolio with next js and tailwind css with farmer motion
