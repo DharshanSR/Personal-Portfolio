@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
-import Image from 'next/image';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { projects as allProjects } from '@/data/projects';
 import ProjectCard from '@/components/ProjectCard';

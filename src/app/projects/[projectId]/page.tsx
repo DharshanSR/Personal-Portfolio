@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import { techIcons } from "@/data/techIcons";
 import { FaGithub, FaLink } from "react-icons/fa6";
 import { FaArrowLeft, FaTimes } from "react-icons/fa";
-import DownFooter from "@/components/DownFooter";
 
 // Framer Motion Variants
 const fadeInUp = {
@@ -234,9 +233,6 @@ const ProjectDetailsPage = ({ params }) => {
                     </motion.div>
                 </motion.div>
             )}
-
-            {/* Footer */}
-            <DownFooter />
         </motion.div>
     );
 };

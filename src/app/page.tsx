@@ -14,10 +14,10 @@ export default function Home() {
             {/*<Hero />*/}
             {/*<AboutMe />*/}
             {/*<ServicePage />*/}
-            {/*<ProjectsPage />*/}
+            <ProjectsPage />
             {/*<SkillsPage />*/}
             {/*<AnimatedTestimonialsDemo />*/}
-            <BlogPage />
+            {/*<BlogPage />*/}
             {/*<AchievementsPage />*/}
             {/*<ContactForm />*/}
         </main>
